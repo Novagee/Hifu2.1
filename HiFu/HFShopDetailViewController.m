@@ -676,11 +676,14 @@
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     
-    if (scrollView.contentOffset.y < 0) {
+    if (scrollView.contentOffset.y <= 0) {
         CGFloat scale = ((scrollView.contentOffset.y /340)*2) - 1;  /*-scrollView.contentOffset.y/180.0f;*/
         
+        NSLog(@"Scroll Rate : %f", scale);
+        
         _goodsBottomView.transform = CGAffineTransformMakeScale(-scale, -scale);
-        _goodsBottomView.center = CGPointMake([UIScreen mainScreen].bounds.size.width/2, self.goodsBottomView.bounds.size.height/2 - 20);
+        _goodsBottomView.center = CGPointMake([UIScreen mainScreen].bounds.size.width/2, self.goodsBottomView.bounds.size.height/2 + 40 * (scale + 1));
+        
     }
 
     // When offset larger than 40, stopping scroll
