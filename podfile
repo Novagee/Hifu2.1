@@ -1,0 +1,12 @@
+platform :ios, '7.0'
+
+source 'https://github.com/CocoaPods/Specs.git'
+
+pod 'AFNetworking'
+pod 'UzysAnimatedGifPullToRefresh'
+pod 'libWeChatSDK'
+pod 'SWTableViewCell'
+pod 'Reachability'
+pod 'Appirater'
+pod 'pop', '~> 1.0'
+pod 'iOS-blur', '~> 0.0.5'
