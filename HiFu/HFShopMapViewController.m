@@ -100,7 +100,7 @@ CGFloat const defaultRadius=100000;
     
     // Bar button
     //
-    UIBarButtonItem *rightBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"list_nav"] style:UIBarButtonItemStylePlain target:self action:@selector(showList:)];
+    UIBarButtonItem *rightBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"list"] style:UIBarButtonItemStylePlain target:self action:@selector(showList:)];
     rightBarButtonItem.tintColor = [UIColor colorWithRed:255/255 green:99/255.0f blue:104/255.0f alpha:1.0];
     
     self.navigationItem.rightBarButtonItem = rightBarButtonItem;
