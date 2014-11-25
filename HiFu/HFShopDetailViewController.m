@@ -166,10 +166,10 @@
     
     // Configure User Location
     //
-    [self.mapView setShowsUserLocation:YES];
+    self.mapView.showsUserLocation = YES;
     MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance ([HFLocationManager sharedInstance].currentLocation.coordinate, 100000, 100000);
-    _mapView.delegate = self;
     [self.mapView setRegion:region animated:YES];
+    _mapView.delegate = self;
     
     // Add annotation
     //
@@ -672,9 +672,7 @@
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     
     if (scrollView.contentOffset.y <= 0) {
-        CGFloat scale = ((scrollView.contentOffset.y /340)*2) - 1;  /*-scrollView.contentOffset.y/180.0f;*/
-        
-        NSLog(@"Scroll Rate : %f", scale);
+        CGFloat scale = ((scrollView.contentOffset.y /340)*2) - 1;
         
         _goodsBottomView.transform = CGAffineTransformMakeScale(-scale, -scale);
         _goodsBottomView.center = CGPointMake([UIScreen mainScreen].bounds.size.width/2, self.goodsBottomView.bounds.size.height/2 + 40 * (scale + 1));
@@ -693,8 +691,11 @@
 
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation {
     
-    MKAnnotationView *annotationView = [[MKAnnotationView alloc]initWithAnnotation:annotation reuseIdentifier:@"PinAnnotation"];
+    if ([annotation isKindOfClass:[MKUserLocation class]]) {
+        return nil;
+    }
     
+    MKAnnotationView *annotationView = [[MKAnnotationView alloc]initWithAnnotation:annotation reuseIdentifier:@"PinAnnotation"];
     annotationView.image = [UIImage imageNamed:@"pin_blue"];
     
     return annotationView;
