@@ -1950,7 +1950,7 @@ Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed 
                     <navigationItem key="navigationItem" id="ynz-zA-sVk">
                         <nil key="title"/>
                         <button key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Xav-yE-2Sw">
-                            <rect key="frame" x="99.5" y="11" width="121" height="22"/>
+                            <rect key="frame" x="100" y="11" width="121" height="22"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" name="SimHei" family="SimHei" pointSize="15"/>
                             <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -2010,7 +2010,7 @@ Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed 
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <userGuides>
-                            <userLayoutGuide location="106" affinity="minY"/>
+                            <userLayoutGuide location="64" affinity="minY"/>
                         </userGuides>
                         <subviews>
                             <view hidden="YES" contentMode="scaleToFill" id="dXd-fQ-YZ8" userLabel="View - Coupon">
@@ -2049,11 +2049,11 @@ Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed 
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_heart_2" id="5H9-pc-IGy">
-                                        <rect key="frame" x="145" y="204" width="30" height="28"/>
+                                        <rect key="frame" x="145" y="145" width="30" height="30"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="收藏最爱的店铺和优惠, 即使没有网络也可以使用哦!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="LrA-Hq-PU6">
-                                        <rect key="frame" x="58" y="242" width="204" height="65"/>
+                                        <rect key="frame" x="58" y="195" width="204" height="26"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="SimHei" family="SimHei" pointSize="13"/>
                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
