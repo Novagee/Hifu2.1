@@ -620,7 +620,7 @@
     
     // Fetch the tab Bar Item
     //
-    CGPoint finalPoint = CGPointMake([UIScreen mainScreen].bounds.size.width * 0.63f, [UIScreen mainScreen].bounds.size.height - 30);
+    CGPoint finalPoint = CGPointMake([UIScreen mainScreen].bounds.size.width * 0.63f, [UIScreen mainScreen].bounds.size.height - 25);
     
     // Configure the like animation
     //
