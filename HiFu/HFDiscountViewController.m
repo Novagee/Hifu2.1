@@ -51,7 +51,7 @@
     
     self.navigationItem.leftBarButtonItem = leftBarButton;
     
-    UIBarButtonItem *rightBarButton = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"coupon_share"] style:UIBarButtonItemStylePlain target:self action:@selector(rightBarButtonTapped)];
+    UIBarButtonItem *rightBarButton = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"share"] style:UIBarButtonItemStylePlain target:self action:@selector(rightBarButtonTapped)];
     rightBarButton.tintColor = [UIColor colorWithRed:255/255 green:99/255.0f blue:104/255.0f alpha:1.0];
     
     self.navigationItem.rightBarButtonItem = rightBarButton;
