@@ -18,6 +18,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [self configureBackgroundImage];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -27,7 +28,7 @@
 
 #pragma mark - Configure UI
 
-- (void)configureBackgroundImge {
+- (void)configureBackgroundImage {
     
     [self.navigationController setNavigationBarHidden:YES];
     self.tabBarController.tabBar.hidden = YES;

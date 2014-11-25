@@ -18,6 +18,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    [self configureBackgroundImage];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -25,10 +27,25 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)completeHelp:(id)sender {
-    self.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-    [self dismissViewControllerAnimated:NO completion:nil];
+#pragma mark - Configure UI
+
+- (void)configureBackgroundImage {
     
+    [self.navigationController setNavigationBarHidden:YES];
+    self.tabBarController.tabBar.hidden = YES;
+    [[UIApplication sharedApplication] setStatusBarHidden:YES];
+    
+    _blurImageView.image = self.blurBackgroundImage;
+    
+}
+
+- (IBAction)completeHelp:(id)sender {
+    
+    [self.navigationController setNavigationBarHidden:NO];
+    self.tabBarController.tabBar.hidden = NO;
+    [[UIApplication sharedApplication] setStatusBarHidden:NO];
+    
+    [self.navigationController popViewControllerAnimated:NO];
 }
 
 /*

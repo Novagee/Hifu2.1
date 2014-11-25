@@ -58,7 +58,7 @@
     
     // Configure the scroll view
     //
-    _bottomView.contentSize = CGSizeMake(self.bottomView.bounds.size.width, 750);
+    _bottomView.contentSize = CGSizeMake(self.bottomView.bounds.size.width, 800);
 
     self.navigationItem.title = @"Redemption";
     
