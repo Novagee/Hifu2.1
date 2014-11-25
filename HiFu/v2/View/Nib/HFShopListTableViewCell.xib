@@ -224,7 +224,7 @@
                 <outlet property="thirdGoodsTypeLabel" destination="E8T-8W-n5j" id="C7W-9G-JX0"/>
                 <outlet property="timeLable" destination="9Pt-Mw-zmH" id="A4t-hv-PMQ"/>
             </connections>
-            <point key="canvasLocation" x="135" y="207.5"/>
+            <point key="canvasLocation" x="140" y="178.5"/>
         </tableViewCell>
     </objects>
     <resources>

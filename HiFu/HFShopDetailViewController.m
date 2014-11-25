@@ -34,6 +34,9 @@
 #import "HFUIHelpers.h"
 #import "UIView+EasyFrames.h"
 
+#import "HFLocationManager.h"
+
+
 @interface HFShopDetailViewController ()<MKMapViewDelegate, CLLocationManagerDelegate, UIScrollViewDelegate, UIViewControllerTransitioningDelegate, HFCouponDisctountViewDelegate, HFCouponGiftViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIScrollView *mainBottomView;
@@ -161,20 +164,12 @@
     //
     _mainBottomView.contentSize = CGSizeMake(self.mainBottomView.bounds.size.width, 1300);
     
-    // Configure the goods scroll view
+    // Configure User Location
     //
-    //_goodsScrollView.contentSize = CGSizeMake(self.goodsScrollView.bounds.size.width * 3,
-    //                                          self.goodsScrollView.bounds.size.height);
-    //[self goodsScrolViewInfinityAnimation];
-    
-    // Just a fake location for Demo
-    //
-    CLLocationCoordinate2D coor2d = {self.cellInfo.latitude.floatValue, self.cellInfo.longitude.floatValue};
-    MKCoordinateSpan span = {0.008,0.008};
-    MKCoordinateRegion region = {coor2d,span};
-    
+    [self.mapView setShowsUserLocation:YES];
+    MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance ([HFLocationManager sharedInstance].currentLocation.coordinate, 100000, 100000);
     _mapView.delegate = self;
-    [_mapView setRegion:region animated:YES];
+    [self.mapView setRegion:region animated:YES];
     
     // Add annotation
     //
