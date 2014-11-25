@@ -26,12 +26,13 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="409"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zwp-LM-RfT">
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    </view>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="cover_1.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="FKG-aR-1gN" userLabel="cover">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="260"/>
                     </imageView>
+                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zwp-LM-RfT">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="260"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </view>
                     <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="珠宝" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4KF-4l-x2t">
                         <rect key="frame" x="80" y="101" width="80" height="14"/>
                         <fontDescription key="fontDescription" name="SimHei" family="SimHei" pointSize="14"/>
