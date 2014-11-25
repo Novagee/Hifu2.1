@@ -912,4 +912,28 @@
     
 }
 
+#pragma mark - Serveice Action
+
+- (IBAction)wifiButtonTapped:(id)sender {
+    
+    HFWifiViewController *wifiViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"wifi"];
+    wifiViewController.blurBackgroundImage = [HFUIHelpers takeScreenShotForViewController:self andApplyBlurEffect:YES andBlurRadius:8];
+    [self.navigationController pushViewController:wifiViewController animated:NO];
+}
+
+- (IBAction)chineseButtonTapped:(id)sender {
+    
+    HFChineseHelpViewController *chineseHelpViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"chineseHelp"];
+    chineseHelpViewController.blurBackgroundImage = [HFUIHelpers takeScreenShotForViewController:self andApplyBlurEffect:YES andBlurRadius:8];
+    [self.navigationController pushViewController:chineseHelpViewController animated:NO];
+}
+
+- (IBAction)hotTeaButtonTapped:(id)sender {
+    
+    HFHotTeaViewController *hotTeaViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"hotTea"];
+    hotTeaViewController.blurBackgroundImage = [HFUIHelpers takeScreenShotForViewController:self andApplyBlurEffect:YES andBlurRadius:8];
+    [self.navigationController pushViewController:hotTeaViewController animated:NO];
+    
+}
+
 @end

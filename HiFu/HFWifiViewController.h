@@ -10,4 +10,6 @@
 
 @interface HFWifiViewController : UIViewController
 
+@property (strong, nonatomic) UIImage *blurBackgroundImage;
+
 @end

@@ -10,4 +10,6 @@
 
 @interface HFChineseHelpViewController : UIViewController
 
+@property (strong, nonatomic) UIImage *blurBackgroundImage;
+
 @end

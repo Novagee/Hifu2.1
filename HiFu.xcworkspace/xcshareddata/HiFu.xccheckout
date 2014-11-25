@@ -10,31 +10,31 @@
 	<string>HiFu</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>538D6AB52DE31327610294A1101F8AD37E88C1EB</key>
-		<string>https://github.com/Novagee/HiFu_v2.git</string>
+		<key>3D21A733D6E3F87FAB1783AC136955EF298559B1</key>
+		<string>https://github.com/Novagee/Hifu2.1.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>HiFu/HiFu.xcworkspace</string>
+	<string>HiFu.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>538D6AB52DE31327610294A1101F8AD37E88C1EB</key>
-		<string>../..</string>
+		<key>3D21A733D6E3F87FAB1783AC136955EF298559B1</key>
+		<string>..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/Novagee/HiFu_v2.git</string>
+	<string>https://github.com/Novagee/Hifu2.1.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>538D6AB52DE31327610294A1101F8AD37E88C1EB</string>
+	<string>3D21A733D6E3F87FAB1783AC136955EF298559B1</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>538D6AB52DE31327610294A1101F8AD37E88C1EB</string>
+			<string>3D21A733D6E3F87FAB1783AC136955EF298559B1</string>
 			<key>IDESourceControlWCCName</key>
-			<string>HiFu_v2</string>
+			<string>Hifu2.1</string>
 		</dict>
 	</array>
 </dict>

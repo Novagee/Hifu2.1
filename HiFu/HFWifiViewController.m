@@ -10,6 +10,7 @@
 
 @interface HFWifiViewController ()
 
+@property (weak, nonatomic) IBOutlet UIImageView *blurImageView;
 @end
 
 @implementation HFWifiViewController
@@ -17,16 +18,36 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    [self configureBackgroundImge];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+#pragma mark - Configure UI
+
+- (void)configureBackgroundImge {
+    
+    [self.navigationController setNavigationBarHidden:YES];
+    self.tabBarController.tabBar.hidden = YES;
+    [[UIApplication sharedApplication] setStatusBarHidden:YES];
+    
+    _blurImageView.image = self.blurBackgroundImage;
+    
+}
+
+#pragma mark - Actions
+
 - (IBAction)continueButtonTapped:(id)sender {
     
-    self.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self.navigationController setNavigationBarHidden:NO];
+    self.tabBarController.tabBar.hidden = NO;
+    [[UIApplication sharedApplication] setStatusBarHidden:NO];
+
+    [self.navigationController popViewControllerAnimated:NO];
     
 }
 

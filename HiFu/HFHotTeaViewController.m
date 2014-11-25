@@ -9,6 +9,7 @@
 #import "HFHotTeaViewController.h"
 
 @interface HFHotTeaViewController ()
+@property (weak, nonatomic) IBOutlet UIImageView *blurImageView;
 
 @end
 
@@ -24,10 +25,25 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - Configure UI
+
+- (void)configureBackgroundImge {
+    
+    [self.navigationController setNavigationBarHidden:YES];
+    self.tabBarController.tabBar.hidden = YES;
+    [[UIApplication sharedApplication] setStatusBarHidden:YES];
+    
+    _blurImageView.image = self.blurBackgroundImage;
+    
+}
+
 - (IBAction)continueButtonTapped:(id)sender {
     
-    self.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-    [self dismissViewControllerAnimated:NO completion:nil];
+    [self.navigationController setNavigationBarHidden:NO];
+    self.tabBarController.tabBar.hidden = NO;
+    [[UIApplication sharedApplication] setStatusBarHidden:NO];
+    
+    [self.navigationController popViewControllerAnimated:NO];
     
 }
 

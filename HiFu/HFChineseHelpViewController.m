@@ -10,6 +10,7 @@
 
 @interface HFChineseHelpViewController ()
 
+@property (weak, nonatomic) IBOutlet UIImageView *blurImageView;
 @end
 
 @implementation HFChineseHelpViewController

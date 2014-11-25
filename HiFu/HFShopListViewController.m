@@ -307,9 +307,9 @@
 
     HFShopListTableViewCell *shopListTableViewCell = (HFShopListTableViewCell *)view;
     
-    if (shopListTableViewCell.isliked) {
+    if (shopListTableViewCell.liked) {
         [likeButton setImage:[UIImage imageNamed:@"unlike"] forState:UIControlStateNormal];
-        shopListTableViewCell.isliked = !shopListTableViewCell.isliked;
+        shopListTableViewCell.liked = !shopListTableViewCell.liked;
         
         [self unfavoriteStoreId:shopListTableViewCell.store];
         return ;
@@ -319,7 +319,7 @@
     
     [self favouriteAnimationWithButton:likeButton];
     
-    shopListTableViewCell.isliked = !shopListTableViewCell.isliked;
+    shopListTableViewCell.liked = !shopListTableViewCell.liked;
     return;
 }
 
@@ -346,7 +346,7 @@
     
     // Fetch the tab Bar Item
     //
-    CGPoint finalPoint = CGPointMake([UIScreen mainScreen].bounds.size.width * 0.63f, [UIScreen mainScreen].bounds.size.height - 30);
+    CGPoint finalPoint = CGPointMake([UIScreen mainScreen].bounds.size.width * 0.625f, [UIScreen mainScreen].bounds.size.height - 25);
     
     // Configure the like animation
     //
