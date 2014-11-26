@@ -106,6 +106,12 @@ CGFloat const defaultRadius=100000;
     
     self.navigationItem.rightBarButtonItem = rightBarButtonItem;
     
+    // Configure Store Info View
+    //
+    // 49 for tabBar height and 64 for the height of navigation bar
+    //
+    _storeInfoView.center = CGPointMake(self.view.size.width/2,
+                                        self.view.size.height - self.storeInfoView.height/2 - 49 - 64);
     
 }
 
@@ -229,6 +235,9 @@ CGFloat const defaultRadius=100000;
     [super viewWillDisappear:animated];
     [[HFLocationManager sharedInstance] stopUpdatingLocation];
 
+    [_mapView deselectAnnotation:self.mapView.selectedAnnotations.lastObject animated:YES];
+    
+    _storeInfoView.hidden = YES;
 }
 
 - (void)didReceiveMemoryWarning
@@ -299,12 +308,6 @@ CGFloat const defaultRadius=100000;
     
     NSLog(@"Annotaion title : %@", annotation.title);
     
-//    if ([annotation.title isEqualToString:((StoreObject *)self.storesArray[0]).merchant.alias]) {
-//        
-//        [annotationView setSelected:YES];
-//        annotationView.image = [UIImage imageNamed:@"pin_orange"];
-//    }
-    
     return annotationView;
 }
 
@@ -321,7 +324,6 @@ CGFloat const defaultRadius=100000;
 
 - (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view {
     
-    NSLog(@"Selected");
     self.storeInfoView.hidden = NO;
     view.image = [UIImage imageNamed:@"pin_orange"];
     

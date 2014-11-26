@@ -190,8 +190,8 @@
                 }else{
                 cell.userAvatarImageView.image = [UIImage imageNamed:@"3"];
                 }
-                [cell.userAvatarImageView setFrame:CGRectMake(cell.userAvatarImageView.frame.origin.x
-                                                                , cell.userAvatarImageView.frame.origin.y, 44, 44)];
+//                [cell.userAvatarImageView setFrame:CGRectMake(cell.userAvatarImageView.frame.origin.x
+//                                                                , cell.userAvatarImageView.frame.origin.y, 44, 44)];
                 cell.userAvatarImageView.layer.cornerRadius = 22;
                 cell.userAvatarImageView.clipsToBounds = YES;
 //                cell.userAvatarImageView.image = [UIImage imageNamed:[currentUser.avatarNum stringValue]];

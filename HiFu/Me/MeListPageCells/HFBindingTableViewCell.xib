@@ -22,7 +22,7 @@
                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="D40AF6BC-3506-410A-9413-F657C300450F" translatesAutoresizingMaskIntoConstraints="NO" id="nt6-6K-wIb">
+                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="147CABF4-C03C-4D1A-AB66-E2652174BAFA" translatesAutoresizingMaskIntoConstraints="NO" id="nt6-6K-wIb">
                         <rect key="frame" x="291" y="9" width="19" height="25"/>
                     </imageView>
                     <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="pixel" translatesAutoresizingMaskIntoConstraints="NO" id="J4j-IZ-Z0h" userLabel="Top Border">
@@ -48,7 +48,7 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="D40AF6BC-3506-410A-9413-F657C300450F" width="8" height="13">
+        <image name="147CABF4-C03C-4D1A-AB66-E2652174BAFA" width="8" height="13">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGOzxYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBEW
 GxwgISksLzU4VSRudWxs1AkKCwwNDg8QViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBzV05TQ29sb3KA

@@ -46,15 +46,22 @@
     
     [HFUIHelpers setupStyleFor:self.navigationController.navigationBar and:self.navigationItem];
     
+    // Configure Left Bar button Item
+    //
     UIBarButtonItem *leftBarButton = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"xButton"] style:UIBarButtonItemStylePlain target:self action:@selector(leftBarButtonTapped)];
     leftBarButton.tintColor = [UIColor colorWithRed:255/255 green:99/255.0f blue:104/255.0f alpha:1.0];
     
     self.navigationItem.leftBarButtonItem = leftBarButton;
     
-    UIBarButtonItem *rightBarButton = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"share"] style:UIBarButtonItemStylePlain target:self action:@selector(rightBarButtonTapped)];
-    rightBarButton.tintColor = [UIColor colorWithRed:255/255 green:99/255.0f blue:104/255.0f alpha:1.0];
+    // Configure Right Bar Button Item
+    //
+    UIImage *buttonImage = [UIImage imageNamed:@"share"];
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    button.frame = CGRectMake(0, 0, buttonImage.size.width, buttonImage.size.height);
+    [button setImage:buttonImage forState:UIControlStateNormal];
+    [button addTarget:self action:@selector(rightBarButtonTapped) forControlEvents:UIControlEventTouchUpInside];
     
-    self.navigationItem.rightBarButtonItem = rightBarButton;
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:button];;
     
     // Configure the scroll view
     //

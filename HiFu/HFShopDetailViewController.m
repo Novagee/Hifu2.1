@@ -162,6 +162,7 @@
     
     // Configure the main scroll view
     //
+    _mainBottomView.frame = CGRectMake(0, 0, self.view.width, self.view.height - 50);
     _mainBottomView.contentSize = CGSizeMake(self.mainBottomView.bounds.size.width, 1300);
     
     // Configure User Location
@@ -615,7 +616,7 @@
     
     // Fetch the tab Bar Item
     //
-    CGPoint finalPoint = CGPointMake([UIScreen mainScreen].bounds.size.width * 0.63f, [UIScreen mainScreen].bounds.size.height - 25);
+    CGPoint finalPoint = CGPointMake([UIScreen mainScreen].bounds.size.width * 0.625f, [UIScreen mainScreen].bounds.size.height - 25);
     
     // Configure the like animation
     //
