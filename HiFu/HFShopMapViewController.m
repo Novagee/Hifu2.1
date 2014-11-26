@@ -79,6 +79,7 @@ CGFloat const defaultRadius=100000;
             [HFGeneralHelpers handleLocationServiceError:error];
         }];
     }
+    
     // Configure rangeView
     //
     _rangeViewSection.center = CGPointMake([UIScreen mainScreen].bounds.size.width/2, -50);
@@ -104,6 +105,8 @@ CGFloat const defaultRadius=100000;
     rightBarButtonItem.tintColor = [UIColor colorWithRed:255/255 green:99/255.0f blue:104/255.0f alpha:1.0];
     
     self.navigationItem.rightBarButtonItem = rightBarButtonItem;
+    
+    
 }
 
 - (void)setMapCenterPoint
@@ -293,6 +296,8 @@ CGFloat const defaultRadius=100000;
     MKAnnotationView *annotationView = [[MKAnnotationView alloc]initWithAnnotation:annotation reuseIdentifier:@"PinAnnotation"];
     
     annotationView.image = [UIImage imageNamed:@"pin_blue"];
+    
+    NSLog(@"Annotaion title : %@", annotation.title);
     
 //    if ([annotation.title isEqualToString:((StoreObject *)self.storesArray[0]).merchant.alias]) {
 //        
