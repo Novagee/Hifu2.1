@@ -52,7 +52,8 @@
 @property (nonatomic, weak) IBOutlet UIImageView *loadingMoreImageView;
 @property (strong, nonatomic) NSArray *storeCity;
 @property (strong, nonatomic) NSArray *storeDistrict;
-@property (strong, nonatomic) DCNetworkReactor *dcNetworkReactor;
+
+@property (assign, nonatomic) BOOL mapServiceDisable;
 
 // Use this array to store the navigation bar's titles
 //
@@ -96,11 +97,7 @@
     // Init the "mapViewController" only one time
     //
     _mapViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"shopMap"];
-    
-    // Init a DCNetworkReactor to handle the requests
-    //
-    _dcNetworkReactor = [[DCNetworkReactor alloc]init];
-    
+
     // Configure store by city
     //
     self.storeCity = @[@100,@102,@101];
@@ -168,6 +165,8 @@
     NSLog(@"Current Store : %i", self.currentStoreCity);
     
     if (![HFLocationManager sharedInstance].currentLocation) {
+        
+        
         // Invoke sysytem alertView
         [[HFLocationManager sharedInstance] startUpdatingLocation:^{
             currentPageNumber = 0;
@@ -177,11 +176,12 @@
             } else {
                 [self getStores];
             }
+            
         } failure:^(NSError *error) {
             
-            NSLog(@"$$$$$$$$$$$$$$$$$$$$$$$$$Failure$$$$$$$$$$$$$$$$$$$$$$$$$");
-            
             [HFGeneralHelpers handleLocationServiceError:error];
+            
+            _mapServiceDisable = YES;
             
             [self reloadAllStores];
         }];
@@ -549,6 +549,8 @@
 
 - (void)reloadAllStores {
     
+    NSLog(@"Reload all store");
+    
     // The city button's tag is from 100 ~ 104
     //
     // Switch the date source
@@ -562,10 +564,12 @@
                                            [storesArray removeAllObjects];
 //                                       }
                                        [self setStoresArrayForList:stores];
+                                       
                                        hasMoreToLoad = ([storesArray count] == 10);
                                        [self hideLoadMore];
                                        [self.tableView stopRefreshAnimation];
                                        [SVProgressHUD dismiss];
+                                       
                                         NSLog(@"All stores loaded.");
                                        [self.tableView reloadData];
                                    } failure:^(NSError *error) {
@@ -627,7 +631,8 @@
                 [store.categories addObject:category];
             }
         }
-    if(storeInfo[@"storePictureURLs"]&&[storeInfo[@"storePictureURLs"]  isKindOfClass:[NSArray class]]){
+    
+        if(storeInfo[@"storePictureURLs"]&&[storeInfo[@"storePictureURLs"]  isKindOfClass:[NSArray class]]){
             store.storePictureURLs = [[NSMutableArray alloc]initWithArray:storeInfo[@"storePictureURLs"]];
         }
         
@@ -640,7 +645,7 @@
         }
         
         // Long distance
-        if (![HFLocationManager sharedInstance].currentLocation) {
+        if (![HFLocationManager sharedInstance].currentLocation && !self.mapServiceDisable) {
             store.distance = nil;
             static dispatch_once_t pred;
             dispatch_once(&pred, ^{

@@ -36,6 +36,9 @@ static const NSUInteger kHeadingFilter = 30;
 }
 
 - (void)startUpdatingLocation{
+    
+    NSLog(@"Debug Mark **********************");
+    
     _locationManager = [[CLLocationManager alloc] init];
     _locationManager.delegate = self;
     _locationManager.distanceFilter = kCLDistanceFilterNone;
@@ -52,6 +55,7 @@ static const NSUInteger kHeadingFilter = 30;
 
 - (void)startUpdatingLocation:(void (^)())success failure:(void(^)(NSError *error))failure
 {
+    
     _successBlock = success;
     _failureBlock = failure;
     
@@ -85,30 +89,14 @@ static const NSUInteger kHeadingFilter = 30;
 
 - (void)locationManager:(CLLocationManager*)manager didFailWithError:(NSError *)error
 {
-//    if (_failureBlock) {
-//        _failureBlock(error);
-//    }
-    
-    NSString *alertMessage = @"";
-    
-    if ([error domain] == kCLErrorDomain)
-    {
-        switch (error.code)
-        {
-            case kCLErrorDenied:
-                alertMessage = @"获取GPS信息服务被关闭了，请到设置->隐私中打开";
-                break;
-            default:
-                alertMessage = @"获取GPS信息服务暂时无法使用，请稍后再试";
-                break;
-        }
-    }
-    
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"错误" message:alertMessage delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
-    [alert show];
-
+    NSLog(@"Failure update");
     
 	_currentLocation = nil;
+    
+    if (_failureBlock) {
+        _failureBlock(error);
+    }
+        
 }
 
 - (BOOL)locationServicesEnabled
