@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="wXc-yG-1J7">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="wXc-yG-1J7">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
     </dependencies>
@@ -1956,7 +1956,7 @@ Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed 
                     <navigationItem key="navigationItem" id="ynz-zA-sVk">
                         <nil key="title"/>
                         <button key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Xav-yE-2Sw">
-                            <rect key="frame" x="99.5" y="11" width="121" height="22"/>
+                            <rect key="frame" x="100" y="11" width="121" height="22"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" name="SimHei" family="SimHei" pointSize="15"/>
                             <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -1967,11 +1967,17 @@ Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed 
                                 <action selector="navigationVBarTitleTapped:" destination="0gN-So-ccd" eventType="touchUpInside" id="JX4-CK-JjX"/>
                             </connections>
                         </button>
-                        <barButtonItem key="rightBarButtonItem" image="map_nav" style="plain" id="aNv-vX-diX">
-                            <color key="tintColor" red="0.92941182850000004" green="0.40784317260000003" blue="0.32156863810000003" alpha="1" colorSpace="deviceRGB"/>
-                            <connections>
-                                <action selector="showMapView:" destination="0gN-So-ccd" id="BgN-o6-dE3"/>
-                            </connections>
+                        <barButtonItem key="rightBarButtonItem" title="Item" style="plain" id="uIm-Lh-hjs">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="yrr-0k-S7g">
+                                <rect key="frame" x="258" y="5" width="21" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="map">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="showMapView:" destination="0gN-So-ccd" eventType="touchUpInside" id="flO-J3-o0x"/>
+                                </connections>
+                            </button>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
@@ -2575,7 +2581,7 @@ Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed 
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <fontDescription key="fontDescription" name="SimHei" family="SimHei" pointSize="13"/>
-                                                        <state key="normal" title="阅读全部 >">
+                                                        <state key="normal" title="阅读全部 &gt;">
                                                             <color key="titleColor" red="0.92941182850000004" green="0.40784317260000003" blue="0.32156863810000003" alpha="1" colorSpace="deviceRGB"/>
                                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                         </state>
@@ -3228,7 +3234,7 @@ Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed 
                     <navigationItem key="navigationItem" id="N15-wI-dg9">
                         <nil key="title"/>
                         <button key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="kHi-BK-4Td">
-                            <rect key="frame" x="99.5" y="11.5" width="121" height="21"/>
+                            <rect key="frame" x="100" y="12" width="121" height="21"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" name="SimHei" family="SimHei" pointSize="15"/>
                             <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -4465,7 +4471,7 @@ Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed 
         <image name="location" width="40" height="40"/>
         <image name="location_detail" width="13" height="14"/>
         <image name="mail-icon" width="50" height="50"/>
-        <image name="map_nav" width="21" height="33"/>
+        <image name="map" width="21" height="33"/>
         <image name="message-icon" width="50" height="50"/>
         <image name="money_error" width="50" height="50"/>
         <image name="no_item_list_image" width="250" height="178"/>
