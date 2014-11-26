@@ -46,8 +46,12 @@
 
 - (IBAction)likeButtonTapped:(UIButton *)button {
     
+    NSLog(@"Cell like button tapped, using delegate : %@", self.delegate);
+    
     if ([self.delegate respondsToSelector:@selector(handleShopListLikeButton:)]) {
         [self.delegate handleShopListLikeButton:button];
+        
+        NSLog(@"Response to selector");
     }
     
 }

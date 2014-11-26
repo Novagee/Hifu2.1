@@ -39,6 +39,8 @@
     couponArray = [NSMutableArray new];
     [self setupLoadingMoreView];
     [self getCoupones];
+    
+    _tableView.frame = CGRectMake(0, 0, self.view.width, self.view.height - 50 - 64);
 }
 
 - (void) viewWillAppear:(BOOL)animated{

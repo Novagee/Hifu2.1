@@ -14,6 +14,7 @@
 @interface HFOpenCouponDetailViewController ()
 
 @property (weak, nonatomic) IBOutlet UIImageView *discountImage;
+@property (weak, nonatomic) IBOutlet UIScrollView *bottomView;
 
 @end
 
@@ -37,7 +38,16 @@
                                     
                                     [weakSelf.discountImage setFrame:CGRectMake(weakSelf.discountImage.layer.frame.origin.x, weakSelf.discountImage.layer.frame.origin.y, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.width * (image.size.height/image.size.width))];
                                 }
+                                
+                                _bottomView.frame = CGRectMake(0, 35, self.view.width, self.view.height - 35 - 50);
+                                
+                                NSLog(@"Image Size : %f vs %f", self.discountImage.size.height, self.view.size.height - 35 - 64 - 50);
+                                _bottomView.contentSize = (self.discountImage.size.height >= (self.view.height - 35 - 64 - 50))? self.discountImage.size : CGSizeZero;
+                                
                             }];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
 }
 
 - (void)leftBarButtonItemTapped {
