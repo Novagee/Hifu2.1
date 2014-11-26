@@ -262,8 +262,9 @@
     cell.delegate = self;
     
     NSLog(@"Cell delegate : %@", cell.delegate);
-    
-    cell.store = [storesArray objectAtIndex:indexPath.row];
+    StoreObject *store = [storesArray objectAtIndex:indexPath.row];
+    NSLog(@"Store id: %@",store.storeId);
+    cell.store = store;
     [cell constructCellBasedOnCoupon:cell.store];
     return cell;
     
