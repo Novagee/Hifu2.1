@@ -161,10 +161,12 @@
     [super viewWillAppear:animated];
     
     [self setupPullToRefresh];
+    
     if(_currentStoreCity == 0){
         _currentStoreCity = 100;
     }
     NSLog(@"Current Store : %i", self.currentStoreCity);
+    
     if (![HFLocationManager sharedInstance].currentLocation) {
         // Invoke sysytem alertView
         [[HFLocationManager sharedInstance] startUpdatingLocation:^{
@@ -176,7 +178,11 @@
                 [self getStores];
             }
         } failure:^(NSError *error) {
+            
+            NSLog(@"$$$$$$$$$$$$$$$$$$$$$$$$$Failure$$$$$$$$$$$$$$$$$$$$$$$$$");
+            
             [HFGeneralHelpers handleLocationServiceError:error];
+            
             [self reloadAllStores];
         }];
     } else {

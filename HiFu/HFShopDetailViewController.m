@@ -188,7 +188,6 @@
     _fakeLikeButton.center = CGPointMake([UIScreen mainScreen].bounds.size.width - 26.0f, 35.0f);
     _fakeLikeButton.hidden = YES;
 
-
     // Configure smartOffset for the coupon dynamic offset
     //
     _smartOffset = CGPointMake(self.couponHeader.centerX,

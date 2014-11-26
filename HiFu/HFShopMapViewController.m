@@ -106,6 +106,15 @@ CGFloat const defaultRadius=100000;
     
     self.navigationItem.rightBarButtonItem = rightBarButtonItem;
     
+    UIImage *buttonImage = [UIImage imageNamed:@"list"];
+    
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    button.frame = CGRectMake(0, 0, buttonImage.size.width, buttonImage.size.height);
+    [button setImage:buttonImage forState:UIControlStateNormal];
+    [button addTarget:self action:@selector(showList) forControlEvents:UIControlEventTouchUpInside];
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:button];
+    
     // Configure Store Info View
     //
     // 49 for tabBar height and 64 for the height of navigation bar
@@ -383,7 +392,7 @@ CGFloat const defaultRadius=100000;
 
 #pragma mark - Show Shop List View Controller
 
-- (IBAction)showList:(id)sender {
+- (void)showList {
     
     // Show the HFShopListViewController with a flip animation
     //
