@@ -182,6 +182,7 @@
 + (void)handleLocationServiceError:(NSError *)error
 {
     NSString *alertMessage = @"";
+    
     if ([error domain] == kCLErrorDomain)
     {
         switch (error.code)
