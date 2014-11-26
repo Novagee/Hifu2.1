@@ -25,6 +25,11 @@ static const int secondsForLoggedTime = 200;
 
 #pragma mark - localization
 -(void)ibViewLocalization{
+    
+#warning We should use autolayout later
+    // Use the relative coordinate
+    //
+    self.enterButton.center = CGPointMake(self.view.width/2, self.view.height - 80);
     [self.enterButton setTitle:NSLocalizedString(@"start_enter_but", @"立刻加入")
                       forState:UIControlStateNormal];
 }

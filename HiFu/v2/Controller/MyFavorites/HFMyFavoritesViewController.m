@@ -42,6 +42,8 @@
     [self registerCustomCellsFromNibs];
     [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     [HFUIHelpers setupStyleFor:self.navigationController.navigationBar and:self.navigationItem];
+    
+    _tableView.frame = CGRectMake(0, 0, self.view.width, self.view.height - 50 - 64);
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -160,7 +162,7 @@
     }
     
     HFShopListTableViewCell *shopListTableViewCell = (HFShopListTableViewCell *)view;
-    shopListTableViewCell.isliked = !shopListTableViewCell.isliked;
+    shopListTableViewCell.liked = !shopListTableViewCell.liked;
     [likeButton setImage:[UIImage imageNamed:@"unlike"] forState:UIControlStateNormal];
     [self unfavoriteStoreId:shopListTableViewCell.store forCell:shopListTableViewCell];
     return;

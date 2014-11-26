@@ -67,13 +67,17 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
     [self registerCustomCellsFromNibs];
     [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     [HFUIHelpers setupStyleFor:self.navigationController.navigationBar and:self.navigationItem];
     
+#warning We should use autolayout later
+    _tableView.frame = CGRectMake(0, 0, self.view.width, self.view.height - 64 - 50);
+    
     // Configure rangeView
     //
-    _rangeViewSection.center = CGPointMake([UIScreen mainScreen].bounds.size.width/2, -50   );
+    _rangeViewSection.center = CGPointMake([UIScreen mainScreen].bounds.size.width/2, -50);
     
     _animationBottom = [[UIView alloc]initWithFrame:self.view.bounds];
     _animationBottom.alpha = 0.5f;
@@ -122,7 +126,9 @@
 }
 
 - (void)reloadFavorite:(NSNotification *)notification{
+
     [self.tableView reloadData];
+    
 }
 
 - (void)swithCityData:(NSNotification *)notification {
@@ -151,9 +157,12 @@
 }
 
 - (void) viewWillAppear:(BOOL)animated{
+    
+    [super viewWillAppear:animated];
+    
     [self setupPullToRefresh];
     if(_currentStoreCity == 0){
-        _currentStoreCity=100;
+        _currentStoreCity = 100;
     }
     NSLog(@"Current Store : %i", self.currentStoreCity);
     if (![HFLocationManager sharedInstance].currentLocation) {
@@ -179,8 +188,19 @@
         }
     }
 
-    
+}
 
+- (void)viewDidAppear:(BOOL)animated {
+    
+    [super viewDidAppear:animated];
+    
+//    for (NSIndexPath *indexPath in self.tableView.indexPathsForVisibleRows) {
+//        HFShopListTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"HFShopListTableViewCell" forIndexPath:indexPath];
+//        cell.delegate = self;
+//        
+//        NSLog(@"Table view indexPath : %@", cell);
+//    }
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -232,8 +252,11 @@
 - (UITableViewCell*)tableView:(UITableView*)table cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    HFShopListTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"HFShopListTableViewCell" forIndexPath:indexPath];
+    HFShopListTableViewCell *cell = (HFShopListTableViewCell *)[self.tableView dequeueReusableCellWithIdentifier:@"HFShopListTableViewCell" forIndexPath:indexPath];
     cell.delegate = self;
+    
+    NSLog(@"Cell delegate : %@", cell.delegate);
+    
     cell.store = [storesArray objectAtIndex:indexPath.row];
     [cell constructCellBasedOnCoupon:cell.store];
     return cell;
@@ -294,6 +317,9 @@
 #pragma mark - Test Cell Delegate
 
 - (void)handleShopListLikeButton:(UIButton *)likeButton {
+    
+    NSLog(@"Tapped like button");
+    
     if(![UserServerApi sharedInstance].currentUserId){
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"请登录" message:@"请登录您的个人账户" delegate:self cancelButtonTitle:@"好的" otherButtonTitles:nil, nil];
         [alert show];

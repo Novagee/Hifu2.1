@@ -21,7 +21,6 @@
 
 @property (nonatomic, strong) StoreObject *store;
 
-@property (assign, nonatomic) BOOL isliked;
 @property (assign, nonatomic) BOOL liked;
 
 @property (weak, nonatomic) IBOutlet UIButton *likeButton;
