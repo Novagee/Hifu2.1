@@ -126,7 +126,9 @@
     NSLog(@"LikedStoreCount:%i",storeArray.count);
     BOOL flag = NO;
     for (StoreObject *storeObj in storeArray) {
-        if (storeObj&&storeObj.storeId&&storeObj.storeId == store.storeId) {
+        NSLog(@"store.storeId:%@",store.storeId);
+        NSLog(@"storeObj.storeId:%@",storeObj.storeId);
+        if (storeObj&&storeObj.storeId&&storeObj.storeId.intValue == store.storeId.intValue) {
             flag = YES;
         }
     }
