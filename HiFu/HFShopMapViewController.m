@@ -76,7 +76,7 @@ CGFloat const defaultRadius=100000;
             self.currentCenterLocation = [HFLocationManager sharedInstance].currentLocation;
             [self configureStores];
         } failure:^(NSError *error) {
-            [HFGeneralHelpers handleLocationServiceError:error];
+            //[HFGeneralHelpers handleLocationServiceError:error];
         }];
     }
     
