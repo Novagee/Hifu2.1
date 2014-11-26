@@ -62,6 +62,7 @@
     }else{
         self.storesArray = [collectedStores copy];
     }
+    [self.tableView reloadData];
     NSLog(@"storesArrayCount:%i",self.storesArray.count);
 }
 
