@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface HFStoreIntroductionViewController : UIViewController
+@interface HFStoreIntroductionViewController : UIViewController<UITextViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextView *detailIntroduction;
+@property (weak, nonatomic) IBOutlet UIScrollView *bottomView;
 @property (copy, nonatomic) NSString *detailText;
 @property (weak, nonatomic) IBOutlet UIImageView *storeLogo;
 @property (strong, nonatomic) NSString *storeLogoURL;
