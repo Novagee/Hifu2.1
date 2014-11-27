@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="258" id="KGk-i7-Jjw" customClass="HFCouponDetailInfoCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="150"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="149"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6ct-hk-w35" userLabel="moreDetails">
+                        <rect key="frame" x="12" y="123" width="297" height="26"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="297" id="6A4-GD-BsF"/>
+                            <constraint firstAttribute="height" constant="26" id="Aa7-Mc-gng"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="STHeitiSC-Medium" family="Heiti SC" pointSize="13"/>
+                        <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="15" maxY="0.0"/>
+                        <state key="normal" title="显示更多">
+                            <color key="titleColor" red="0.75686281919999998" green="0.75686281919999998" blue="0.75686281919999998" alpha="1" colorSpace="deviceRGB"/>
+                        </state>
+                        <connections>
+                            <action selector="moreButtonTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="NnR-lJ-7a5"/>
+                        </connections>
+                    </button>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="使用条件" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3pT-A3-Q0O" userLabel="Conditions Label">
+                        <rect key="frame" x="96" y="24" width="128" height="21"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="9Ov-Ix-tOP"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="STHeitiSC-Medium" family="Heiti SC" pointSize="13"/>
+                        <color key="textColor" red="0.64091088259999995" green="0.6373303749" blue="0.64449139030000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oAV-hx-AUN" userLabel="LikeButton">
+                        <rect key="frame" x="252" y="10" width="47" height="49"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="47" id="K9e-N7-eRk"/>
+                            <constraint firstAttribute="height" constant="49" id="i1z-io-a2a"/>
+                        </constraints>
+                        <state key="normal" image="heart_button_selected">
+                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                        <connections>
+                            <action selector="heartButtonTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="2vJ-YT-kfA"/>
+                        </connections>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZzX-nH-6BO" userLabel="ShareButton">
+                        <rect key="frame" x="24" y="10" width="47" height="49"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="49" id="LaI-OD-IDh"/>
+                            <constraint firstAttribute="width" constant="47" id="uzD-OX-wuo"/>
+                        </constraints>
+                        <state key="normal" image="icon_share_3">
+                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                        <connections>
+                            <action selector="shareButtonTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="IsE-1W-oTz"/>
+                        </connections>
+                    </button>
+                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cwC-N1-bAa" userLabel="couponDetails">
+                        <rect key="frame" x="25" y="53" width="270" height="70"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <attributedString key="attributedText"/>
+                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                    </textView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="more_arrow_down" translatesAutoresizingMaskIntoConstraints="NO" id="ngE-tT-981">
+                        <rect key="frame" x="184" y="132" width="15" height="8"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="8" id="P9b-jx-4Gt"/>
+                            <constraint firstAttribute="width" constant="15" id="mrA-3h-ZaN"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="ZzX-nH-6BO" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="C9d-ag-5a1"/>
+                    <constraint firstItem="cwC-N1-bAa" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="53" id="D10-E1-hz5"/>
+                    <constraint firstItem="6ct-hk-w35" firstAttribute="top" secondItem="cwC-N1-bAa" secondAttribute="bottom" id="Doh-9M-h5N"/>
+                    <constraint firstAttribute="trailing" secondItem="ngE-tT-981" secondAttribute="trailing" constant="121" id="H42-3y-mQK"/>
+                    <constraint firstItem="3pT-A3-Q0O" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="96" id="Qnc-kV-RqH"/>
+                    <constraint firstItem="6ct-hk-w35" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="12" id="RoR-cq-7qM"/>
+                    <constraint firstAttribute="centerX" secondItem="ZzX-nH-6BO" secondAttribute="centerX" constant="112.5" id="cK4-4v-BZd"/>
+                    <constraint firstAttribute="bottom" secondItem="ngE-tT-981" secondAttribute="bottom" constant="9" id="cRg-PV-XdH"/>
+                    <constraint firstAttribute="trailing" secondItem="3pT-A3-Q0O" secondAttribute="trailing" constant="96" id="fZP-EU-4Eu"/>
+                    <constraint firstItem="3pT-A3-Q0O" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="24" id="lQG-Pd-3Bb"/>
+                    <constraint firstItem="cwC-N1-bAa" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="25" id="rZd-MJ-Qiv"/>
+                    <constraint firstAttribute="trailing" secondItem="cwC-N1-bAa" secondAttribute="trailing" constant="25" id="v26-w7-NRl"/>
+                    <constraint firstAttribute="bottom" secondItem="6ct-hk-w35" secondAttribute="bottom" id="xLC-pi-Hw1"/>
+                    <constraint firstItem="oAV-hx-AUN" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="yYh-1Z-ah5"/>
+                    <constraint firstAttribute="centerX" secondItem="oAV-hx-AUN" secondAttribute="centerX" constant="-115.5" id="zIY-jV-lsM"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="couponDescriptionTextView" destination="cwC-N1-bAa" id="fE4-0B-6Cb"/>
+                <outlet property="heartButton" destination="oAV-hx-AUN" id="gFE-pn-kZW"/>
+                <outlet property="moreButton" destination="6ct-hk-w35" id="e1l-vR-XSL"/>
+                <outlet property="moreImageView" destination="ngE-tT-981" id="ALR-vj-vv7"/>
+                <outlet property="shareButton" destination="ZzX-nH-6BO" id="1i9-Dm-PPn"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="heart_button_selected" width="25" height="23"/>
+        <image name="icon_share_3" width="30" height="23"/>
+        <image name="more_arrow_down" width="20" height="11"/>
+    </resources>
+</document>

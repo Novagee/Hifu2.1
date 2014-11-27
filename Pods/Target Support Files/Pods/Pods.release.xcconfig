@@ -1,0 +1,8 @@
+CLANG_CXX_LANGUAGE_STANDARD = c++11
+CLANG_CXX_LIBRARY = libc++
+GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
+HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/AFNetworking" "${PODS_ROOT}/Headers/Public/AnimatedGIFImageSerialization" "${PODS_ROOT}/Headers/Public/Appirater" "${PODS_ROOT}/Headers/Public/Reachability" "${PODS_ROOT}/Headers/Public/SWTableViewCell" "${PODS_ROOT}/Headers/Public/UzysAnimatedGifPullToRefresh" "${PODS_ROOT}/Headers/Public/iOS-blur" "${PODS_ROOT}/Headers/Public/libWeChatSDK" "${PODS_ROOT}/Headers/Public/pop" "$(PODS_ROOT)/libWeChatSDK"
+LIBRARY_SEARCH_PATHS = "$(PODS_ROOT)/libWeChatSDK" "$(PODS_ROOT)/libWeChatSDK"
+OTHER_CFLAGS = $(inherited) -isystem "${PODS_ROOT}/Headers/Public" -isystem "${PODS_ROOT}/Headers/Public/AFNetworking" -isystem "${PODS_ROOT}/Headers/Public/AnimatedGIFImageSerialization" -isystem "${PODS_ROOT}/Headers/Public/Appirater" -isystem "${PODS_ROOT}/Headers/Public/Reachability" -isystem "${PODS_ROOT}/Headers/Public/SWTableViewCell" -isystem "${PODS_ROOT}/Headers/Public/UzysAnimatedGifPullToRefresh" -isystem "${PODS_ROOT}/Headers/Public/iOS-blur" -isystem "${PODS_ROOT}/Headers/Public/libWeChatSDK" -isystem "${PODS_ROOT}/Headers/Public/pop"
+OTHER_LDFLAGS = -ObjC -l"Pods-AFNetworking" -l"Pods-AnimatedGIFImageSerialization" -l"Pods-Appirater" -l"Pods-Reachability" -l"Pods-SWTableViewCell" -l"Pods-UzysAnimatedGifPullToRefresh" -l"Pods-iOS-blur" -l"Pods-libWeChatSDK" -l"Pods-pop" -l"WeChatSDK" -l"c++" -framework "CFNetwork" -framework "CoreGraphics" -framework "ImageIO" -framework "MobileCoreServices" -framework "Security" -framework "SystemConfiguration" -weak_framework "StoreKit"
+PODS_ROOT = ${SRCROOT}/Pods

@@ -1,0 +1,50 @@
+"app_name"                      ="Hi米国";
+"CFBundleDisplayName"           ="Hi米国";
+"CFBundleName"                  ="Hi米国";
+
+/*TABBAR_NAV*/
+"tab_nav_youhui"                ="优惠";
+"tab_nav_calender"              ="日程";
+"tab_nav_shop_list"             ="清单";
+"tab_nav_me"                    ="我";
+
+
+
+/*REGISTRATION*/
+
+/*STARTVIEW*/
+"start_enter_but"               ="立刻加入";
+
+/*REGSTER_NUMBER*/
+"reg_title_nav"                 ="10秒完成注册";
+"reg_country_china"             ="中国";
+"reg_input_num_text"            ="填写手机号码";
+"reg_error_message"             ="代码错误，重新输入";
+"reg_skip"                      ="跳过";
+"reg_carrier_default"           ="全球免费接收短信验证码";
+
+/*ENTER_CODE*/
+"code_title_nav"                ="输入验证码";
+"code_error_message"            ="代码错误，重新输入";
+"code_agree_terms"              ="用户协议";
+"code_agree"                    ="同意";
+"code_legal"                    ="我们遵守中美两国法律，保护你的隐私";
+"code_seconds"                  ="秒";
+"code_skip"                     ="跳过";
+"code_finish"                   ="完成";
+"code_resend"                   ="重发";
+"code_forgot_agree"             ="需要同意用户协议";
+
+/*COMMON*/
+"str_common_back"               ="Back";
+"str_common_delete"             ="Delete";
+"str_common_about"              ="About";
+"str_common_property"           ="Property";
+"str_common_yes"                ="Yes";
+"str_common_no"                 ="No";
+"str_common_ok"                 ="OK";
+"str_common_cancel"             ="Cancel";
+"str_common_add"                ="Add";
+"str_common_today"              ="Today";
+"str_common_yesterday"          ="Yesterday";
+

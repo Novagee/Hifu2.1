@@ -1,0 +1,183 @@
+//
+//  Prefix header
+//
+//  The contents of this file are implicitly included at the beginning of every source file.
+//
+
+/**
+ 
+ GLOBAL IMPORTS
+ 
+ **/
+#ifdef __OBJC__
+#import <Availability.h>
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#import <CoreData/CoreData.h>
+#import "HFGeneralHelpers.h"
+#import "HFUIHelpers.h"
+#import "WeiboSDK.h"
+// 以下文件还没处理，不要忘记了
+#import "UIView+EasyFrames.h"
+#import "UIViewController+Standard.h"
+#endif
+
+
+/**
+ 
+ MACROS
+ 
+ **/
+#define NSLog(__FORMAT__, ...) NSLog((@"%s [Line %d] " __FORMAT__), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__)
+#define UIColorFromRGB(rgbValue) [UIColor colorWithRed:(float)((rgbValue>>16)&0xFF)/255.0f green:(float)((rgbValue>>8)&0xFF)/255.0f blue:(float)(rgbValue & 0xFF)/255.0f alpha:(float)((rgbValue>>24) & 0xFF)/255.0f]
+#define UIColorFromRGBAlpha(rgbValue, alphaValue) [UIColor colorWithRed:(float)((rgbValue>>16)&0xFF)/255.0 green:(float)((rgbValue>>8)&0xFF)/255.0 blue:(float)(rgbValue & 0xFF)/255.0 alpha:(float)alphaValue]
+
+#define SCREEN_SIZE         [[UIScreen mainScreen] bounds]
+#define HF_DEVICE_HEIGHT    [[UIScreen mainScreen] bounds].size.height
+#define HF_DEVICE_WIDTH     [[UIScreen mainScreen] bounds].size.width
+
+#define HF_IS_IPHONE5       ((SCREEN_SIZE.size.width == 320) && (SCREEN_SIZE.size.height == 568))
+#define HF_IS_IPHONE4       ((SCREEN_SIZE.size.width == 320) && (SCREEN_SIZE.size.height == 480))
+
+
+/**
+ 
+ API Related: for both HF Api Host and 3rd Party API keys
+ 
+ **/
+#define HF_API_BASE_PATH    @"54.183.40.21:8080"
+#define WECHAT_API_KEY      @"wx76633c32e8771b4b"
+
+#define HF_API_PATH_OLD [NSString stringWithFormat:@"http://%@/restful", HF_API_BASE_PATH]
+
+#define HF_API_PATH [NSString stringWithFormat:@"http://%@/rest", HF_API_BASE_PATH]
+
+#define HF_API_PATH_v2 [NSString stringWithFormat:@"http://%@/v2", HF_API_BASE_PATH]
+
+#define SER_PATH_CREATE_USER        [NSString stringWithFormat:@"http://%@/restful/user/", HF_API_BASE_PATH]
+#define SER_PATH_VERIFY             [NSString stringWithFormat:@"http://%@/restful/sms/verify/", HF_API_BASE_PATH]
+
+/**
+ 
+ Third Party Api Info
+ 
+ */
+
+//com.sina.weibo.SNWeiboSDKDemo
+#define sinaWeiboAppKey         @"2829078907"
+#define sinaWeiboRedirectURI    @"https://api.weibo.com/oauth2/default.html"
+#define wechatAppKey            @"wxd4e14473a7f1a6c6"//@"wxd477edab60670232"
+#define AppSeeAPIKey            @"4d416196c6c04a7b8d37d21f29aa29ab"
+
+/**
+ 
+ Data Archive
+ 
+ */
+
+#define HFCurrentUserPath           @"current_user"
+#define HFCurrentUserDetailsPath    @"current_user_details"
+#define HFMerchantsPath             @"saved_merchants"
+#define HFStoresPath                @"saved_stores"
+#define HFALLStoresPath             @"store_list"
+#define HFCouponPathWithId(id)      [NSString stringWithFormat:@"Coupon%@", id]
+
+/**
+ 
+ THEME COLORS: Please include the RGB number for future reference
+ 
+ **/
+#define HFThemePink                         [UIColor colorWithRed:1.000 green:0.388 blue:0.408 alpha:1.000] //R:255 G:99 B:104
+#define regGrayColor                        [UIColor colorWithWhite:0.824 alpha:1.000] //R:210 G:210 B:210
+#define HFDarkGray                          [UIColor colorWithWhite:0.533 alpha:1.000] //R:136 G:136 B:136
+#define HFTabBarDefaultColor                [UIColor colorWithWhite:0.467 alpha:1.000] //R:119 G:119 B:119
+#define HFShoppingListBrandTagColor         [UIColor colorWithRed:0.984 green:0.709 blue:0.314 alpha:1.000] //R:251 G:181 B:80
+#define HFShoppingListColorTagColor         [UIColor colorWithRed:0.971 green:0.000 blue:0.093 alpha:1.000] //R:248 G:0 B:84
+#define HFShoppingListPriceTagColor         [UIColor colorWithRed:0.279 green:0.823 blue:0.279 alpha:1.000] //R:71 G:210 B:71
+#define HFShoppingListQuantityTagColor      [UIColor colorWithRed:0.490 green:0.197 blue:0.713 alpha:1.000] //R:125 G:50 B:182
+#define HFShoppingListUserNameTagColor      [UIColor colorWithRed:0.239 green:0.711 blue:0.984 alpha:1.000] //R:61 G:181 B:251
+#define HFCDayNotSelectedTextColorCurrentMonth      [UIColor colorWithWhite:66.0/255.0 alpha:1.0] //R:66 G:66 B:66
+#define HFCDayNotSelectedTextColorNonCurrentMonth   [UIColor colorWithWhite:0.706 alpha:1.000] //R:180 G:180 B:180
+#define HFCDaySelectedTextColor                     [UIColor whiteColor]
+
+#define HFCDayBackgroundColorOne                    [UIColor colorWithRed:0.404 green:0.718 blue:0.353 alpha:1.000] //R:103 G:183 B:90
+#define HFCDayBackgroundColorTwo                    [UIColor colorWithRed:0.075 green:0.639 blue:0.647 alpha:1.000] //R:19 G:163 B:165
+#define HFCDayBackgroundColorThree                  [UIColor colorWithRed:1.000 green:0.302 blue:0.302 alpha:1.000] //R:255 G:77 B:77
+#define HFCDayBackgroundColorFour                   [UIColor colorWithRed:0.102 green:0.737 blue:0.612 alpha:1.000] //R:26 G:188 B:156
+#define HFCDayBackgroundColorFive                   [UIColor colorWithRed:0.902 green:0.494 blue:0.133 alpha:1.000] //R:230 G:126 B:34
+#define HFCDayBackgroundColorSix                    [UIColor colorWithRed:0.608 green:0.349 blue:0.714 alpha:1.000] //R:155 G:89 B:182
+
+
+/**
+ 
+ FONTS
+ 
+ **/
+#define HeitiSC_Medium(s)           [UIFont fontWithName:@"STHeitiSC-Medium" size:s]
+#define HelveticaNeue_Regular(s)    [UIFont fontWithName:@"HelveticaNeue" size:s]
+
+
+
+/**
+ 
+ CONSTANTS
+ 
+ **/
+#define HF_KEYBOARD_HEIGHT                      264
+#define HFShoppingListTagViewHorizontalSpace    24
+#define HFShoppingListTagViewVerticalSpace      5
+#define HFShoppingListTagViewDefaultTextViewHeight            30
+#define HFShoppingListTagViewMaxTextViewHeight                80
+#define HFShoppingListTagViewMaxWidth                         250
+#define HFShoppingListTagViewDefaultHeight                    HFShoppingListTagViewDefaultTextViewHeight + HFShoppingListTagViewVerticalSpace
+#define HFShoppingListTagTextViewLineSpace                    3
+#define HFShoppingListHorizontalSpaceBetweenTagViews          6
+
+#define HFCalendarDestinationLabelHeight        10
+#define HFCalendarDayViewHeight                 25
+#define HFCalendarHeaderViewHeight              91
+#define HFGeneralCornerRadius                   4
+
+/**
+ 
+ NOTIFICATION NAMES
+ 
+ **/
+#define HFFinishAddingNewShoppingItem       @"HFFinishAddingNewShoppingItem"
+#define HFFinishEditingShoppingItem         @"HFFinishEditingShoppingItem"
+#define HFFinishPickingPhotos               @"HFFinishPickingPhotos"
+#define HFFinishTakingPicture               @"HFFinishTakingPicture"
+#define HFFinishTakingPicture               @"HFFinishTakingPicture"
+#define HFCalDeleteRange                    @"HFCalDeleteRange"
+#define HFCalDismissSearchView              @"HFCalDismissSearchView"
+#define HFAddCouponToFavorite               @"HFAddCouponToFavorite"
+#define HFRemoveCouponFromFavorite          @"HFRemoveCouponFromFavorite"
+#define HFCouponDetailMoreComment           @"HFCouponDetailMoreComment"
+#define HFCouponDetailAddComment            @"HFCouponDetailAddComment"
+#define HFAddCommentSuccessfully            @"HFAddCommentSuccessfully"
+
+#define HFAddStoreToFavorite                @"HFAddStoreToFavorite"
+#define HFRemoveStoreToFavorite             @"HFRemoveStoreToFavorite"
+
+#define HFLOGINSHOWMASK                     @"HFLOGINSHOWMASK"
+#define HFLOGINHIDEMASK                     @"HFLOGINHIDEMASK"
+#define HFLOGINHIDEMASKANDENTER             @"HFLOGINHIDEMASKANDENTER"
+
+#define HFSWITCHCITYDATA                    @"HFSWITCHCITYDATA"
+
+/**
+ 
+ SEGUE NAMES
+ 
+ **/
+#define HFSeguePushToPhotoLibrary           @"pushToPhotoLibrary"
+
+/**
+ 
+ USER DEFAULT NAMES
+ 
+ **/
+#define HFDownloadedCoupons                 @"HFDownloadedCoupons"
+
+#import "HFMacro.h"
+#import "HFUIMacro.h"

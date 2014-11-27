@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6250" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="simhei.ttf">
+            <string>SimHei</string>
+            <string>SimHei</string>
+            <string>SimHei</string>
+            <string>SimHei</string>
+            <string>SimHei</string>
+            <string>SimHei</string>
+            <string>SimHei</string>
+            <string>SimHei</string>
+        </mutableArray>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="179" id="KGk-i7-Jjw" customClass="HFShopListTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="349"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="409"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zwp-LM-RfT">
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </view>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="cover_1.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="FKG-aR-1gN" userLabel="cover">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="260"/>
+                    </imageView>
+                    <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="珠宝" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4KF-4l-x2t">
+                        <rect key="frame" x="80" y="101" width="80" height="14"/>
+                        <fontDescription key="fontDescription" name="SimHei" family="SimHei" pointSize="14"/>
+                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                        <color key="shadowColor" red="0.66123246173469385" green="0.66123246173469385" blue="0.66123246173469385" alpha="1" colorSpace="calibratedRGB"/>
+                        <size key="shadowOffset" width="0.0" height="0.0"/>
+                    </label>
+                    <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="时装" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E8T-8W-n5j">
+                        <rect key="frame" x="160" y="101" width="60" height="14"/>
+                        <fontDescription key="fontDescription" name="SimHei" family="SimHei" pointSize="14"/>
+                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                        <color key="shadowColor" red="0.66123246173469385" green="0.66123246173469385" blue="0.66123246173469385" alpha="1" colorSpace="calibratedRGB"/>
+                        <size key="shadowOffset" width="0.0" height="0.0"/>
+                    </label>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="蒂梵妮" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Zq-69-wHF">
+                        <rect key="frame" x="20" y="20" width="199" height="18"/>
+                        <fontDescription key="fontDescription" name="SimHei" family="SimHei" pointSize="18"/>
+                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                        <color key="shadowColor" red="0.66123246173469385" green="0.66123246173469385" blue="0.66123246173469385" alpha="1" colorSpace="calibratedRGB"/>
+                        <size key="shadowOffset" width="0.0" height="0.0"/>
+                    </label>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tiffany Co" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jfh-gv-rkX">
+                        <rect key="frame" x="20" y="40" width="199" height="18"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                        <color key="shadowColor" red="0.66123246173469385" green="0.66123246173469385" blue="0.66123246173469385" alpha="1" colorSpace="calibratedRGB"/>
+                        <size key="shadowOffset" width="0.0" height="0.0"/>
+                    </label>
+                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="dot" translatesAutoresizingMaskIntoConstraints="NO" id="l8g-IG-DJI">
+                        <rect key="frame" x="54" y="107" width="4" height="4"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="2"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </imageView>
+                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="dot" translatesAutoresizingMaskIntoConstraints="NO" id="MzB-HB-4L9">
+                        <rect key="frame" x="98" y="107" width="4" height="4"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="2"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </imageView>
+                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QFk-4j-fYw">
+                        <rect key="frame" x="0.0" y="255" width="320" height="78"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Cpi-v6-WUL">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <button hidden="YES" opaque="NO" tag="1004" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z1L-rl-rrh">
+                                <rect key="frame" x="42" y="36" width="14" height="14"/>
+                                <fontDescription key="fontDescription" name="SimHei" family="SimHei" pointSize="14"/>
+                                <state key="normal" title="礼">
+                                    <color key="titleColor" red="0.60000002384185791" green="0.60000002384185791" blue="0.60000002384185791" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="featureButtonTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="5UO-vC-p3V"/>
+                                </connections>
+                            </button>
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="discount" translatesAutoresizingMaskIntoConstraints="NO" id="qOJ-gP-ezE">
+                                <rect key="frame" x="62" y="31" width="20" height="21"/>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="早9至晚6营业" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F2c-8a-Hsq">
+                                <rect key="frame" x="112" y="44" width="126" height="14"/>
+                                <fontDescription key="fontDescription" name="SimHei" family="SimHei" pointSize="14"/>
+                                <color key="textColor" red="0.60000002384185791" green="0.60000002384185791" blue="0.60000002384185791" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="gift" translatesAutoresizingMaskIntoConstraints="NO" id="DRb-M9-ym3">
+                                <rect key="frame" x="20" y="31" width="17" height="21"/>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="营业中" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ocd-TP-XXk">
+                                <rect key="frame" x="238" y="44" width="62" height="14"/>
+                                <fontDescription key="fontDescription" name="SimHei" family="SimHei" pointSize="14"/>
+                                <color key="textColor" red="0.31758172694412568" green="0.63358191287878785" blue="0.59526686422264463" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button hidden="YES" opaque="NO" tag="1003" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="13H-Kq-PoD">
+                                <rect key="frame" x="88" y="36" width="14" height="14"/>
+                                <fontDescription key="fontDescription" name="SimHei" family="SimHei" pointSize="16"/>
+                                <state key="normal" title="折">
+                                    <color key="titleColor" red="0.60000002384185791" green="0.60000002384185791" blue="0.60000002384185791" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="featureButtonTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="ofi-WW-iT9"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="size" keyPath="layer.shadowOffset">
+                                <size key="value" width="0.0" height="1"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="layer.layerShadowColor">
+                                <color key="value" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.shadowOpacity">
+                                <real key="value" value="0.59999999999999998"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.shadowRadius">
+                                <integer key="value" value="1"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                    <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="皮具" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="luL-dC-71i">
+                        <rect key="frame" x="20" y="101" width="60" height="14"/>
+                        <fontDescription key="fontDescription" name="SimHei" family="SimHei" pointSize="14"/>
+                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                        <color key="shadowColor" red="0.66123246173469385" green="0.66123246173469385" blue="0.66123246173469385" alpha="1" colorSpace="calibratedRGB"/>
+                        <size key="shadowOffset" width="0.0" height="0.0"/>
+                    </label>
+                    <button opaque="NO" alpha="0.90000000000000002" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oYo-jK-IRk">
+                        <rect key="frame" x="260" y="191" width="40" height="40"/>
+                        <color key="backgroundColor" red="0.95361821338383834" green="0.95361821338383834" blue="0.95361821338383834" alpha="1" colorSpace="calibratedRGB"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                        <state key="normal" image="unlike">
+                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="20"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                        <connections>
+                            <action selector="likeButtonTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="7hS-PJ-sO3"/>
+                        </connections>
+                    </button>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0.5公里" textAlignment="right" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="AHZ-0V-6nd">
+                        <rect key="frame" x="227" y="20" width="73" height="14"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                        <color key="shadowColor" red="0.0" green="0.0" blue="0.0" alpha="0.27000000000000002" colorSpace="calibratedRGB"/>
+                        <size key="shadowOffset" width="1" height="1"/>
+                    </label>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="步行12分钟" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="9Pt-Mw-zmH">
+                        <rect key="frame" x="227" y="40" width="73" height="14"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                        <color key="shadowColor" red="0.0" green="0.0" blue="0.0" alpha="0.40000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
+                        <size key="shadowOffset" width="1" height="1"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="storeLocationLabelBackground.png" translatesAutoresizingMaskIntoConstraints="NO" id="hxG-zf-I3U">
+                        <rect key="frame" x="0.0" y="64" width="155" height="31"/>
+                    </imageView>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="第五大道旗舰店    " lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="68Z-Cg-k9j">
+                        <rect key="frame" x="20" y="72" width="110" height="15"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <color key="backgroundColor" red="0.98431372549019602" green="0.98431372549019602" blue="0.98431372549019602" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="discountImageView" destination="qOJ-gP-ezE" id="eDH-5p-aZC"/>
+                <outlet property="discountLabel" destination="13H-Kq-PoD" id="Rd5-j5-NDT"/>
+                <outlet property="distanceLabel" destination="AHZ-0V-6nd" id="jcF-G1-jvN"/>
+                <outlet property="firstGoodsDot" destination="l8g-IG-DJI" id="qoq-2n-bf9"/>
+                <outlet property="firstGoodsTypeLabel" destination="luL-dC-71i" id="3RU-aY-KIX"/>
+                <outlet property="giftImageView" destination="DRb-M9-ym3" id="bYT-S9-xeF"/>
+                <outlet property="giftLabel" destination="Z1L-rl-rrh" id="PIP-S6-3dv"/>
+                <outlet property="gradientView" destination="Zwp-LM-RfT" id="UwR-h6-YAH"/>
+                <outlet property="infoViewBottom" destination="Cpi-v6-WUL" id="dxL-C6-gdg"/>
+                <outlet property="isOpeningLabel" destination="Ocd-TP-XXk" id="coX-VT-vez"/>
+                <outlet property="likeButton" destination="oYo-jK-IRk" id="QNo-ZG-8bq"/>
+                <outlet property="openStatusLabel" destination="Ocd-TP-XXk" id="Z3T-C5-evX"/>
+                <outlet property="openingTime" destination="F2c-8a-Hsq" id="kTs-Kp-YmE"/>
+                <outlet property="secondGoodsDot" destination="MzB-HB-4L9" id="ODK-7j-s1b"/>
+                <outlet property="secondGoodsTypeLabel" destination="4KF-4l-x2t" id="8Ch-dC-cui"/>
+                <outlet property="storeLocationName" destination="68Z-Cg-k9j" id="eSX-QK-r7U"/>
+                <outlet property="storeLogo" destination="FKG-aR-1gN" id="ptK-Hn-Dmv"/>
+                <outlet property="storeNameCN" destination="4Zq-69-wHF" id="Orj-KI-VAY"/>
+                <outlet property="storeNameEN" destination="jfh-gv-rkX" id="apa-qO-XUy"/>
+                <outlet property="storeNameImage" destination="hxG-zf-I3U" id="FTj-eC-Ky4"/>
+                <outlet property="thirdGoodsTypeLabel" destination="E8T-8W-n5j" id="C7W-9G-JX0"/>
+                <outlet property="timeLable" destination="9Pt-Mw-zmH" id="A4t-hv-PMQ"/>
+            </connections>
+            <point key="canvasLocation" x="135" y="207.5"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="cover_1.jpg" width="640" height="520"/>
+        <image name="discount" width="22" height="22"/>
+        <image name="dot" width="4" height="4"/>
+        <image name="gift" width="17" height="21"/>
+        <image name="storeLocationLabelBackground.png" width="7" height="6"/>
+        <image name="unlike" width="20" height="18"/>
+    </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>
