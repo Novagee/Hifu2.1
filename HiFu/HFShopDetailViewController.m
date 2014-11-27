@@ -40,7 +40,7 @@
 @interface HFShopDetailViewController ()<MKMapViewDelegate, CLLocationManagerDelegate, UIScrollViewDelegate, UIViewControllerTransitioningDelegate, HFCouponDisctountViewDelegate, HFCouponGiftViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIScrollView *mainBottomView;
-
+;
 @property (strong, nonatomic) UIImage *rightButtonImage;
 
 #pragma mark - Goods Scroll View Section Property
@@ -71,7 +71,10 @@
 #pragma mark - Shop Introduce View Section Property
 
 @property (weak, nonatomic) IBOutlet UIImageView *storeLogoImage;
-@property (weak, nonatomic) IBOutlet UITextView *storeIntroduceTextView;
+@property (weak, nonatomic) IBOutlet UILabel *storeIntroduceLabel;
+@property (weak, nonatomic) IBOutlet UIButton *readAllButton;
+@property (weak, nonatomic) IBOutlet UILabel *detailDotsLabel;
+@property (weak, nonatomic) IBOutlet UIView *introductionTextBottom;
 
 #pragma mark - Store Location Info View Section Property
 
@@ -336,6 +339,39 @@
     
 }
 
+#pragma mark - Configure Dynamic Introduction View
+
+- (void)configureReadMore {
+    
+    // Dynamic label height
+    //
+    NSString *storeIntroductionText = self.storeIntroduceLabel.text;
+    CGSize maximumLabelSize = CGSizeMake(280, 39);
+    CGSize expectLabelSize = [storeIntroductionText sizeWithFont:self.storeIntroduceLabel.font constrainedToSize:maximumLabelSize lineBreakMode:NSLineBreakByWordWrapping];
+    
+    CGRect finalRect = self.storeIntroduceLabel.frame;
+    
+    if (expectLabelSize.height > 39) {
+        finalRect.size.height = 39;
+    }
+    else {
+        finalRect.size.height = expectLabelSize.height;
+    }
+    
+    _storeIntroduceLabel.frame = finalRect;
+        
+    _readAllButton.frame = CGRectMake(self.readAllButton.origin.x,
+                                      self.storeIntroduceLabel.origin.y + self.storeIntroduceLabel.height - self.readAllButton.height,
+                                      self.readAllButton.width,
+                                      self.readAllButton.height);
+    
+    _detailDotsLabel.frame = CGRectMake(self.detailDotsLabel.origin.x,
+                                        self.storeIntroduceLabel.origin.y + self.storeIntroduceLabel.height - self.detailDotsLabel.height,
+                                        self.detailDotsLabel.width,
+                                        self.detailDotsLabel.height);
+    
+}
+
 #pragma mark - Configure Dynamic Coupon View
 
 - (void)configureCoupon {
@@ -468,7 +504,9 @@
         self.storeLogoImage.image = [[UIImage alloc]initWithData:responseObject];
     }];
     
-    _storeIntroduceTextView.text = self.cellInfo.storeIntroduction;   
+    _storeIntroduceLabel.text = self.cellInfo.storeIntroduction;
+    
+    [self configureReadMore];
 }
 
 - (void)configureStoreLocationInfoSection {

@@ -2568,16 +2568,15 @@ Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed 
                                                 <rect key="frame" x="0.0" y="120" width="320" height="80"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <subviews>
-                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="蒂梵妮(Tiffany &amp; Co.) 珠宝公司以钻石和银饰闻名于世。蒂梵妮(Tiffany）最负盛名的六爪镶嵌设计：把点，至今仍受推崇。把钻石托镶于........................" selectable="NO" id="8UB-m7-UOn">
-                                                        <rect key="frame" x="20" y="8" width="280" height="64"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="蒂梵妮(Tiffany &amp; Co.) 珠宝公司以钻石和银饰闻名于世。蒂梵妮蒂梵妮(Tiffany &amp; Co.) 珠宝公司以钻石和银饰闻名于世。蒂梵妮" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="YmF-4L-P0E">
+                                                        <rect key="frame" x="20" y="19" width="280" height="39"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                        <color key="textColor" red="0.50196081399917603" green="0.50196081399917603" blue="0.50196081399917603" alpha="1" colorSpace="calibratedRGB"/>
                                                         <fontDescription key="fontDescription" name="SimHei" family="SimHei" pointSize="13"/>
-                                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                    </textView>
+                                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="gIg-Kp-4Ta">
-                                                        <rect key="frame" x="227" y="45" width="73" height="15"/>
+                                                        <rect key="frame" x="227" y="45" width="73" height="13"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <fontDescription key="fontDescription" name="SimHei" family="SimHei" pointSize="13"/>
@@ -2590,7 +2589,7 @@ Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed 
                                                         </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="......" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="lLQ-Xu-t22">
-                                                        <rect key="frame" x="192" y="45" width="37" height="15"/>
+                                                        <rect key="frame" x="190" y="45" width="37" height="13"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
@@ -2993,6 +2992,7 @@ Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed 
                     <connections>
                         <outlet property="chineseButton" destination="g5w-L8-Igq" id="keR-bK-X6q"/>
                         <outlet property="couponHeader" destination="DZI-xH-5Cb" id="zlQ-t9-Yay"/>
+                        <outlet property="detailDotsLabel" destination="lLQ-Xu-t22" id="2hv-Vb-LQS"/>
                         <outlet property="discountButton" destination="I8s-Kl-DNA" id="iDT-bK-wNl"/>
                         <outlet property="discountButtonImage" destination="9QU-ed-suU" id="BPd-kq-iHd"/>
                         <outlet property="distanceDurationLabel" destination="QT7-xP-qqG" id="vFv-ht-giz"/>
@@ -3003,10 +3003,12 @@ Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed 
                         <outlet property="goodsPageControl" destination="DRL-ff-Boc" id="F6B-ig-0Sx"/>
                         <outlet property="goodsScrollView" destination="xlU-gf-73k" id="ANa-Sz-QP2"/>
                         <outlet property="hotTeaButton" destination="rrY-gE-cdj" id="QdX-wS-Pb5"/>
+                        <outlet property="introductionTextBottom" destination="mbX-r2-3AO" id="oHS-F8-bH5"/>
                         <outlet property="locationSectionView" destination="HbQ-Na-3Xd" id="pSf-Im-smS"/>
                         <outlet property="mainBottomView" destination="jiu-Vv-zoK" id="wBO-Im-wWB"/>
                         <outlet property="mapView" destination="tAx-w4-j6I" id="srd-Ye-qTK"/>
                         <outlet property="mondayTime" destination="iNT-aC-z1I" id="bX0-iQ-BzD"/>
+                        <outlet property="readAllButton" destination="gIg-Kp-4Ta" id="GOp-Ot-tpI"/>
                         <outlet property="saturdayTime" destination="CXk-Qb-CFe" id="353-0J-nSm"/>
                         <outlet property="storeAddress" destination="ukn-vH-A1w" id="xkr-1g-I7V"/>
                         <outlet property="storeAddressCN" destination="mrx-oA-qpt" id="KVA-Ns-wzP"/>
@@ -3016,7 +3018,7 @@ Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed 
                         <outlet property="storeGoodsTypeSecondDot" destination="4iz-hc-7YM" id="kQx-dB-g0I"/>
                         <outlet property="storeGoodsTypeSecondLabel" destination="fJn-eB-tzR" id="eBq-Sw-hw9"/>
                         <outlet property="storeGoodsTypeThirdLabel" destination="bJl-nJ-3Gh" id="49e-Ma-2FT"/>
-                        <outlet property="storeIntroduceTextView" destination="8UB-m7-UOn" id="qoV-Qp-wiL"/>
+                        <outlet property="storeIntroduceLabel" destination="YmF-4L-P0E" id="W4J-aG-EWQ"/>
                         <outlet property="storeLogoImage" destination="RN7-cB-nCT" id="uAc-Ul-EuJ"/>
                         <outlet property="storeName" destination="q2h-nt-6ZL" id="yts-uX-Tfz"/>
                         <outlet property="storeOpenHour" destination="Eyq-dS-Oge" id="4xj-cD-wNC"/>
