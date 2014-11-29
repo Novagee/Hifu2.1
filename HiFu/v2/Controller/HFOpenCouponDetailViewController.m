@@ -11,7 +11,7 @@
 #import "HFUIHelpers.h"
 #import "UIView+EasyFrames.h"
 
-@interface HFOpenCouponDetailViewController ()
+@interface HFOpenCouponDetailViewController ()<UIScrollViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIImageView *discountImage;
 @property (weak, nonatomic) IBOutlet UIScrollView *bottomView;
@@ -23,6 +23,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
     self.navigationItem.title = self.coupon.brandCN;
     [HFUIHelpers setupStyleFor:self.navigationController.navigationBar and:self.navigationItem];
     UIBarButtonItem *leftBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"arrow"] style:UIBarButtonItemStylePlain target:self action:@selector(leftBarButtonItemTapped)];
@@ -30,6 +31,8 @@
     
     self.navigationItem.leftBarButtonItem = leftBarButtonItem;
 
+    _bottomView.delegate = self;
+    
     __weak __typeof(self) weakSelf = self;
     [self.discountImage setImageWithURL:[NSURL URLWithString:self.coupon.couponPicUrl]
                             completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
@@ -45,9 +48,13 @@
                                 _bottomView.contentSize = (self.discountImage.size.height >= (self.view.height - 35 - 64 - 50))? self.discountImage.size : CGSizeZero;
                                 
                             }];
+    
 }
 
 - (void)viewDidAppear:(BOOL)animated {
+    
+    
+    
 }
 
 - (void)leftBarButtonItemTapped {
@@ -57,6 +64,12 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView {
+    
+    return self.discountImage;
+    
 }
 
 /*

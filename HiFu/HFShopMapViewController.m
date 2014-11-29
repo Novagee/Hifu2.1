@@ -9,6 +9,7 @@
 #import "HFShopMapViewController.h"
 #import "HFRangeViewController.h"
 #import "HFShopListViewController.h"
+#import "HFShopDetailViewController.h"
 #import "HFWifiViewController.h"
 #import "HFHotTeaViewController.h"
 #import "HFChineseHelpViewController.h"
@@ -47,6 +48,11 @@ CGFloat const defaultRadius=100000;
 @property (strong, nonatomic) NSArray *titleLabelDatas;
 @property (weak, nonatomic) IBOutlet UIView *storeInfoView;
 @property (weak, nonatomic) IBOutlet UIView *titleSubButtonBottom;
+
+@property (strong, nonatomic) NSMutableDictionary *openingTimes;
+@property (copy, nonatomic) NSString *openingTime;
+@property (copy, nonatomic) NSString *isOpening;
+@property (strong, nonatomic) StoreObject *currentStore;
 
 @end
 
@@ -101,7 +107,7 @@ CGFloat const defaultRadius=100000;
     
     // Bar button
     //
-    UIBarButtonItem *rightBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"list"] style:UIBarButtonItemStylePlain target:self action:@selector(showList:)];
+    UIBarButtonItem *rightBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"list"] style:UIBarButtonItemStylePlain target:self action:@selector(showList)];
     rightBarButtonItem.tintColor = [UIColor colorWithRed:255/255 green:99/255.0f blue:104/255.0f alpha:1.0];
     
     self.navigationItem.rightBarButtonItem = rightBarButtonItem;
@@ -121,6 +127,23 @@ CGFloat const defaultRadius=100000;
     //
     _storeInfoView.center = CGPointMake(self.view.size.width/2,
                                         self.view.size.height - self.storeInfoView.height/2 - 49 - 64);
+    
+    // Add Tap Gesture
+    //
+    
+    UITapGestureRecognizer *storeInfoTapGestureRecognizer = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapStoreInfoView)];
+    [self.storeInfoView addGestureRecognizer:storeInfoTapGestureRecognizer];
+    
+}
+
+- (void)tapStoreInfoView {
+    
+    HFShopDetailViewController *shopDetailViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"shopDetail"];
+    shopDetailViewController.cellInfo = self.currentStore;
+    shopDetailViewController.openingTime = self.openingTime;
+    shopDetailViewController.isOpening = self.isOpening;
+    
+    [self.navigationController pushViewController:shopDetailViewController animated:YES];
     
 }
 
@@ -356,6 +379,14 @@ CGFloat const defaultRadius=100000;
     [self fetchImageWithRequest:imageURLRequest finished:^(id responseObject) {
         self.mapDetailImageView.image = [[UIImage alloc]initWithData:responseObject];
     }];
+    
+    // Pass the store data and push detail view
+    //
+    [self configureOpeningTime];
+    [self configureDateStuffByStore:annotaionView.store];
+    _currentStore = annotaionView.store;
+    
+    
 }
 
 - (NSInteger )getWalkingDurationFromDistance: (NSNumber *) distance
@@ -569,5 +600,100 @@ CGFloat const defaultRadius=100000;
     }
     [SVProgressHUD dismiss];
 }
+
+- (void)configureOpeningTime {
+    
+    // Fetch the current date
+    //
+    NSDate *date = [NSDate date];
+    NSString *dateFormatString = [NSDateFormatter dateFormatFromTemplate:@"E" options:0
+                                                                  locale:[NSLocale currentLocale]];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:dateFormatString];
+    
+    NSString *todayString = [dateFormatter stringFromDate:date];
+    
+    // Fetch the current time
+    //
+    NSDate *time = [NSDate date];
+    NSDateFormatter *timeFormater = [[NSDateFormatter alloc]init];
+    [timeFormater setDateFormat:@"k:mm"];
+    NSString *currentTime = [timeFormater stringFromDate:time];
+    
+    // Store current time into array
+    //
+    NSArray *currentTimeArray = [currentTime componentsSeparatedByString:@":"];
+    NSInteger currentHour = ((NSString *)currentTimeArray[0]).integerValue;
+    NSInteger currentMinute = ((NSString *)currentTimeArray[1]).integerValue;
+    
+    // Fetch open and close time
+    //
+    NSString *openTimes = self.openingTimes[todayString][0];
+    NSString *closeTimes = self.openingTimes[todayString][1];
+    
+    // Fetch hours and minites
+    //
+    NSInteger openHour = ((NSString *)openTimes).integerValue/100;
+    NSInteger openMinute = ((NSString *)openTimes).integerValue%100;
+    NSInteger closeHour = ((NSString *)closeTimes).integerValue/100;
+    NSInteger closeMinute = ((NSString *)closeTimes).integerValue%100;
+    
+    if ((openHour * 60 + openMinute) <= (currentHour * 60 + currentMinute) &&
+        (currentHour * 60 + currentMinute) <= (closeHour * 60 + closeMinute)) {
+        self.isOpening = @"营业中";
+    }
+    
+    
+    // Configure Opeing time
+    //
+    self.openingTime = [NSString stringWithFormat:@"早%@%@到晚%@%@营业",
+                             [self convertOpenTime:openHour],
+                             openMinute == 0? @"":[NSString stringWithFormat:@":%i", openMinute],
+                             [self convertOpenTime:closeHour],
+                             closeMinute == 0? @"": [NSString stringWithFormat:@":%i", closeMinute]
+                             ];
+    
+}
+
+- (NSString *)convertOpenTime:(NSInteger )originString {
+    
+    return [NSString stringWithFormat:@"%i", originString%12];
+}
+
+- (void)configureDateStuffByStore:(StoreObject *)store {
+    
+    // Store the date into the dictionary
+    //
+    if (! _openingTimes) {
+        _openingTimes = [[NSMutableDictionary alloc]init];
+    }
+    
+    if (_openingTimes.count > 0) {
+        [_openingTimes removeAllObjects];
+    }
+    
+    [_openingTimes setValue:@[store.storeHour.mondayOpenHour ? : @"",
+                              store.storeHour.mondayCloseHour ? : @""]
+                     forKey:@"Mon"];
+    [_openingTimes setValue:@[store.storeHour.tuesdayOpenHour ? : @"",
+                              store.storeHour.tuesdayCloseHour ? : @""]
+                     forKey:@"Tue"];
+    [_openingTimes setValue:@[store.storeHour.wednesdayOpenHour ? : @"",
+                              store.storeHour.wednesdayCloseHour ? : @""]
+                     forKey:@"Wed"];
+    [_openingTimes setValue:@[store.storeHour.thrusdayOpenHour ? : @"",
+                              store.storeHour.thrusdayCloseHour ? : @""]
+                     forKey:@"Thu"];
+    [_openingTimes setValue:@[store.storeHour.fridayOpenHour ? : @"",
+                              store.storeHour.fridayCloseHour ? : @""]
+                     forKey:@"Fri"];
+    [_openingTimes setValue:@[store.storeHour.saturdayOpenHour ? : @"",
+                              store.storeHour.saturdayCloseHour ? : @""]
+                     forKey:@"Sat"];
+    [_openingTimes setValue:@[store.storeHour.sundayOpenHour ? : @"",
+                              store.storeHour.sundayCloseHour ? : @""]
+                     forKey:@"Sun"];
+}
+
 
 @end
