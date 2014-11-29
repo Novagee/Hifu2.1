@@ -30,6 +30,8 @@
                                                 failureBlock(error);
                                             }];
      */
+    
+    
     NSString *path = [NSString stringWithFormat:@"%@/trip/destinations/%@", HF_API_PATH_v2_1, userId];
     
     [[HFBaseAPIv2 sharedInstance] HFRequestGETWithURL:path

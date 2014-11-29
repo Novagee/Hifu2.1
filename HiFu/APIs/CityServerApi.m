@@ -40,7 +40,9 @@
 + (id)getServerCitiesSuccess:(void (^)(id coupons))successBlock
                         failure:(void (^)(NSError * error))failureBlock
 {
-    NSString *path = [NSString stringWithFormat:@"%@/trip/cities", HF_API_PATH_v2_1];
+    
+#warning HF_API_PATH mark
+    NSString *path = [NSString stringWithFormat:@"%@/trip/cities", HF_API_PATH];
     return [[HFBaseAPIv2 sharedInstance] HFRequestGETWithURL:path
                                                 parameters:nil
                                                    success:^(id responseObject) {
