@@ -517,7 +517,6 @@
 		B6E2F58819FB0FC8000CCEE0 /* HFLikeusTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B6E2F58619FB0FC8000CCEE0 /* HFLikeusTableViewCell.m */; };
 		B6E2F58919FB0FC8000CCEE0 /* HFLikeusTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6E2F58719FB0FC8000CCEE0 /* HFLikeusTableViewCell.xib */; };
 		B6E2F58C19FB1392000CCEE0 /* HFTermsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6E2F58B19FB1392000CCEE0 /* HFTermsViewController.m */; };
-		B6EA5E4D1A299C56004BF06A /* AirshipConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = B6EA5E4C1A299C56004BF06A /* AirshipConfig.plist */; };
 		B6F125131A18248B000D5840 /* HFOpenCouponViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6F125121A18248B000D5840 /* HFOpenCouponViewController.m */; };
 		B6F125171A18256C000D5840 /* HFOpenCouponTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B6F125151A18256C000D5840 /* HFOpenCouponTableViewCell.m */; };
 		B6F125181A18256C000D5840 /* HFOpenCouponTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6F125161A18256C000D5840 /* HFOpenCouponTableViewCell.xib */; };
@@ -1005,7 +1004,6 @@
 		B6E2F58719FB0FC8000CCEE0 /* HFLikeusTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HFLikeusTableViewCell.xib; sourceTree = "<group>"; };
 		B6E2F58A19FB1392000CCEE0 /* HFTermsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HFTermsViewController.h; sourceTree = "<group>"; };
 		B6E2F58B19FB1392000CCEE0 /* HFTermsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HFTermsViewController.m; sourceTree = "<group>"; };
-		B6EA5E4C1A299C56004BF06A /* AirshipConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AirshipConfig.plist; sourceTree = "<group>"; };
 		B6F125111A18248B000D5840 /* HFOpenCouponViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HFOpenCouponViewController.h; path = v2/Controller/HFOpenCouponViewController.h; sourceTree = "<group>"; };
 		B6F125121A18248B000D5840 /* HFOpenCouponViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HFOpenCouponViewController.m; path = v2/Controller/HFOpenCouponViewController.m; sourceTree = "<group>"; };
 		B6F125141A18256C000D5840 /* HFOpenCouponTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HFOpenCouponTableViewCell.h; path = v2/View/Nib/HFOpenCouponTableViewCell.h; sourceTree = "<group>"; };
@@ -1867,7 +1865,6 @@
 		2D6E61B51988CEE8006CD68E /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
-				B6EA5E4C1A299C56004BF06A /* AirshipConfig.plist */,
 				2D1278ED19AEF9E6002567E0 /* share_image.jpg */,
 				2D0C5D641988D5FB0002F5B9 /* HiFu-AppStore-Info.plist */,
 				2D0C5D651988D5FB0002F5B9 /* HiFu-Dev-Info.plist */,
@@ -2485,7 +2482,6 @@
 				2D05370D19B1D37900559C35 /* HFAlertView.xib in Resources */,
 				2D6E619F1988CDC2006CD68E /* YXShoppingListTagView.xib in Resources */,
 				9A0457871A25B84D00CA47B0 /* Default@2x.png in Resources */,
-				B6EA5E4D1A299C56004BF06A /* AirshipConfig.plist in Resources */,
 				2D6E611B1988CDC2006CD68E /* reg_loader_23.png in Resources */,
 				2D6E61731988CDC2006CD68E /* YXMeSettingNameCell.xib in Resources */,
 				2D6E61011988CDC2006CD68E /* couponLoadMore_10.png in Resources */,

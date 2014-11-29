@@ -54,6 +54,9 @@
 
 #define HF_API_PATH_v2 [NSString stringWithFormat:@"http://%@/v2", HF_API_BASE_PATH]
 
+#define HF_API_PATH_v2_1 [NSString stringWithFormat:@"http://%@/v2_1", HF_API_BASE_PATH]
+
+
 #define SER_PATH_CREATE_USER        [NSString stringWithFormat:@"http://%@/restful/user/", HF_API_BASE_PATH]
 #define SER_PATH_VERIFY             [NSString stringWithFormat:@"http://%@/restful/sms/verify/", HF_API_BASE_PATH]
 
