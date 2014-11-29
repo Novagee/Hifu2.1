@@ -53,9 +53,21 @@
         [HFUIHelpers roundCornerToHFDefaultRadius:self.searchWrapperView];
         [self.searchTableView registerNib:[YXDestinationSearchResultCell cellNib] forCellReuseIdentifier:[YXDestinationSearchResultCell reuseIdentifier]];
         
-        citiesArray = [CityServerApi getCities];
-        searchResultArray = citiesArray;
-        
+//        citiesArray = [CityServerApi getCities];
+        [CityServerApi getServerCitiesSuccess:^(id data) {
+            NSMutableArray *arr=[NSMutableArray new];
+            if (data) {
+                for (NSDictionary *dict in data) {
+                    CityObject *city = [[CityObject alloc] initWithDictionary:dict];
+                    [arr addObject:city];
+                }
+            }
+            citiesArray = [NSArray arrayWithArray:arr];
+            searchResultArray = citiesArray;
+            [self.searchTableView reloadData];
+        } failure:^(NSError *error) {
+            NSLog(@"Load citied fail.");
+        }];
     }
     return self;
 }

@@ -8,6 +8,7 @@
 
 #import "CityServerApi.h"
 #import "CityObject.h"
+#import "HFBaseAPIv2.h"
 
 @implementation CityServerApi
 
@@ -32,9 +33,21 @@
             [citiesArray addObject:city];
         }
     }
-    
+   
     return citiesArray;
 }
 
++ (id)getServerCitiesSuccess:(void (^)(id coupons))successBlock
+                        failure:(void (^)(NSError * error))failureBlock
+{
+    NSString *path = [NSString stringWithFormat:@"%@/trip/cities", HF_API_PATH_v2_1];
+    return [[HFBaseAPIv2 sharedInstance] HFRequestGETWithURL:path
+                                                parameters:nil
+                                                   success:^(id responseObject) {
+                                                       successBlock([responseObject objectForKey:@"data"]);
+                                                   } failure:^(NSError *error) {
+                                                       failureBlock(error);
+                                                   }];
+}
 
 @end

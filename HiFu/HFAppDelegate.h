@@ -11,6 +11,7 @@
 #import "WeiboSDK.h"
 #import <TencentOpenAPI/TencentOAuth.h>
 
+
 @interface HFAppDelegate : UIResponder <UIApplicationDelegate, WXApiDelegate, WeiboSDKDelegate>
 
 @property (strong, nonatomic) UIWindow *window;

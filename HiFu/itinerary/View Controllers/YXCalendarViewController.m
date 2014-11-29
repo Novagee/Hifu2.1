@@ -117,7 +117,20 @@
 #pragma mark - API Load Methods
 - (void)loadCities
 {
-    citiesArray = [CityServerApi getCities];
+    [CityServerApi getServerCitiesSuccess:^(id data) {
+        NSMutableArray *arr=[NSMutableArray new];
+        if (data) {
+            for (NSDictionary *dict in data) {
+                CityObject *city = [[CityObject alloc] initWithDictionary:dict];
+                [arr addObject:city];
+            }
+        }
+        citiesArray = [NSArray arrayWithArray:arr];
+        [self.tableView reloadData];
+    } failure:^(NSError *error) {
+        NSLog(@"Load citied fail.");
+    }];
+    NSLog(@"Cities:%@",citiesArray);
 }
 
 - (void)loadUserItinerary
