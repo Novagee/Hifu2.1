@@ -13,6 +13,9 @@
 
 - (void)viewDidLoad {
     
+    
+    self.tabBarController.tabBar.hidden = YES;
+    
     UIBarButtonItem *leftBarButton = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"arrow"] style:UIBarButtonItemStylePlain target:self action:@selector(leftBarButtonTapped)];
     leftBarButton.tintColor = [UIColor colorWithRed:255/255 green:99/255.0f blue:104/255.0f alpha:1.0];
     
@@ -20,6 +23,10 @@
     self.navigationItem.title = @"品牌介绍";
     
     self.detailIntroduction.text = self.detailText;
+    [self.detailIntroduction sizeToFit];
+    
+    self.bottomView.frame = CGRectMake(0, 0, self.view.width, self.view.height);
+    self.bottomView.contentSize = CGSizeMake(self.view.width, self.detailIntroduction.origin.y + self.detailIntroduction.size.height + 50);
     
     NSURLRequest *logoRequest = [[NSURLRequest alloc]initWithURL:[NSURL URLWithString:self.storeLogoURL]];
     [self fetchImageWithRequest:logoRequest finished:^(id responseObject) {
@@ -28,7 +35,8 @@
 }
 
 - (void)leftBarButtonTapped {
-    
+ 
+    self.tabBarController.tabBar.hidden = NO;
     self.tabBarController.tabBar.hidden = NO;
     [self.navigationController popViewControllerAnimated:YES];
     
@@ -51,6 +59,9 @@
     
     [httpRequestOperation start];
     
+}
+
+- (void)textViewDidChange:(UITextView *)textView {
     
     
 }

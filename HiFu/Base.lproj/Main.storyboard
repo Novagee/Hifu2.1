@@ -2453,11 +2453,11 @@ Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed 
             <objects>
                 <viewController restorationIdentifier="shopDetail" storyboardIdentifier="shopDetail" id="gib-eR-mfm" customClass="HFShopDetailViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7Kn-a8-Vgq">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="2000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="jiu-Vv-zoK">
-                                <rect key="frame" x="1" y="-2" width="320" height="570"/>
+                                <rect key="frame" x="1" y="0.0" width="320" height="2000"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" id="YOv-d6-uvY">
@@ -2570,16 +2570,15 @@ Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed 
                                                 <rect key="frame" x="0.0" y="120" width="320" height="80"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <subviews>
-                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="蒂梵妮(Tiffany &amp; Co.) 珠宝公司以钻石和银饰闻名于世。蒂梵妮(Tiffany）最负盛名的六爪镶嵌设计：把点，至今仍受推崇。把钻石托镶于........................" selectable="NO" id="8UB-m7-UOn">
-                                                        <rect key="frame" x="20" y="8" width="280" height="64"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="蒂梵妮(Tiffany &amp; Co.) 珠宝公司以钻石和银饰闻名于世。蒂梵妮蒂梵妮(Tiffany &amp; Co.) 珠宝公司以钻石和银饰闻名于世。蒂梵妮" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="YmF-4L-P0E">
+                                                        <rect key="frame" x="20" y="19" width="280" height="39"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                        <color key="textColor" red="0.50196081399917603" green="0.50196081399917603" blue="0.50196081399917603" alpha="1" colorSpace="calibratedRGB"/>
                                                         <fontDescription key="fontDescription" name="SimHei" family="SimHei" pointSize="13"/>
-                                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                    </textView>
+                                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="gIg-Kp-4Ta">
-                                                        <rect key="frame" x="227" y="45" width="73" height="15"/>
+                                                        <rect key="frame" x="227" y="45" width="73" height="13"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <fontDescription key="fontDescription" name="SimHei" family="SimHei" pointSize="13"/>
@@ -2592,7 +2591,7 @@ Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed 
                                                         </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="......" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="lLQ-Xu-t22">
-                                                        <rect key="frame" x="192" y="45" width="37" height="15"/>
+                                                        <rect key="frame" x="190" y="45" width="37" height="13"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
@@ -2990,9 +2989,12 @@ Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed 
                         </subviews>
                         <color key="backgroundColor" red="0.98431372549019602" green="0.98431372549019602" blue="0.98431372549019602" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="320" height="2000"/>
                     <connections>
                         <outlet property="chineseButton" destination="g5w-L8-Igq" id="keR-bK-X6q"/>
                         <outlet property="couponHeader" destination="DZI-xH-5Cb" id="zlQ-t9-Yay"/>
+                        <outlet property="detailDotsLabel" destination="lLQ-Xu-t22" id="2hv-Vb-LQS"/>
                         <outlet property="discountButton" destination="I8s-Kl-DNA" id="iDT-bK-wNl"/>
                         <outlet property="discountButtonImage" destination="9QU-ed-suU" id="BPd-kq-iHd"/>
                         <outlet property="distanceDurationLabel" destination="QT7-xP-qqG" id="vFv-ht-giz"/>
@@ -3003,10 +3005,12 @@ Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed 
                         <outlet property="goodsPageControl" destination="DRL-ff-Boc" id="F6B-ig-0Sx"/>
                         <outlet property="goodsScrollView" destination="xlU-gf-73k" id="ANa-Sz-QP2"/>
                         <outlet property="hotTeaButton" destination="rrY-gE-cdj" id="QdX-wS-Pb5"/>
+                        <outlet property="introductionTextBottom" destination="mbX-r2-3AO" id="oHS-F8-bH5"/>
                         <outlet property="locationSectionView" destination="HbQ-Na-3Xd" id="pSf-Im-smS"/>
                         <outlet property="mainBottomView" destination="jiu-Vv-zoK" id="wBO-Im-wWB"/>
                         <outlet property="mapView" destination="tAx-w4-j6I" id="srd-Ye-qTK"/>
                         <outlet property="mondayTime" destination="iNT-aC-z1I" id="bX0-iQ-BzD"/>
+                        <outlet property="readAllButton" destination="gIg-Kp-4Ta" id="GOp-Ot-tpI"/>
                         <outlet property="saturdayTime" destination="CXk-Qb-CFe" id="353-0J-nSm"/>
                         <outlet property="storeAddress" destination="ukn-vH-A1w" id="xkr-1g-I7V"/>
                         <outlet property="storeAddressCN" destination="mrx-oA-qpt" id="KVA-Ns-wzP"/>
@@ -3016,7 +3020,7 @@ Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed 
                         <outlet property="storeGoodsTypeSecondDot" destination="4iz-hc-7YM" id="kQx-dB-g0I"/>
                         <outlet property="storeGoodsTypeSecondLabel" destination="fJn-eB-tzR" id="eBq-Sw-hw9"/>
                         <outlet property="storeGoodsTypeThirdLabel" destination="bJl-nJ-3Gh" id="49e-Ma-2FT"/>
-                        <outlet property="storeIntroduceTextView" destination="8UB-m7-UOn" id="qoV-Qp-wiL"/>
+                        <outlet property="storeIntroduceLabel" destination="YmF-4L-P0E" id="W4J-aG-EWQ"/>
                         <outlet property="storeLogoImage" destination="RN7-cB-nCT" id="uAc-Ul-EuJ"/>
                         <outlet property="storeName" destination="q2h-nt-6ZL" id="yts-uX-Tfz"/>
                         <outlet property="storeOpenHour" destination="Eyq-dS-Oge" id="4xj-cD-wNC"/>
@@ -3037,26 +3041,36 @@ Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed 
             <objects>
                 <viewController storyboardIdentifier="storeInfoDetail" id="dGp-4j-tt0" customClass="HFStoreIntroductionViewController" sceneMemberID="viewController">
                     <view key="view" clipsSubviews="YES" contentMode="scaleToFill" id="kn0-NW-DwA">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="2000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="8bX-h8-nYn">
-                                <rect key="frame" x="60" y="35" width="200" height="60"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="bfy-FK-7UB">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" editable="NO" id="DT0-k6-9IZ">
-                                <rect key="frame" x="20" y="114" width="280" height="300"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="8bX-h8-nYn">
+                                        <rect key="frame" x="60" y="31" width="200" height="60"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="redraw" bounces="NO" alwaysBounceHorizontal="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" editable="NO" id="DT0-k6-9IZ">
+                                        <rect key="frame" x="20" y="111" width="280" height="395"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="dGp-4j-tt0" id="fzY-iw-hqi"/>
+                                        </connections>
+                                    </textView>
+                                </subviews>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="epE-b4-9nT"/>
                     <connections>
+                        <outlet property="bottomView" destination="bfy-FK-7UB" id="npD-TY-Jdf"/>
                         <outlet property="detailIntroduction" destination="DT0-k6-9IZ" id="NQa-Ay-XpQ"/>
                         <outlet property="storeLogo" destination="8bX-h8-nYn" id="iKL-W6-iZG"/>
                     </connections>
