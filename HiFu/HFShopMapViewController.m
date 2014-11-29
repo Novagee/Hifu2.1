@@ -382,10 +382,10 @@ CGFloat const defaultRadius=100000;
     
     // Pass the store data and push detail view
     //
-    [self configureOpeningTime];
-    [self configureDateStuffByStore:annotaionView.store];
-    _currentStore = annotaionView.store;
     
+    _currentStore = annotaionView.store;
+    [self configureDateStuffByStore:self.currentStore];
+    [self configureOpeningTime];
     
 }
 
@@ -642,7 +642,9 @@ CGFloat const defaultRadius=100000;
         (currentHour * 60 + currentMinute) <= (closeHour * 60 + closeMinute)) {
         self.isOpening = @"营业中";
     }
-    
+    else {
+        self.isOpening = @"已休息";
+    }
     
     // Configure Opeing time
     //
@@ -693,6 +695,8 @@ CGFloat const defaultRadius=100000;
     [_openingTimes setValue:@[store.storeHour.sundayOpenHour ? : @"",
                               store.storeHour.sundayCloseHour ? : @""]
                      forKey:@"Sun"];
+    
+    
 }
 
 
