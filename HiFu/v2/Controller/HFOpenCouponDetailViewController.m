@@ -72,6 +72,18 @@
     
 }
 
+-(void)scrollViewDidZoom:(UIScrollView *)scrollView{
+    
+    CGFloat width = scrollView.contentSize.width/2;
+    width -= width/scrollView.zoomScale;
+    
+    CGFloat height = scrollView.contentSize.height/2;
+    height =height-height/scrollView.zoomScale;
+    
+    scrollView.contentOffset = CGPointMake(width, height);
+    
+}
+
 /*
 #pragma mark - Navigation
 
