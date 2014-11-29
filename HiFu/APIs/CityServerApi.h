@@ -12,4 +12,7 @@
 
 + (NSArray *)getCities;
 
++ (id)getServerCitiesSuccess:(void (^)(id coupons))successBlock
+                     failure:(void (^)(NSError * error))failureBlock;
+
 @end

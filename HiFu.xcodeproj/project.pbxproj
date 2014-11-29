@@ -476,6 +476,7 @@
 		81EB84AF1A091E3F00A812EC /* HFDiscountReasonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81EB84AE1A091E3F00A812EC /* HFDiscountReasonViewController.m */; };
 		81EB84B21A0933AD00A812EC /* HFDiscountFinalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81EB84B11A0933AD00A812EC /* HFDiscountFinalViewController.m */; };
 		81F730751A0D349300DE5007 /* HFStoreIntroductionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81F730741A0D349300DE5007 /* HFStoreIntroductionViewController.m */; };
+		93C454E7D23680134896FEF3 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1688806061C3F757BC2E4690 /* libPods.a */; };
 		9A0457821A25B84D00CA47B0 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A04577C1A25B84D00CA47B0 /* Default-568h@2x.png */; };
 		9A0457831A25B84D00CA47B0 /* Default-667h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A04577D1A25B84D00CA47B0 /* Default-667h@2x.png */; };
 		9A0457841A25B84D00CA47B0 /* Default-Landscape-736h@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A04577E1A25B84D00CA47B0 /* Default-Landscape-736h@3x.png */; };
@@ -516,6 +517,7 @@
 		B6E2F58819FB0FC8000CCEE0 /* HFLikeusTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B6E2F58619FB0FC8000CCEE0 /* HFLikeusTableViewCell.m */; };
 		B6E2F58919FB0FC8000CCEE0 /* HFLikeusTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6E2F58719FB0FC8000CCEE0 /* HFLikeusTableViewCell.xib */; };
 		B6E2F58C19FB1392000CCEE0 /* HFTermsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6E2F58B19FB1392000CCEE0 /* HFTermsViewController.m */; };
+		B6EA5E4D1A299C56004BF06A /* AirshipConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = B6EA5E4C1A299C56004BF06A /* AirshipConfig.plist */; };
 		B6F125131A18248B000D5840 /* HFOpenCouponViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6F125121A18248B000D5840 /* HFOpenCouponViewController.m */; };
 		B6F125171A18256C000D5840 /* HFOpenCouponTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B6F125151A18256C000D5840 /* HFOpenCouponTableViewCell.m */; };
 		B6F125181A18256C000D5840 /* HFOpenCouponTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6F125161A18256C000D5840 /* HFOpenCouponTableViewCell.xib */; };
@@ -523,7 +525,6 @@
 		B6F125201A18371D000D5840 /* HFOpenCoupon.m in Sources */ = {isa = PBXBuildFile; fileRef = B6F1251F1A18371D000D5840 /* HFOpenCoupon.m */; };
 		B6F2A16C19DF6F5A00BD27B1 /* HFThirdPartyApi.m in Sources */ = {isa = PBXBuildFile; fileRef = B6F2A16B19DF6F5A00BD27B1 /* HFThirdPartyApi.m */; };
 		B6F2A16F19DFB20F00BD27B1 /* HFBaseAPIv2.m in Sources */ = {isa = PBXBuildFile; fileRef = B6F2A16E19DFB20F00BD27B1 /* HFBaseAPIv2.m */; };
-		FB994E579FFD215D71B75C25 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1688806061C3F757BC2E4690 /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -1004,6 +1005,7 @@
 		B6E2F58719FB0FC8000CCEE0 /* HFLikeusTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HFLikeusTableViewCell.xib; sourceTree = "<group>"; };
 		B6E2F58A19FB1392000CCEE0 /* HFTermsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HFTermsViewController.h; sourceTree = "<group>"; };
 		B6E2F58B19FB1392000CCEE0 /* HFTermsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HFTermsViewController.m; sourceTree = "<group>"; };
+		B6EA5E4C1A299C56004BF06A /* AirshipConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AirshipConfig.plist; sourceTree = "<group>"; };
 		B6F125111A18248B000D5840 /* HFOpenCouponViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HFOpenCouponViewController.h; path = v2/Controller/HFOpenCouponViewController.h; sourceTree = "<group>"; };
 		B6F125121A18248B000D5840 /* HFOpenCouponViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HFOpenCouponViewController.m; path = v2/Controller/HFOpenCouponViewController.m; sourceTree = "<group>"; };
 		B6F125141A18256C000D5840 /* HFOpenCouponTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HFOpenCouponTableViewCell.h; path = v2/View/Nib/HFOpenCouponTableViewCell.h; sourceTree = "<group>"; };
@@ -1062,7 +1064,7 @@
 				2D6E5F421988C9EE006CD68E /* QuartzCore.framework in Frameworks */,
 				2D6E5F111988C975006CD68E /* UIKit.framework in Frameworks */,
 				2D6E5F0D1988C975006CD68E /* Foundation.framework in Frameworks */,
-				FB994E579FFD215D71B75C25 /* libPods.a in Frameworks */,
+				93C454E7D23680134896FEF3 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1865,6 +1867,7 @@
 		2D6E61B51988CEE8006CD68E /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
+				B6EA5E4C1A299C56004BF06A /* AirshipConfig.plist */,
 				2D1278ED19AEF9E6002567E0 /* share_image.jpg */,
 				2D0C5D641988D5FB0002F5B9 /* HiFu-AppStore-Info.plist */,
 				2D0C5D651988D5FB0002F5B9 /* HiFu-Dev-Info.plist */,
@@ -2482,6 +2485,7 @@
 				2D05370D19B1D37900559C35 /* HFAlertView.xib in Resources */,
 				2D6E619F1988CDC2006CD68E /* YXShoppingListTagView.xib in Resources */,
 				9A0457871A25B84D00CA47B0 /* Default@2x.png in Resources */,
+				B6EA5E4D1A299C56004BF06A /* AirshipConfig.plist in Resources */,
 				2D6E611B1988CDC2006CD68E /* reg_loader_23.png in Resources */,
 				2D6E61731988CDC2006CD68E /* YXMeSettingNameCell.xib in Resources */,
 				2D6E61011988CDC2006CD68E /* couponLoadMore_10.png in Resources */,
@@ -2903,7 +2907,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HiFu/SupportingFiles/HiFu-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/HiFu/SupportingFiles/HiFu-Dev-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/HiFu/3rdPartyLibraries/libWeiboSDK",
@@ -2928,7 +2932,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HiFu/SupportingFiles/HiFu-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/HiFu/SupportingFiles/HiFu-Dev-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/HiFu/3rdPartyLibraries/libWeiboSDK",
@@ -2972,7 +2976,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				ONLY_ACTIVE_ARCH = NO;
 				PROVISIONING_PROFILE = "160a1f86-9366-4a19-bea2-7e39a563bd7e";
 				SDKROOT = iphoneos;
@@ -3007,7 +3011,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				ONLY_ACTIVE_ARCH = NO;
 				PROVISIONING_PROFILE = "160a1f86-9366-4a19-bea2-7e39a563bd7e";
 				SDKROOT = iphoneos;
@@ -3031,12 +3035,13 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HiFu/SupportingFiles/HiFu-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/HiFu/SupportingFiles/HiFu-AppStore-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/HiFu/3rdPartyLibraries/libWeiboSDK",
 					"$(PROJECT_DIR)/HiFu/v2/ThirdParty/SNS/weibo/libWeiboSDK",
 					"$(PROJECT_DIR)/HiFu/v2/ThirdParty/SNS/wechat",
+					"$(PROJECT_DIR)/HiFu/Airship",
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -3060,12 +3065,13 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HiFu/SupportingFiles/HiFu-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/HiFu/SupportingFiles/HiFu-AppStore-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/HiFu/3rdPartyLibraries/libWeiboSDK",
 					"$(PROJECT_DIR)/HiFu/v2/ThirdParty/SNS/weibo/libWeiboSDK",
 					"$(PROJECT_DIR)/HiFu/v2/ThirdParty/SNS/wechat",
+					"$(PROJECT_DIR)/HiFu/Airship",
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -9,6 +9,7 @@
 #import "ItineraryServerApi.h"
 #import "itineraryObject.h"
 #import "HFBaseApi.h"
+#import "HFBaseAPIv2.h"
 
 @implementation ItineraryServerApi
 
@@ -18,9 +19,20 @@
                     success:(void (^)(id itineraries))successBlock
                     failure:(void (^)(NSError * error))failureBlock
 {
+    /*
     NSString *path = [NSString stringWithFormat:@"%@/trip/destinations/%@", HF_API_PATH, userId];
     
     [[HFBaseApi sharedInstance] HFRequestGETWithURL:path
+                                         parameters:nil
+                                            success:^(id responseObject) {
+                                                successBlock(responseObject);
+                                            } failure:^(NSError *error) {
+                                                failureBlock(error);
+                                            }];
+     */
+    NSString *path = [NSString stringWithFormat:@"%@/trip/destinations/%@", HF_API_PATH_v2_1, userId];
+    
+    [[HFBaseAPIv2 sharedInstance] HFRequestGETWithURL:path
                                          parameters:nil
                                             success:^(id responseObject) {
                                                 successBlock(responseObject);
@@ -33,8 +45,18 @@
                      success:(void (^)())successBlock
                      failure:(void (^)(NSError * error))failureBlock
 {
+    /*
     NSString *path = [NSString stringWithFormat:@"%@/trip/destination/%@", HF_API_PATH, itinerayId];
     [[HFBaseApi sharedInstance] HFRequestDELETEWithURL:path
+                                            parameters:nil
+                                               success:^(id responseObject) {
+                                                   successBlock();
+                                               } failure:^(NSError *error) {
+                                                   failureBlock(error);
+                                               }];
+     */
+    NSString *path = [NSString stringWithFormat:@"%@/trip/destination/%@", HF_API_PATH_v2_1, itinerayId];
+    [[HFBaseAPIv2 sharedInstance] HFRequestDELETEWithURL:path
                                             parameters:nil
                                                success:^(id responseObject) {
                                                    successBlock();
@@ -65,9 +87,20 @@
         
         [parameters addObject:parameter];
     }
+    /*
     NSString *postPath = [NSString stringWithFormat:@"%@/trip/destinations", HF_API_PATH];
     
     [[HFBaseApi sharedInstance] HFRequestPOSTWithURL:postPath
+                                          parameters:parameters
+                                             success:^(id responseObject) {
+                                                 successBlock([responseObject objectForKey:@"message"]);
+                                             } failure:^(NSError *error) {
+                                                 failureBlock(error);
+                                             }];
+     */
+    NSString *postPath = [NSString stringWithFormat:@"%@/trip/destinations", HF_API_PATH_v2_1];
+    
+    [[HFBaseAPIv2 sharedInstance] HFRequestPOSTWithURL:postPath
                                           parameters:parameters
                                              success:^(id responseObject) {
                                                  successBlock([responseObject objectForKey:@"message"]);

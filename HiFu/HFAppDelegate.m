@@ -15,6 +15,10 @@
 #import "HFShareHelpers.h"
 
 @implementation HFAppDelegate
+{
+    BOOL alertIsShowing;
+}
+
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
