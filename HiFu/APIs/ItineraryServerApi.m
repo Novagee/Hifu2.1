@@ -105,7 +105,7 @@
     [[HFBaseAPIv2 sharedInstance] HFRequestPOSTWithURL:postPath
                                           parameters:parameters
                                              success:^(id responseObject) {
-                                                 successBlock([responseObject objectForKey:@"message"]);
+                                                 successBlock([responseObject objectForKey:@"data"]);
                                              } failure:^(NSError *error) {
                                                  failureBlock(error);
                                              }];

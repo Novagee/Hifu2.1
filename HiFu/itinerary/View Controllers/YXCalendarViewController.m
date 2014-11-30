@@ -126,7 +126,6 @@
             }
         }
         citiesArray = [NSArray arrayWithArray:arr];
-        [self.tableView reloadData];
     } failure:^(NSError *error) {
         NSLog(@"Load citied fail.");
     }];
