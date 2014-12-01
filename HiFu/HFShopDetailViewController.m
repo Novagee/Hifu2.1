@@ -991,6 +991,7 @@
     
     directionsRequest.source = currentLocation;
     directionsRequest.destination = destination;
+    directionsRequest.requestsAlternateRoutes = YES;
     
     MKDirections *directions = [[MKDirections alloc]initWithRequest:directionsRequest];
     [directions calculateDirectionsWithCompletionHandler:^(MKDirectionsResponse *response, NSError *error) {
