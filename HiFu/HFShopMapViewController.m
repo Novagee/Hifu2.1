@@ -438,9 +438,11 @@ CGFloat const defaultRadius=100000;
                                                      userInfo:@{@"currentStoreCity":@(self.currentStoreCity)}];
     
 }
+
 - (IBAction)locateUser:(id)sender {
     
     [self setMapCenterPoint];
+    
 }
 
 - (IBAction)switchCityTapped:(id)sender {
@@ -698,6 +700,5 @@ CGFloat const defaultRadius=100000;
     
     
 }
-
 
 @end

@@ -102,6 +102,7 @@
 
 @property (weak, nonatomic) IBOutlet UIView *locationSectionView;
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
+@property (assign, nonatomic) CLLocationCoordinate2D currentLocation;
 
 #pragma mark - Navigation Items
 
@@ -832,6 +833,16 @@
 
 - (IBAction)startLocationTapped:(id)sender {
     
+    MKPlacemark *startPlaceMark = [[MKPlacemark alloc]initWithCoordinate:[HFLocationManager sharedInstance].currentLocation.coordinate addressDictionary:nil];
+    MKMapItem *startMapItem = [[MKMapItem alloc]initWithPlacemark:startPlaceMark];
+    
+    MKPlacemark *destinationPlaceMark = [[MKPlacemark alloc]initWithCoordinate:CLLocationCoordinate2DMake(self.cellInfo.latitude.floatValue, self.cellInfo.longitude.floatValue) addressDictionary:nil];
+    MKMapItem *destinationMapItem = [[MKMapItem alloc]initWithPlacemark:destinationPlaceMark];
+    
+    NSLog(@"start : %@ to destination : %@ ", startPlaceMark, destinationPlaceMark);
+    
+    [self showDirectionFrom:startMapItem toDestination:destinationMapItem];
+    
 }
 
 #pragma mark - Storyboard Stuff
@@ -970,6 +981,52 @@
     hotTeaViewController.blurBackgroundImage = [HFUIHelpers takeScreenShotForViewController:self andApplyBlurEffect:YES andBlurRadius:8];
     [self.navigationController pushViewController:hotTeaViewController animated:NO];
     
+}
+
+#pragma mark - Map Direction Stack
+
+- (void)showDirectionFrom:(MKMapItem *)currentLocation toDestination:(MKMapItem *)destination {
+    
+    MKDirectionsRequest *directionsRequest = [[MKDirectionsRequest alloc]init];
+    
+    directionsRequest.source = currentLocation;
+    directionsRequest.destination = destination;
+    
+    MKDirections *directions = [[MKDirections alloc]initWithRequest:directionsRequest];
+    [directions calculateDirectionsWithCompletionHandler:^(MKDirectionsResponse *response, NSError *error) {
+        
+        if (error) {
+            
+            NSLog(@"A error occur while requesting a map direction :%@", error.userInfo);
+            
+        }
+        else {
+            
+            [self showRoute:response];
+            
+        }
+        
+    }];
+    
+}
+
+- (void)showRoute:(MKDirectionsResponse *)directionResponse {
+    
+    for (MKRoute *route in directionResponse.routes) {
+        
+        [_mapView addOverlay:route.polyline level:MKOverlayLevelAboveRoads];
+        
+    }
+    
+}
+
+- (MKOverlayRenderer *)mapView:(MKMapView *)mapView rendererForOverlay:(id<MKOverlay>)overlay {
+    
+    MKPolygonRenderer *polygonRenderer = [[MKPolygonRenderer alloc]initWithOverlay:overlay];
+    polygonRenderer.strokeColor = [UIColor blueColor];
+    polygonRenderer.lineWidth = 3.0f;
+    
+    return polygonRenderer;
 }
 
 @end
