@@ -10,7 +10,9 @@
 #import "WXApi.h"
 #import "WeiboSDK.h"
 #import <TencentOpenAPI/TencentOAuth.h>
-
+#import "UAirship.h"
+#import "UAConfig.h"
+#import "UAPush.h"
 
 @interface HFAppDelegate : UIResponder <UIApplicationDelegate, WXApiDelegate, WeiboSDKDelegate>
 

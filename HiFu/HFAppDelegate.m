@@ -14,6 +14,7 @@
 #import "TencentOpenAPI/QQApiInterface.h"
 #import "HFShareHelpers.h"
 
+
 @implementation HFAppDelegate
 {
     BOOL alertIsShowing;
@@ -54,6 +55,27 @@
     
     [self appFirstLaunch];
     
+    dispatch_async(dispatch_get_main_queue(), ^{
+        //UA
+        UAConfig *config = [UAConfig defaultConfig];
+        
+        // You can also programmatically override the plist values:
+        // config.developmentAppKey = @"YourKey";
+        // etc.
+        
+        // Call takeOff (which creates the UAirship singleton)
+        [UAirship takeOff:config];
+        
+        // Request a custom set of notification types
+        [UAPush shared].userNotificationTypes = (UIUserNotificationTypeAlert |
+                                                 UIUserNotificationTypeBadge |
+                                                 UIUserNotificationTypeSound);
+        
+        [UAPush shared].userPushNotificationsEnabled = YES;
+        
+        alertIsShowing = NO;
+    });
+
     return YES;
 }
 
@@ -96,6 +118,46 @@
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    UA_LDEBUG(@"Application did become active.");
+    
+    // Set the icon badge to zero on resume (optional)
+    [[UAPush shared] resetBadge];
+}
+
+-(void)application:(UIApplication*)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData*)deviceToken
+{
+    UA_LTRACE(@"Application registered for remote notifications with device token: %@", deviceToken);
+    [[UAPush shared] appRegisteredForRemoteNotificationsWithDeviceToken:deviceToken];
+    
+    //apns token
+//    NSString *token = [NSString stringWithFormat:@"%@", deviceToken];
+//    token = [token stringByReplacingOccurrencesOfString:@"<" withString:@""];
+//    token = [token stringByReplacingOccurrencesOfString:@">" withString:@""];
+//    token = [token stringByReplacingOccurrencesOfString:@" " withString:@""];
+}
+
+- (void)application:(UIApplication *)application didRegisterUserNotificationSettings:(UIUserNotificationSettings *)notificationSettings {
+    UA_LTRACE(@"Application did register with user notification types %ld", (unsigned long)notificationSettings.types);
+    [[UAPush shared] appRegisteredUserNotificationSettings];
+}
+
+- (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *) error {
+    UA_LERR(@"Application failed to register for remote notifications with error: %@", error);
+}
+
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
+    UA_LINFO(@"Application received remote notification: %@", userInfo);
+    [[UAPush shared] appReceivedRemoteNotification:userInfo applicationState:application.applicationState];
+}
+
+-(void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
+    UA_LINFO(@"Application received remote notification: %@", userInfo);
+    [[UAPush shared] appReceivedRemoteNotification:userInfo applicationState:application.applicationState fetchCompletionHandler:completionHandler];
+}
+
+- (void)application:(UIApplication *)application handleActionWithIdentifier:(NSString *)identifier forRemoteNotification:(NSDictionary *)userInfo completionHandler:(void (^)())handler {
+    UA_LINFO(@"Received remote notification button interaction: %@ notification: %@", identifier, userInfo);
+    [[UAPush shared] appReceivedActionWithIdentifier:identifier notification:userInfo applicationState:application.applicationState completionHandler:handler];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application
