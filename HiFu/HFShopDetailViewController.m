@@ -840,7 +840,18 @@
 
 - (IBAction)startLocationTapped:(id)sender {
     
-    [self showDirectionFrom:self.currecntMapItem toDestination:self.destinationMapItem];
+//    [self showDirectionFrom:self.currecntMapItem toDestination:self.destinationMapItem];
+  
+    NSString *mapURLString = [NSString stringWithFormat:@"http://maps.apple.com/?daddr=%@&saddr=%@",
+                              [self.destinationMapItem.name stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding],
+                              [self.currecntMapItem.name stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+
+//    NSString *mapURLString = [NSString stringWithFormat:@"http://maps.apple.com/?q=%@", self.destinationMapItem.name];
+//    NSLog(@"Name : %@", mapURLString);
+    
+    NSURL *mapURL = [NSURL URLWithString:mapURLString];
+    
+    [[UIApplication sharedApplication]openURL:mapURL];
     
 }
 
@@ -993,6 +1004,7 @@
     
     [destinationGeocoder reverseGeocodeLocation:destination completionHandler:
      ^(NSArray* placemarks, NSError* error){
+         
          if ([placemarks count] > 0)
          {
              _destinationMapItem = [[MKMapItem alloc]initWithPlacemark:placemarks.lastObject];
@@ -1006,9 +1018,11 @@
     
     [currentLocationGeocoder reverseGeocodeLocation:currentLocation completionHandler:
      ^(NSArray* placemarks, NSError* error){
+         
          if ([placemarks count] > 0)
          {
              _currecntMapItem = [[MKMapItem alloc]initWithPlacemark:placemarks.lastObject];
+             
          }
      }];
     
