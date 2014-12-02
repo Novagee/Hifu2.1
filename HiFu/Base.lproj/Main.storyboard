@@ -1092,7 +1092,7 @@
                     <navigationItem key="navigationItem" id="2to-z8-7Ep">
                         <nil key="title"/>
                         <view key="titleView" contentMode="scaleToFill" id="GLj-72-KKt">
-                            <rect key="frame" x="75" y="5.5" width="170" height="33"/>
+                            <rect key="frame" x="75" y="6" width="170" height="33"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="品牌中文名字" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Ikb-PE-4ce">
