@@ -843,15 +843,18 @@
 //    [self showDirectionFrom:self.currecntMapItem toDestination:self.destinationMapItem];
   
     NSString *mapURLString = [NSString stringWithFormat:@"http://maps.apple.com/?daddr=%@&saddr=%@",
-                              [self.destinationMapItem.name stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding],
-                              [self.currecntMapItem.name stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+                              [self.destinationMapItem.name stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding],
+                              [self.currecntMapItem.name stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
 
 //    NSString *mapURLString = [NSString stringWithFormat:@"http://maps.apple.com/?q=%@", self.destinationMapItem.name];
 //    NSLog(@"Name : %@", mapURLString);
     
     NSURL *mapURL = [NSURL URLWithString:mapURLString];
     
+    NSLog(@"Map URL %@", mapURLString);
+    
     [[UIApplication sharedApplication]openURL:mapURL];
+    
     
 }
 
@@ -1009,6 +1012,7 @@
          {
              _destinationMapItem = [[MKMapItem alloc]initWithPlacemark:placemarks.lastObject];
          }
+         
      }];
     
     // Fetch the current location map item via geocoder
@@ -1022,8 +1026,8 @@
          if ([placemarks count] > 0)
          {
              _currecntMapItem = [[MKMapItem alloc]initWithPlacemark:placemarks.lastObject];
-             
          }
+         
      }];
     
 }
