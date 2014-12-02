@@ -35,7 +35,7 @@
 #import "UIView+EasyFrames.h"
 
 #import "HFLocationManager.h"
-
+#import "SVProgressHUD.h"
 
 @interface HFShopDetailViewController ()<MKMapViewDelegate, CLLocationManagerDelegate, UIScrollViewDelegate, UIViewControllerTransitioningDelegate, HFCouponDisctountViewDelegate, HFCouponGiftViewDelegate>
 
@@ -113,6 +113,9 @@
 @property (assign, nonatomic) BOOL isliked;
 @property (strong, nonatomic) UIImageView *fakeLikeButton;
 @property (weak, nonatomic) IBOutlet UILabel *distanceDurationLabel;
+
+@property (strong, nonatomic) MKMapItem *currecntMapItem;
+@property (strong, nonatomic) MKMapItem *destinationMapItem;
 
 @end
 
@@ -199,6 +202,10 @@
     // Use an array to hold the coupon views
     //
     _couponViews = [[NSMutableArray alloc]init];
+    
+    // Fetch the map items
+    //
+    [self constructMapItems];
     
 }
 
@@ -833,15 +840,7 @@
 
 - (IBAction)startLocationTapped:(id)sender {
     
-    MKPlacemark *startPlaceMark = [[MKPlacemark alloc]initWithCoordinate:[HFLocationManager sharedInstance].currentLocation.coordinate addressDictionary:nil];
-    MKMapItem *startMapItem = [[MKMapItem alloc]initWithPlacemark:startPlaceMark];
-    
-    MKPlacemark *destinationPlaceMark = [[MKPlacemark alloc]initWithCoordinate:CLLocationCoordinate2DMake(self.cellInfo.latitude.floatValue, self.cellInfo.longitude.floatValue) addressDictionary:nil];
-    MKMapItem *destinationMapItem = [[MKMapItem alloc]initWithPlacemark:destinationPlaceMark];
-    
-    NSLog(@"start : %@ to destination : %@ ", startPlaceMark, destinationPlaceMark);
-    
-    [self showDirectionFrom:startMapItem toDestination:destinationMapItem];
+    [self showDirectionFrom:self.currecntMapItem toDestination:self.destinationMapItem];
     
 }
 
@@ -985,15 +984,48 @@
 
 #pragma mark - Map Direction Stack
 
+- (void)constructMapItems {
+    
+    // Fetch the destination map item via geocoder
+    //
+    CLGeocoder *destinationGeocoder = [[CLGeocoder alloc] init];
+    CLLocation *destination = [[CLLocation alloc]initWithLatitude:self.cellInfo.latitude.floatValue longitude:self.cellInfo.longitude.floatValue];
+    
+    [destinationGeocoder reverseGeocodeLocation:destination completionHandler:
+     ^(NSArray* placemarks, NSError* error){
+         if ([placemarks count] > 0)
+         {
+             _destinationMapItem = [[MKMapItem alloc]initWithPlacemark:placemarks.lastObject];
+         }
+     }];
+    
+    // Fetch the current location map item via geocoder
+    //
+    CLGeocoder *currentLocationGeocoder = [[CLGeocoder alloc] init];
+    CLLocation *currentLocation = [[CLLocation alloc]initWithLatitude:[HFLocationManager sharedInstance].currentLocation.coordinate.latitude longitude:[HFLocationManager sharedInstance].currentLocation.coordinate.longitude];
+    
+    [currentLocationGeocoder reverseGeocodeLocation:currentLocation completionHandler:
+     ^(NSArray* placemarks, NSError* error){
+         if ([placemarks count] > 0)
+         {
+             _currecntMapItem = [[MKMapItem alloc]initWithPlacemark:placemarks.lastObject];
+         }
+     }];
+    
+}
+
 - (void)showDirectionFrom:(MKMapItem *)currentLocation toDestination:(MKMapItem *)destination {
     
     MKDirectionsRequest *directionsRequest = [[MKDirectionsRequest alloc]init];
     
     directionsRequest.source = currentLocation;
     directionsRequest.destination = destination;
-    directionsRequest.requestsAlternateRoutes = YES;
+//    directionsRequest.transportType = MKDirectionsTransportTypeWalking;
     
     MKDirections *directions = [[MKDirections alloc]initWithRequest:directionsRequest];
+    
+    [SVProgressHUD show];
+    
     [directions calculateDirectionsWithCompletionHandler:^(MKDirectionsResponse *response, NSError *error) {
         
         if (error) {
@@ -1019,15 +1051,16 @@
         
     }
     
+    [SVProgressHUD dismiss];
 }
 
 - (MKOverlayRenderer *)mapView:(MKMapView *)mapView rendererForOverlay:(id<MKOverlay>)overlay {
     
-    MKPolygonRenderer *polygonRenderer = [[MKPolygonRenderer alloc]initWithOverlay:overlay];
-    polygonRenderer.strokeColor = [UIColor blueColor];
-    polygonRenderer.lineWidth = 3.0f;
+    MKPolylineRenderer *polylineRenderer = [[MKPolylineRenderer alloc]initWithOverlay:overlay];
+    polylineRenderer.strokeColor = [UIColor blueColor];
+    polylineRenderer.lineWidth = 3.0f;
     
-    return polygonRenderer;
+    return polylineRenderer;
 }
 
 @end
