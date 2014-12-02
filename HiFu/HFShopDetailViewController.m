@@ -839,23 +839,11 @@
 #pragma mark - Start Location Action
 
 - (IBAction)startLocationTapped:(id)sender {
-    
-//    [self showDirectionFrom:self.currecntMapItem toDestination:self.destinationMapItem];
-  
-    NSString *mapURLString = [NSString stringWithFormat:@"http://maps.apple.com/?daddr=%@&saddr=%@",
-                              [self.destinationMapItem.name stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding],
-                              [self.currecntMapItem.name stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
-
-//    NSString *mapURLString = [NSString stringWithFormat:@"http://maps.apple.com/?q=%@", self.destinationMapItem.name];
-//    NSLog(@"Name : %@", mapURLString);
+      
+    NSString *mapURLString = [NSString stringWithFormat:@"http://maps.apple.com/?daddr=%@,%@&saddr=%1.6f,%1.6f",self.cellInfo.latitude, self.cellInfo.longitude,[HFLocationManager sharedInstance].currentLocation.coordinate.latitude,[HFLocationManager sharedInstance].currentLocation.coordinate.longitude];
     
     NSURL *mapURL = [NSURL URLWithString:mapURLString];
-    
-    NSLog(@"Map URL %@", mapURLString);
-    
     [[UIApplication sharedApplication]openURL:mapURL];
-    
-    
 }
 
 #pragma mark - Storyboard Stuff
