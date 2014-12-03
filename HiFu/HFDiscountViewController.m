@@ -84,7 +84,9 @@
 }
 
 - (void)viewDidLayoutSubviews {
+    
     self.tabBarController.tabBar.hidden = YES;
+    
 }
 
 - (void)didReceiveMemoryWarning {

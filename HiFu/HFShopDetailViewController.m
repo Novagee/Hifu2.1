@@ -207,6 +207,9 @@
     //
     [self constructMapItems];
     
+    NSLog(@"Store Object Info : %@", self.cellInfo);
+    
+    
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -602,19 +605,24 @@
 - (void)configureServerSection {
     
     if (! self.cellInfo.hasTea) {
-        _hotTeaButton.alpha = 0.5f;
-        _hotTeaButton.userInteractionEnabled = NO;
-        _hotTeaButton.layer.borderColor = [UIColor lightGrayColor].CGColor;
+//        _hotTeaButton.alpha = 0.5f;
+//        _hotTeaButton.userInteractionEnabled = NO;
+//        _hotTeaButton.layer.borderColor = [UIColor lightGrayColor].CGColor;
+        
+        _hotTeaButton.hidden = YES;
     }
     if (! self.cellInfo.hasWifi) {
-        _wifiButton.alpha = 0.5f;
-        _wifiButton.userInteractionEnabled = NO;
-        _wifiButton.layer.borderColor = [UIColor lightGrayColor].CGColor;
+//        _wifiButton.alpha = 0.5f;
+//        _wifiButton.userInteractionEnabled = NO;
+//        _wifiButton.layer.borderColor = [UIColor lightGrayColor].CGColor;
+        _wifiButton.hidden = YES;
     }
     if (! self.cellInfo.hasChineseSales) {
-        _chineseButton.alpha = 0.5f;
-        _chineseButton.userInteractionEnabled = NO;
-        _chineseButton.layer.borderColor = [UIColor lightGrayColor].CGColor;
+//        _chineseButton.alpha = 0.5f;
+//        _chineseButton.userInteractionEnabled = NO;
+//        _chineseButton.layer.borderColor = [UIColor lightGrayColor].CGColor;
+        
+        _chineseButton.hidden = YES;
     }
     
 }

@@ -21,7 +21,7 @@
 @property (weak, nonatomic) IBOutlet UITextView *descriptionCN;
 @property (weak, nonatomic) IBOutlet UILabel *code;
 @property (weak, nonatomic) IBOutlet UIImageView *discountImage;
-@property (weak, nonatomic) IBOutlet UITextView *descriptionEN;
+@property (weak, nonatomic) IBOutlet UILabel *descriptionEN;
 @property (weak, nonatomic) IBOutlet UITextView *rule;
 
 

@@ -10,6 +10,7 @@
 #import "UIImageView+WebCache.h"
 #import "HFUIHelpers.h"
 #import "UIView+EasyFrames.h"
+#import "SVProgressHUD.h"
 
 @interface HFOpenCouponDetailViewController ()<UIScrollViewDelegate>
 
@@ -23,6 +24,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    [SVProgressHUD show];
     
     self.navigationItem.title = self.coupon.brandCN;
     [HFUIHelpers setupStyleFor:self.navigationController.navigationBar and:self.navigationItem];
@@ -46,6 +49,8 @@
                                 
                                 NSLog(@"Image Size : %f vs %f", self.discountImage.size.height, self.view.size.height - 35 - 64 - 50);
                                 _bottomView.contentSize = (self.discountImage.size.height >= (self.view.height - 35 - 64 - 50))? self.discountImage.size : CGSizeZero;
+                                
+                                [SVProgressHUD dismiss];
                                 
                             }];
     

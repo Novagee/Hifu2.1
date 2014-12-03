@@ -30,7 +30,7 @@
                           }];
     self.couponTitle.text = [NSString stringWithFormat:@"%@ %@",openCoupon.brand, openCoupon.brandCN];
     self.couponDiscount.text = openCoupon.titleCN;
-    self.couponExpiration.text = [NSString stringWithFormat:@"%@前有效",openCoupon.expireDateDisplay];
+    self.couponExpiration.text = [NSString stringWithFormat:@"%@",openCoupon.expireDateDisplay];
     
     
 }

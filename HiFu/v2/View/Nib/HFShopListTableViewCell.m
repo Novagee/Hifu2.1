@@ -379,6 +379,10 @@
 
 - (NSString *)convertOpenTime:(NSInteger )originString {
     
+    if (originString == 12) {
+        return [NSString stringWithFormat:@"%i", originString];
+    }
+    
     return [NSString stringWithFormat:@"%i", originString%12];
 }
 
