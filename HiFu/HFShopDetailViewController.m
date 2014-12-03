@@ -993,6 +993,8 @@
     CLGeocoder *destinationGeocoder = [[CLGeocoder alloc] init];
     CLLocation *destination = [[CLLocation alloc]initWithLatitude:self.cellInfo.latitude.floatValue longitude:self.cellInfo.longitude.floatValue];
     
+    NSLog(@"");
+    
     [destinationGeocoder reverseGeocodeLocation:destination completionHandler:
      ^(NSArray* placemarks, NSError* error){
          
