@@ -482,7 +482,7 @@
         
     }
     else {
-        HFCouponDisctountView *discountView = [[NSBundle mainBundle] loadNibNamed:@"HFCouponDiscount" owner:self options:nil].lastObject;
+        HFCouponDisctountView *discountView = [[NSBundle mainBundle] loadNibNamed:@"HFCouponDisctountView" owner:self options:nil].lastObject;
         
         discountView.delegate = self;
         discountView.tag = index;
