@@ -1120,11 +1120,11 @@
             </objects>
             <point key="canvasLocation" x="3593" y="-3369"/>
         </scene>
-        <!--设置-->
+        <!--更多-->
         <scene sceneID="ZH4-t7-EW6">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="g3Z-v3-8cB" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="设置" image="settings" id="qKt-1f-B0f"/>
+                    <tabBarItem key="tabBarItem" title="更多" image="more" id="qKt-1f-B0f"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="aOL-bx-rzD">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -4490,11 +4490,11 @@ Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed 
             </objects>
             <point key="canvasLocation" x="3056" y="-1106"/>
         </scene>
-        <!--预约-->
+        <!--预定-->
         <scene sceneID="jFe-gz-VL8">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="RCM-SQ-c6M" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="预约" image="favorite" id="1Na-xN-xe3"/>
+                    <tabBarItem key="tabBarItem" title="预定" image="cart" id="1Na-xN-xe3"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="MN4-Fx-OXx">
@@ -4518,6 +4518,7 @@ Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed 
         <image name="basket_add" width="30" height="25"/>
         <image name="boxChecked" width="12" height="12"/>
         <image name="calendar_v2" width="21" height="21"/>
+        <image name="cart" width="24" height="21"/>
         <image name="chinese_close" width="44" height="44"/>
         <image name="color" width="25" height="25"/>
         <image name="coupon_error" width="50" height="50"/>
@@ -4544,12 +4545,12 @@ Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed 
         <image name="map" width="21" height="33"/>
         <image name="message-icon" width="50" height="50"/>
         <image name="money_error" width="50" height="50"/>
+        <image name="more" width="20" height="6"/>
         <image name="no_item_list_image" width="250" height="178"/>
         <image name="no_record" width="150" height="272"/>
         <image name="plus" width="18" height="18"/>
         <image name="price_tag" width="24" height="25"/>
         <image name="qq" width="55" height="55"/>
-        <image name="settings" width="20" height="19"/>
         <image name="shop_error" width="50" height="50"/>
         <image name="sina-weibo" width="50" height="50"/>
         <image name="storeLocationLabelBackground.png" width="7" height="6"/>
