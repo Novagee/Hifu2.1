@@ -558,6 +558,7 @@
 		B681CAAA19EF1783004B473C /* HFMyFavoritesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B681CAA919EF1783004B473C /* HFMyFavoritesViewController.m */; };
 		B6AAF5541A12C812006806D3 /* HFUserApi.m in Sources */ = {isa = PBXBuildFile; fileRef = B6AAF5531A12C812006806D3 /* HFUserApi.m */; };
 		B6AAF5571A12EEA1006806D3 /* HFCouponApi.m in Sources */ = {isa = PBXBuildFile; fileRef = B6AAF5561A12EEA1006806D3 /* HFCouponApi.m */; };
+		B6DE7BE61A30F4FF00991B8A /* HFPreOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6DE7BE51A30F4FF00991B8A /* HFPreOrderViewController.m */; };
 		B6E2F57919FB0348000CCEE0 /* HFBindingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B6E2F57719FB0348000CCEE0 /* HFBindingTableViewCell.m */; };
 		B6E2F57A19FB0348000CCEE0 /* HFBindingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6E2F57819FB0348000CCEE0 /* HFBindingTableViewCell.xib */; };
 		B6E2F57E19FB0C63000CCEE0 /* HFGenderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B6E2F57C19FB0C63000CCEE0 /* HFGenderTableViewCell.m */; };
@@ -1211,6 +1212,8 @@
 		B6AAF5531A12C812006806D3 /* HFUserApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HFUserApi.m; path = v2/APIs/HFUserApi.m; sourceTree = "<group>"; };
 		B6AAF5551A12EEA1006806D3 /* HFCouponApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HFCouponApi.h; path = v2/APIs/HFCouponApi.h; sourceTree = "<group>"; };
 		B6AAF5561A12EEA1006806D3 /* HFCouponApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HFCouponApi.m; path = v2/APIs/HFCouponApi.m; sourceTree = "<group>"; };
+		B6DE7BE41A30F4FF00991B8A /* HFPreOrderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HFPreOrderViewController.h; path = v2/Controller/PreOrder/HFPreOrderViewController.h; sourceTree = "<group>"; };
+		B6DE7BE51A30F4FF00991B8A /* HFPreOrderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HFPreOrderViewController.m; path = v2/Controller/PreOrder/HFPreOrderViewController.m; sourceTree = "<group>"; };
 		B6E2F57619FB0348000CCEE0 /* HFBindingTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HFBindingTableViewCell.h; sourceTree = "<group>"; };
 		B6E2F57719FB0348000CCEE0 /* HFBindingTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HFBindingTableViewCell.m; sourceTree = "<group>"; };
 		B6E2F57819FB0348000CCEE0 /* HFBindingTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HFBindingTableViewCell.xib; sourceTree = "<group>"; };
@@ -2570,6 +2573,7 @@
 		B6800CF819DDBA8300C45F06 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				B6DE7BE31A30F4BD00991B8A /* PreOrder */,
 				B6F1251A1A182765000D5840 /* Open Coupon */,
 				B681CAA719EF1738004B473C /* MyFavorites */,
 				B6E01D9E19EDBF1300F00BE2 /* InfoCenter */,
@@ -2664,6 +2668,15 @@
 				B6AAF5501A12C4B4006806D3 /* TencentRequest.h */,
 			);
 			name = QQ;
+			sourceTree = "<group>";
+		};
+		B6DE7BE31A30F4BD00991B8A /* PreOrder */ = {
+			isa = PBXGroup;
+			children = (
+				B6DE7BE41A30F4FF00991B8A /* HFPreOrderViewController.h */,
+				B6DE7BE51A30F4FF00991B8A /* HFPreOrderViewController.m */,
+			);
+			name = PreOrder;
 			sourceTree = "<group>";
 		};
 		B6E01D9B19EDBEBD00F00BE2 /* ShopUtilities */ = {
@@ -3420,6 +3433,7 @@
 				B681CAAA19EF1783004B473C /* HFMyFavoritesViewController.m in Sources */,
 				B6220BFF1A2B9CD80087A6DB /* UAInboxMessageListCell.m in Sources */,
 				2D6E61481988CDC2006CD68E /* UIView+EasyFrames.m in Sources */,
+				B6DE7BE61A30F4FF00991B8A /* HFPreOrderViewController.m in Sources */,
 				2D6E60EB1988CDC2006CD68E /* PagedFlowView.m in Sources */,
 				8160B45E1A02643F00FF0B25 /* RegisterViewController.m in Sources */,
 				2D6E5F1D1988C975006CD68E /* HFAppDelegate.m in Sources */,

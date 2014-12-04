@@ -31,6 +31,8 @@
 #import "UserObject.h"
 #import "RegisterViewController.h"
 
+#import "YXCalendarViewController.h"
+
 
 @interface YXMeListPageViewController ()
 {
@@ -66,6 +68,10 @@
     mePageCellsArray = [NSArray arrayWithObjects:
                         @(MeInfoTitleCell),
                         @(MeInfoCell),
+                        @(MeSpacingCell),
+                        @(MeSpacingCell),
+                        @(MeSpacingCell),
+                        @(MeCalendarCell),
                         @(MeSpacingCell),
 //                        @(MeBindingTitleCell),
 //                        @(MeBindingWechatCell),
@@ -228,6 +234,15 @@
 //            }
         }
             break;
+        case MeCalendarCell:
+        {
+            HFBindingTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[HFBindingTableViewCell reuseIdentifier] forIndexPath:indexPath];
+            cell.bindingImage.image = [UIImage imageNamed:@"calendar_v2"];
+            cell.bindingLabel.text = @"我的行程";
+            cell.topSeparatorImageView.hidden = NO;
+            cell.bindingSwitch.hidden = YES;
+            return cell;
+        }
         case MeSpacingCell:
         {
             UITableViewCell *cell = [[UITableViewCell alloc] initWithFrame:CGRectMake(0, 0, 320, 40)];
@@ -406,6 +421,12 @@
 //                break;
             }
             
+        }
+            break;
+        case MeCalendarCell:
+        {
+            YXCalendarViewController* calender = [self.storyboard instantiateViewControllerWithIdentifier:@"calenderViewXY"];
+            [self.navigationController pushViewController:calender animated:YES];
         }
             break;
 //
