@@ -1576,7 +1576,7 @@
             </objects>
             <point key="canvasLocation" x="3521" y="1000"/>
         </scene>
-        <!--设置-->
+        <!--更多-->
         <scene sceneID="6Ns-Xh-PnS">
             <objects>
                 <viewController storyboardIdentifier="YXMeListPageViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="8zG-Ic-Vsv" customClass="YXMeListPageViewController" sceneMemberID="viewController">
@@ -1596,7 +1596,7 @@
                         </subviews>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <navigationItem key="navigationItem" title="设置" id="wh0-P4-56a"/>
+                    <navigationItem key="navigationItem" title="更多" id="wh0-P4-56a"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>

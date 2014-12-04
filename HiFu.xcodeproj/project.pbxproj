@@ -559,6 +559,8 @@
 		B6AAF5541A12C812006806D3 /* HFUserApi.m in Sources */ = {isa = PBXBuildFile; fileRef = B6AAF5531A12C812006806D3 /* HFUserApi.m */; };
 		B6AAF5571A12EEA1006806D3 /* HFCouponApi.m in Sources */ = {isa = PBXBuildFile; fileRef = B6AAF5561A12EEA1006806D3 /* HFCouponApi.m */; };
 		B6DE7BE61A30F4FF00991B8A /* HFPreOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6DE7BE51A30F4FF00991B8A /* HFPreOrderViewController.m */; };
+		B6DE7BEA1A31067D00991B8A /* HFCommonTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B6DE7BE81A31067D00991B8A /* HFCommonTableViewCell.m */; };
+		B6DE7BEB1A31067D00991B8A /* HFCommonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6DE7BE91A31067D00991B8A /* HFCommonTableViewCell.xib */; };
 		B6E2F57919FB0348000CCEE0 /* HFBindingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B6E2F57719FB0348000CCEE0 /* HFBindingTableViewCell.m */; };
 		B6E2F57A19FB0348000CCEE0 /* HFBindingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6E2F57819FB0348000CCEE0 /* HFBindingTableViewCell.xib */; };
 		B6E2F57E19FB0C63000CCEE0 /* HFGenderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B6E2F57C19FB0C63000CCEE0 /* HFGenderTableViewCell.m */; };
@@ -1214,6 +1216,9 @@
 		B6AAF5561A12EEA1006806D3 /* HFCouponApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HFCouponApi.m; path = v2/APIs/HFCouponApi.m; sourceTree = "<group>"; };
 		B6DE7BE41A30F4FF00991B8A /* HFPreOrderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HFPreOrderViewController.h; path = v2/Controller/PreOrder/HFPreOrderViewController.h; sourceTree = "<group>"; };
 		B6DE7BE51A30F4FF00991B8A /* HFPreOrderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HFPreOrderViewController.m; path = v2/Controller/PreOrder/HFPreOrderViewController.m; sourceTree = "<group>"; };
+		B6DE7BE71A31067D00991B8A /* HFCommonTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HFCommonTableViewCell.h; sourceTree = "<group>"; };
+		B6DE7BE81A31067D00991B8A /* HFCommonTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HFCommonTableViewCell.m; sourceTree = "<group>"; };
+		B6DE7BE91A31067D00991B8A /* HFCommonTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HFCommonTableViewCell.xib; sourceTree = "<group>"; };
 		B6E2F57619FB0348000CCEE0 /* HFBindingTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HFBindingTableViewCell.h; sourceTree = "<group>"; };
 		B6E2F57719FB0348000CCEE0 /* HFBindingTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HFBindingTableViewCell.m; sourceTree = "<group>"; };
 		B6E2F57819FB0348000CCEE0 /* HFBindingTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HFBindingTableViewCell.xib; sourceTree = "<group>"; };
@@ -1932,6 +1937,9 @@
 				2D6E60641988CDC2006CD68E /* YXMeUserInfoCell.h */,
 				2D6E60651988CDC2006CD68E /* YXMeUserInfoCell.m */,
 				2D6E60661988CDC2006CD68E /* YXMeUserInfoCell.xib */,
+				B6DE7BE71A31067D00991B8A /* HFCommonTableViewCell.h */,
+				B6DE7BE81A31067D00991B8A /* HFCommonTableViewCell.m */,
+				B6DE7BE91A31067D00991B8A /* HFCommonTableViewCell.xib */,
 			);
 			path = MeListPageCells;
 			sourceTree = "<group>";
@@ -3093,6 +3101,7 @@
 				2D6E619D1988CDC2006CD68E /* YXShoppingListItemCell.xib in Resources */,
 				2D6E61241988CDC2006CD68E /* reg_loader_31.png in Resources */,
 				B6220C021A2B9CD80087A6DB /* UAInboxUI.strings in Resources */,
+				B6DE7BEB1A31067D00991B8A /* HFCommonTableViewCell.xib in Resources */,
 				B6220C1D1A2B9CD80087A6DB /* UAMapPresentationViewController.xib in Resources */,
 				810C6AFB19EA78DE00D6D5B4 /* magicButton@2x.png in Resources */,
 				9A0457841A25B84D00CA47B0 /* Default-Landscape-736h@3x.png in Resources */,
@@ -3462,6 +3471,7 @@
 				811B024119EC235400E605FF /* HFFightTableViewCell.m in Sources */,
 				B6AAF5541A12C812006806D3 /* HFUserApi.m in Sources */,
 				2D6E61631988CDC2006CD68E /* MobileField.m in Sources */,
+				B6DE7BEA1A31067D00991B8A /* HFCommonTableViewCell.m in Sources */,
 				2D6E60FB1988CDC2006CD68E /* NSMutableArray+SWUtilityButtons.m in Sources */,
 				B6220BFD1A2B9CD80087A6DB /* UADateUtils.m in Sources */,
 				2D6E616E1988CDC2006CD68E /* YXMeSettingGenderCell.m in Sources */,
