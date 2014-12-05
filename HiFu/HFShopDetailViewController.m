@@ -68,8 +68,16 @@
 @property (weak, nonatomic) IBOutlet UIButton *discountButton;
 @property (weak, nonatomic) IBOutlet UIImageView *discountButtonImage;
 
+#pragma mark - Store Service View Section
+
+@property (weak, nonatomic) IBOutlet UIView *storeServiceViewSection;
+@property (weak, nonatomic) IBOutlet UIButton *wifiButton;
+@property (weak, nonatomic) IBOutlet UIButton *chineseButton;
+@property (weak, nonatomic) IBOutlet UIButton *hotTeaButton;
+
 #pragma mark - Shop Introduce View Section Property
 
+@property (weak, nonatomic) IBOutlet UIView *storeIntroduceViewSection;
 @property (weak, nonatomic) IBOutlet UIImageView *storeLogoImage;
 @property (weak, nonatomic) IBOutlet UILabel *storeIntroduceLabel;
 @property (weak, nonatomic) IBOutlet UIButton *readAllButton;
@@ -132,7 +140,7 @@
     //
     // Configure title
     //
-    self.navigationItem.title = self.cellInfo.merchant.merchantNameCN;
+    self.navigationItem.title = self.cellInfo.merchant.merchantName;
     
     // Left item
     //
@@ -225,13 +233,13 @@
     [super viewWillAppear:animated];
     
     [self configureStoreScrollSection];
+    [self configureServerSection];
     [self configureStoreBasicInfoSection];
     [self configureStoreIntroduceSection];
     [self configureCoupon];
     [self configureStoreLocationInfoSection];
     [self configureStoreOpeningSection];
     [self configureDistanceAndDuration];
-    [self configureServerSection];
 
 }
 
@@ -604,25 +612,35 @@
 
 - (void)configureServerSection {
     
+    if (! self.cellInfo.hasTea && ! self.cellInfo.hasWifi && ! self.cellInfo.hasChineseSales) {
+        
+        _storeServiceViewSection.hidden = YES;
+        
+        CGFloat storeServiceViewSectionHeight = self.storeServiceViewSection.height;
+        
+        _smartOffset = CGPointMake(self.smartOffset.x, self.smartOffset.y - storeServiceViewSectionHeight);
+        
+        _storeIntroduceViewSection.center = CGPointMake(self.storeIntroduceViewSection.center.x, self.storeIntroduceViewSection.center.y - storeServiceViewSectionHeight);
+        _couponHeader.center = CGPointMake(self.couponHeader.center.x, self.couponHeader.center.y - storeServiceViewSectionHeight);
+        _locationSectionView.center = CGPointMake(self.locationSectionView.center.x, self.locationSectionView.center.y - storeServiceViewSectionHeight);
+        
+    }
+    
     if (! self.cellInfo.hasTea) {
-//        _hotTeaButton.alpha = 0.5f;
-//        _hotTeaButton.userInteractionEnabled = NO;
-//        _hotTeaButton.layer.borderColor = [UIColor lightGrayColor].CGColor;
         
         _hotTeaButton.hidden = YES;
     }
+    
     if (! self.cellInfo.hasWifi) {
-//        _wifiButton.alpha = 0.5f;
-//        _wifiButton.userInteractionEnabled = NO;
-//        _wifiButton.layer.borderColor = [UIColor lightGrayColor].CGColor;
+        
         _wifiButton.hidden = YES;
+        
     }
+    
     if (! self.cellInfo.hasChineseSales) {
-//        _chineseButton.alpha = 0.5f;
-//        _chineseButton.userInteractionEnabled = NO;
-//        _chineseButton.layer.borderColor = [UIColor lightGrayColor].CGColor;
         
         _chineseButton.hidden = YES;
+        
     }
     
 }

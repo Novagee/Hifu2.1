@@ -26,7 +26,8 @@
 @property (weak, nonatomic) IBOutlet UIView *gradientView;
 
 @property (weak, nonatomic) IBOutlet UIView *infoViewBottom;
-@property (assign, nonatomic) CGFloat currentOffset;
+@property (assign, nonatomic) CGFloat currentServiceOffset;
+@property (assign, nonatomic) CGFloat currentGoodsTypeOffset;
 
 @end
 
@@ -242,7 +243,7 @@
         case 2:
             
             [self addServerLabel:storeServerType[0] AtIndex:0];
-            [self addServerDotByOffset:self.currentOffset];
+            [self addServerDotByOffset:self.currentServiceOffset];
             
             [self addServerLabel:storeServerType[1] AtIndex:1];
             
@@ -250,10 +251,10 @@
         case 3:
             
             [self addServerLabel:storeServerType[0] AtIndex:0];
-            [self addServerDotByOffset:self.currentOffset];
+            [self addServerDotByOffset:self.currentServiceOffset];
             
             [self addServerLabel:storeServerType[1] AtIndex:1];
-            [self addServerDotByOffset:self.currentOffset];
+            [self addServerDotByOffset:self.currentServiceOffset];
             
             [self addServerLabel:storeServerType[2] AtIndex:2];
             break;
@@ -266,7 +267,8 @@
 
 - (void)restoreUIControlsDefaultSetting {
     
-    _currentOffset = self.infoViewBottom.width - 20;
+    _currentServiceOffset = self.infoViewBottom.width - 20;
+    _currentGoodsTypeOffset = 20;
     
     [_gradientView.layer.sublayers makeObjectsPerformSelector:@selector(removeFromSuperlayer)];
     
@@ -441,25 +443,35 @@
     label.textColor = [UIColor colorWithRed:153/255.0f green:153/255.0f blue:153/255.0f alpha:1.0f];
     label.textAlignment = NSTextAlignmentCenter;
     label.text = title;
-    label.center = CGPointMake(self.currentOffset - label.width/2, kServerLabelCenterY);
+    label.center = CGPointMake(self.currentServiceOffset - label.width/2, kServerLabelCenterY);
 
     [self.infoViewBottom addSubview:label];
     
     NSLog(@"Label : %@", label);
     
-    _currentOffset = _currentOffset - label.width;
+    _currentServiceOffset = _currentServiceOffset - label.width;
 }
 
 - (void)addServerDotByOffset:(CGFloat)offset {
     
     UIImageView *dotImageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 4, 4)];
     dotImageView.image = [UIImage imageNamed:@"dot"];
-    dotImageView.center = CGPointMake(self.currentOffset - 6 - dotImageView.width/2, kServerDotCenterY);
+    dotImageView.center = CGPointMake(self.currentServiceOffset - 6 - dotImageView.width/2, kServerDotCenterY);
     
     [self.infoViewBottom addSubview:dotImageView];
     
-    _currentOffset = _currentOffset - dotImageView.width - 6 * 2;
+    _currentServiceOffset = _currentServiceOffset - dotImageView.width - 6 * 2;
 }
 
+- (void)addGoodsTypeLabel:(NSString *)title AtIndex:(NSInteger)index {
+    
+    UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, title.length * 14, 14)];
+    label.font = [UIFont fontWithName:@"SimHei" size:14];
+    label.textColor = [UIColor colorWithRed:153/255.0f green:153/255.0f blue:153/255.0f alpha:1.0f];
+    label.textAlignment = NSTextAlignmentCenter;
+    label.text = title;
+    label.center = CGPointMake(self.currentServiceOffset, kServerLabelCenterY);
+    
+}
 
 @end

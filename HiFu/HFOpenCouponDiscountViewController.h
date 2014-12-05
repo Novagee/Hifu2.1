@@ -20,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *couponExpiration;
 
 @property (weak, nonatomic) IBOutlet UITextView *storeAddress;
+@property (weak, nonatomic) IBOutlet UITextView *descriptionCN;
 
 @property (weak, nonatomic) IBOutlet UIScrollView *mainBottom;
 

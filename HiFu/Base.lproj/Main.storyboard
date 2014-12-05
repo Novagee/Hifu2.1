@@ -3035,10 +3035,12 @@ Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed 
                         <outlet property="storeGoodsTypeSecondLabel" destination="fJn-eB-tzR" id="eBq-Sw-hw9"/>
                         <outlet property="storeGoodsTypeThirdLabel" destination="bJl-nJ-3Gh" id="49e-Ma-2FT"/>
                         <outlet property="storeIntroduceLabel" destination="YmF-4L-P0E" id="W4J-aG-EWQ"/>
+                        <outlet property="storeIntroduceViewSection" destination="Xft-TL-X0r" id="LBA-G5-g9h"/>
                         <outlet property="storeLogoImage" destination="RN7-cB-nCT" id="uAc-Ul-EuJ"/>
                         <outlet property="storeName" destination="q2h-nt-6ZL" id="yts-uX-Tfz"/>
                         <outlet property="storeOpenHour" destination="Eyq-dS-Oge" id="4xj-cD-wNC"/>
                         <outlet property="storeOpeningLabel" destination="a8K-Th-SZH" id="Kab-nR-j8G"/>
+                        <outlet property="storeServiceViewSection" destination="YOv-d6-uvY" id="sZd-xZ-sEY"/>
                         <outlet property="sundayTime" destination="KtW-Bz-6AP" id="dXa-AH-kxR"/>
                         <outlet property="thursdayTime" destination="eCO-Go-hqp" id="6rr-6m-xZs"/>
                         <outlet property="tuesdayTime" destination="NbX-VF-p5o" id="ES8-dh-N5b"/>
@@ -4343,7 +4345,7 @@ Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed 
                                         </connections>
                                     </button>
                                     <view contentMode="scaleToFill" id="c1Y-SF-O46">
-                                        <rect key="frame" x="0.0" y="249" width="320" height="172"/>
+                                        <rect key="frame" x="0.0" y="249" width="320" height="103"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" id="Eae-cr-xcY" userLabel="line">
@@ -4358,18 +4360,20 @@ Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed 
                                                 <color key="textColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="OYJ-62-2as">
-                                                <rect key="frame" x="20" y="63" width="280" height="28"/>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" id="O2r-r6-aKP">
+                                                <rect key="frame" x="20" y="63" width="280" height="20"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" name="SimHei" family="SimHei" pointSize="14"/>
-                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
                                     <view contentMode="scaleToFill" id="6vG-CC-zYG">
-                                        <rect key="frame" x="0.0" y="431" width="320" height="100"/>
+                                        <rect key="frame" x="0.0" y="362" width="320" height="100"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" id="ovJ-dt-WyY" userLabel="line">
@@ -4389,6 +4393,7 @@ Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed 
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" name="SimHei" family="SimHei" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
@@ -4406,6 +4411,7 @@ Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed 
                         <outlet property="couponExpiration" destination="aOL-QS-WJj" id="jhq-X8-fK7"/>
                         <outlet property="couponImage" destination="7hT-c3-nOC" id="ZdA-Tk-cYf"/>
                         <outlet property="couponTitle" destination="DZQ-71-uU2" id="qmb-D6-Tfl"/>
+                        <outlet property="descriptionCN" destination="O2r-r6-aKP" id="GDR-Sp-nvG"/>
                         <outlet property="mainBottom" destination="0G4-oV-5f5" id="q8w-qZ-diJ"/>
                         <outlet property="storeAddress" destination="Nyj-1z-z03" id="kol-CL-hne"/>
                         <outlet property="storeAddressViewSection" destination="6vG-CC-zYG" id="qH3-Mb-FJh"/>

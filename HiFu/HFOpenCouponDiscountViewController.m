@@ -24,7 +24,12 @@
     
     [super viewWillAppear:animated];
     
-    [self configureStoreAddressViewSection];
+    _counponImageURLString = self.openCoupon.brandPicUrl;
+    _couponTitle.text = [NSString stringWithFormat:@"%@ %@",self.openCoupon.brand, self.openCoupon.brandCN];
+    _couponDiscount.text = self.openCoupon.titleCN;
+    _couponExpiration.text = [NSString stringWithFormat:@"%@",self.openCoupon.expireDateDisplay];
+    _storeAddress.text = self.openCoupon.itemDescription;
+    _descriptionCN.text = self.openCoupon.descriptionCN;
     
     [SVProgressHUD show];
     [self.couponImage setImageWithURL:[NSURL URLWithString:_counponImageURLString]
@@ -35,8 +40,10 @@
                                 }
                             }];
     
-    self.tabBarController.tabBar.hidden = YES;
+    [self configureStoreInfoViewSection];
+    [self configureStoreAddressViewSection];
     
+    self.tabBarController.tabBar.hidden = YES;
     
 }
 
@@ -52,6 +59,12 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    // Left item
+    //
+    UIBarButtonItem *leftBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"arrow"] style:UIBarButtonItemStylePlain target:self action:@selector(leftBarButtonItemTapped)];
+    leftBarButtonItem.tintColor = [UIColor colorWithRed:255/255.0f green:99/255.0f blue:104/255.0f alpha:1.0];
+    self.navigationItem.leftBarButtonItem = leftBarButtonItem;
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -59,24 +72,31 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)configureStoreInfoViewSection {
+    
+    [_descriptionCN sizeToFit];
+    
+    _storeInfoViewSection.size = CGSizeMake(self.storeInfoViewSection.bounds.size.width, self.storeInfoViewSection.bounds.size.height + self.descriptionCN.bounds.size.height);
+    
+}
+
 - (void)configureStoreAddressViewSection {
-    
-    _counponImageURLString = self.openCoupon.brandPicUrl;
-    _couponTitle.text = [NSString stringWithFormat:@"%@ %@",self.openCoupon.brand, self.openCoupon.brandCN];
-    _couponDiscount.text = self.openCoupon.titleCN;
-    _couponExpiration.text = [NSString stringWithFormat:@"%@",self.openCoupon.expireDateDisplay];
-    _storeAddress.text = self.openCoupon.itemDescription;
-    
     
     [_storeAddress sizeToFit];
     
     _storeAddressViewSection.size = CGSizeMake(self.storeAddressViewSection.bounds.size.width, self.storeAddressViewSection.bounds.size.height + self.storeAddress.bounds.size.height);
-    
+
+    _storeAddressViewSection.center = CGPointMake(self.storeAddressViewSection.center.x, self.couponImage.height + self.storeInfoViewSection.height + self.storeAddressViewSection.height/2 + 20 + 64);
+
     // Configure main bottom's content size
     //
     _mainBottom.contentSize = CGSizeMake(self.mainBottom.bounds.size.width, self.couponImage.size.height + self.storeInfoViewSection.bounds.size.height + self.storeAddressViewSection.bounds.size.height + 50);
-    
-    }
+
+}
+
+- (void)leftBarButtonItemTapped {
+    [self.navigationController popViewControllerAnimated:YES];
+}
 
 /*
 #pragma mark - Navigation

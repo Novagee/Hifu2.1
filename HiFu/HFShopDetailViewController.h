@@ -23,8 +23,4 @@
  */
 @property (copy, nonatomic) NSString *isOpening;
 
-@property (weak, nonatomic) IBOutlet UIButton *wifiButton;
-@property (weak, nonatomic) IBOutlet UIButton *chineseButton;
-@property (weak, nonatomic) IBOutlet UIButton *hotTeaButton;
-
 @end
