@@ -425,6 +425,7 @@
 		2DBBAE7E19A7034D00B7BCE9 /* HFUIHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBBAE7C19A7034D00B7BCE9 /* HFUIHelpers.m */; };
 		2DD225A019B1DF9500D994F4 /* HFAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DD2259F19B1DF9500D994F4 /* HFAlertView.m */; };
 		2DD225A119B1DF9500D994F4 /* HFAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DD2259F19B1DF9500D994F4 /* HFAlertView.m */; };
+		810B168B1A31454000DA119F /* HFOpenCouponDiscountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 810B168A1A31454000DA119F /* HFOpenCouponDiscountViewController.m */; };
 		810C6AF219EA2E4600D6D5B4 /* HFMagicButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 810C6AF119EA2E4600D6D5B4 /* HFMagicButton.m */; };
 		810C6AF519EA2FA300D6D5B4 /* HFBrowersTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 810C6AF419EA2FA300D6D5B4 /* HFBrowersTabBarController.m */; };
 		810C6AFB19EA78DE00D6D5B4 /* magicButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 810C6AFA19EA78DE00D6D5B4 /* magicButton@2x.png */; };
@@ -916,6 +917,8 @@
 		2DBBAE7C19A7034D00B7BCE9 /* HFUIHelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HFUIHelpers.m; sourceTree = "<group>"; };
 		2DD2259E19B1DF9500D994F4 /* HFAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HFAlertView.h; sourceTree = "<group>"; };
 		2DD2259F19B1DF9500D994F4 /* HFAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HFAlertView.m; sourceTree = "<group>"; };
+		810B16891A31454000DA119F /* HFOpenCouponDiscountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HFOpenCouponDiscountViewController.h; sourceTree = "<group>"; };
+		810B168A1A31454000DA119F /* HFOpenCouponDiscountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HFOpenCouponDiscountViewController.m; sourceTree = "<group>"; };
 		810C6AF019EA2E4600D6D5B4 /* HFMagicButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HFMagicButton.h; sourceTree = "<group>"; };
 		810C6AF119EA2E4600D6D5B4 /* HFMagicButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HFMagicButton.m; sourceTree = "<group>"; };
 		810C6AF319EA2FA300D6D5B4 /* HFBrowersTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HFBrowersTabBarController.h; sourceTree = "<group>"; };
@@ -2741,6 +2744,8 @@
 			children = (
 				B6F125111A18248B000D5840 /* HFOpenCouponViewController.h */,
 				B6F125121A18248B000D5840 /* HFOpenCouponViewController.m */,
+				810B16891A31454000DA119F /* HFOpenCouponDiscountViewController.h */,
+				810B168A1A31454000DA119F /* HFOpenCouponDiscountViewController.m */,
 				B6F1251B1A1827C9000D5840 /* HFOpenCouponDetailViewController.h */,
 				B6F1251C1A1827C9000D5840 /* HFOpenCouponDetailViewController.m */,
 			);
@@ -3334,6 +3339,7 @@
 				2D6E60F31988CDC2006CD68E /* SDWebImageManager.m in Sources */,
 				811C7AC51A14EE2700E4D6BA /* HFCouponDisctountView.m in Sources */,
 				2D5187A3198B060200267891 /* HFCouponDetailMoreCommentCell.m in Sources */,
+				810B168B1A31454000DA119F /* HFOpenCouponDiscountViewController.m in Sources */,
 				2D6E619C1988CDC2006CD68E /* YXShoppingListItemCell.m in Sources */,
 				2DA4F7211990BF25004C8CEB /* HFCouponRedeemViewController.m in Sources */,
 				2D6E61501988CDC2006CD68E /* HFLocationManager.m in Sources */,

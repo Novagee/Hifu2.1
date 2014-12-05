@@ -8,6 +8,7 @@
 
 #import "HFOpenCouponViewController.h"
 #import "HFOpenCouponTableViewCell.h"
+#import "HFOpenCouponDiscountViewController.h"
 #import "HFOpenCouponDetailViewController.h"
 #import "HFCouponApi.h"
 #import "UIScrollView+UzysAnimatedGifPullToRefresh.h"
@@ -148,10 +149,12 @@
     [cell setUpCoupon:coupon];
     [cell.couponDetailButton addTarget:self action:@selector(clickForDetails:) forControlEvents:UIControlEventTouchUpInside];
     return cell;
+    
 }
 
 - (void)clickForDetails:(id)sender
 {
+    
     UIButton *detailButton = (UIButton *)sender;
     UIView *view = detailButton;
     while (! [view isKindOfClass:[HFOpenCouponTableViewCell class]]) {
@@ -160,21 +163,20 @@
     HFOpenCouponTableViewCell *cell = (HFOpenCouponTableViewCell *)view;
     NSIndexPath *indexPath = [[self tableView] indexPathForCell:cell];
     [self tableView:self.tableView didSelectRowAtIndexPath:indexPath];
+    
 }
 
 #pragma mark - UITableView Delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    HFOpenCouponDetailViewController *detailViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"openCouponDetail"];
-    HFOpenCoupon *coupon = couponArray[indexPath.row];
-    detailViewController.coupon = coupon;
-    [self.navigationController pushViewController:detailViewController animated:YES];
-    [HFCouponApi browseOpenCoupon:coupon.couponId success:^{
-        NSLog(@"Open Coupon Collected Successfully");
-    } failure:^(NSError *error) {
-        NSLog(@"Open Coupon Collected Fail");
-    }];
+    HFOpenCouponDiscountViewController *openCouponDiscountViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"openCouponDiscount"];
+
+    HFOpenCoupon *openCoupon = couponArray[indexPath.row];
+    openCouponDiscountViewController.openCoupon = openCoupon;
+    
+    [self.navigationController pushViewController:openCouponDiscountViewController animated:YES];
+    
 }
 
 - (void)didReceiveMemoryWarning {

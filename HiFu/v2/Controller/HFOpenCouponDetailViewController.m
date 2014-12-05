@@ -45,7 +45,7 @@
                                     [weakSelf.discountImage setFrame:CGRectMake(weakSelf.discountImage.layer.frame.origin.x, weakSelf.discountImage.layer.frame.origin.y, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.width * (image.size.height/image.size.width))];
                                 }
                                 
-                                _bottomView.frame = CGRectMake(0, 35, self.view.width, self.view.height - 35 - 50);
+                                _bottomView.frame = CGRectMake(0, 35, self.view.width, self.view.height - 35);
                                 
                                 NSLog(@"Image Size : %f vs %f", self.discountImage.size.height, self.view.size.height - 35 - 64 - 50);
                                 _bottomView.contentSize = (self.discountImage.size.height >= (self.view.height - 35 - 64 - 50))? self.discountImage.size : CGSizeZero;
@@ -56,9 +56,19 @@
     
 }
 
-- (void)viewDidAppear:(BOOL)animated {
+- (void)viewWillAppear:(BOOL)animate {
     
+    [super viewWillAppear:animate];
     
+    self.tabBarController.tabBar.hidden = YES;
+    
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    
+    [super viewWillDisappear:animated];
+    
+    self.tabBarController.tabBar.hidden = NO;
     
 }
 
