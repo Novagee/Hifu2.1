@@ -465,7 +465,7 @@
             giftView.delegate = self;
             giftView.tag = index;
             
-            NSURLRequest *storePicRequest = [[NSURLRequest alloc]initWithURL:[NSURL URLWithString:((CouponObject *)self.cellInfo.coupons[0]).backgroundPictureURL]];
+            NSURLRequest *storePicRequest = [[NSURLRequest alloc]initWithURL:[NSURL URLWithString:couponObject.backgroundPictureURL]];
             [self fetchImageWithRequest:storePicRequest
                            finished:^(id responseObject) {
                                giftView.backgroundImageView.image = [[UIImage alloc]initWithData:responseObject];
