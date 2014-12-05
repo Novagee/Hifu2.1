@@ -19,7 +19,12 @@
 #define kServerLabelCenterY 27
 #define kServerDotCenterY 27
 
+#define kGoodTypeLabelCenterY 108
+#define kGoodTypeDotCenterY 108
+
 @interface HFShopListTableViewCell ()
+
+@property (weak, nonatomic) IBOutlet UIView *goodsTypeBottom;
 
 @property (strong, nonatomic) NSMutableArray *storeServerType;
 @property (strong, nonatomic) NSMutableDictionary *openingTimes;
@@ -183,42 +188,30 @@
             return ;
             break;
         case 1:
-            
-            _firstGoodsTypeLabel.hidden = NO;
-            _firstGoodsTypeLabel.text = goodsTypeInfo[0];
-            
-            _firstGoodsDot.hidden = YES;
-            _secondGoodsTypeLabel.hidden = YES;
 
-            _secondGoodsDot.hidden = YES;
-            _thirdGoodsTypeLabel.hidden = YES;
-
+            [self addGoodsTypeLabel:goodsTypeInfo[0]];
+            
             break;
         case 2:
             
-            _firstGoodsTypeLabel.hidden = NO;
-            _firstGoodsTypeLabel.text = goodsTypeInfo[0];
+            [self addGoodsTypeLabel:goodsTypeInfo[0]];
             
-            _firstGoodsDot.hidden = NO;
-            _secondGoodsTypeLabel.hidden = NO;
-            _secondGoodsTypeLabel.text = goodsTypeInfo[1];
+            [self addGoodTypeDotByOffset:self.currentGoodsTypeOffset];
             
-            _secondGoodsDot.hidden = YES;
-            _thirdGoodsTypeLabel.hidden = YES;
+            [self addGoodsTypeLabel:goodsTypeInfo[1]];
             
             break;
         case 3:
             
-            _firstGoodsTypeLabel.hidden = NO;
-            _firstGoodsTypeLabel.text = goodsTypeInfo[0];
+            [self addGoodsTypeLabel:goodsTypeInfo[0]];
             
-            _firstGoodsDot.hidden = NO;
-            _secondGoodsTypeLabel.hidden = NO;
-            _secondGoodsTypeLabel.text = goodsTypeInfo[1];
+            [self addGoodTypeDotByOffset:self.currentGoodsTypeOffset];
             
-            _secondGoodsDot.hidden = NO;
-            _thirdGoodsTypeLabel.hidden = NO;
-            _thirdGoodsTypeLabel.text = goodsTypeInfo[2];
+            [self addGoodsTypeLabel:goodsTypeInfo[1]];
+            
+            [self addGoodTypeDotByOffset:self.currentGoodsTypeOffset];
+            
+            [self addGoodsTypeLabel:goodsTypeInfo[2]];
             
             break;
             
@@ -237,26 +230,26 @@
             break;
         case 1:
             
-            [self addServerLabel:storeServerType[0] AtIndex:0];
+            [self addServerLabel:storeServerType[0]];
             
             break;
         case 2:
             
-            [self addServerLabel:storeServerType[0] AtIndex:0];
+            [self addServerLabel:storeServerType[0]];
             [self addServerDotByOffset:self.currentServiceOffset];
             
-            [self addServerLabel:storeServerType[1] AtIndex:1];
+            [self addServerLabel:storeServerType[1]];
             
             break;
         case 3:
             
-            [self addServerLabel:storeServerType[0] AtIndex:0];
+            [self addServerLabel:storeServerType[0]];
             [self addServerDotByOffset:self.currentServiceOffset];
             
-            [self addServerLabel:storeServerType[1] AtIndex:1];
+            [self addServerLabel:storeServerType[1]];
             [self addServerDotByOffset:self.currentServiceOffset];
             
-            [self addServerLabel:storeServerType[2] AtIndex:2];
+            [self addServerLabel:storeServerType[2]];
             break;
             
         default:
@@ -271,6 +264,7 @@
     _currentGoodsTypeOffset = 20;
     
     [_gradientView.layer.sublayers makeObjectsPerformSelector:@selector(removeFromSuperlayer)];
+    [_goodsTypeBottom.subviews makeObjectsPerformSelector:@selector(removeFromSuperview) withObject:nil];
     
     [_infoViewBottom.subviews makeObjectsPerformSelector:@selector(removeFromSuperview) withObject:nil];
     
@@ -436,7 +430,7 @@
     return  gradientImage;
 }
 
-- (void)addServerLabel:(NSString *)title AtIndex:(NSInteger)index{
+- (void)addServerLabel:(NSString *)title{
     
     UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, title.length * 14, 14)];
     label.font = [UIFont fontWithName:@"SimHei" size:14];
@@ -463,14 +457,31 @@
     _currentServiceOffset = _currentServiceOffset - dotImageView.width - 6 * 2;
 }
 
-- (void)addGoodsTypeLabel:(NSString *)title AtIndex:(NSInteger)index {
+- (void)addGoodsTypeLabel:(NSString *)title{
     
     UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, title.length * 14, 14)];
     label.font = [UIFont fontWithName:@"SimHei" size:14];
     label.textColor = [UIColor colorWithRed:153/255.0f green:153/255.0f blue:153/255.0f alpha:1.0f];
     label.textAlignment = NSTextAlignmentCenter;
     label.text = title;
-    label.center = CGPointMake(self.currentServiceOffset, kServerLabelCenterY);
+    label.center = CGPointMake(self.currentGoodsTypeOffset + label.width/2, kGoodTypeLabelCenterY);
+    
+    [self.goodsTypeBottom addSubview:label];
+    
+    NSLog(@"Goods Type Label : %@", label);
+    
+    _currentGoodsTypeOffset = _currentGoodsTypeOffset + label.width;
+}
+
+- (void)addGoodTypeDotByOffset:(CGFloat)offset {
+    
+    UIImageView *dotImageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 4, 4)];
+    dotImageView.image = [UIImage imageNamed:@"dot"];
+    dotImageView.center = CGPointMake(self.currentGoodsTypeOffset + 6 + dotImageView.width/2, kGoodTypeDotCenterY);
+    
+    [self.goodsTypeBottom addSubview:dotImageView];
+    
+    _currentGoodsTypeOffset = _currentGoodsTypeOffset + dotImageView.width + 6 * 2;
     
 }
 
