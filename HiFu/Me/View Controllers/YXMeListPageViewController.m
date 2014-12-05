@@ -31,6 +31,9 @@
 #import "UserObject.h"
 #import "RegisterViewController.h"
 
+#import "YXCalendarViewController.h"
+#import "HFCommonTableViewCell.h"
+
 
 @interface YXMeListPageViewController ()
 {
@@ -64,9 +67,13 @@
     [HFUIHelpers setupStyleFor:self.navigationController.navigationBar and:self.navigationItem];
     [HFUIHelpers removeBottomBorderFromNavBar:self.navigationController.navigationBar];
     mePageCellsArray = [NSArray arrayWithObjects:
-                        @(MeInfoTitleCell),
+//                        @(MeInfoTitleCell),
+                        @(MeSpacingCell),
                         @(MeInfoCell),
                         @(MeSpacingCell),
+                        @(MeCalendarCell),
+                        @(MeSpacingCell),
+                        @(MeLikeUsCell),
 //                        @(MeBindingTitleCell),
 //                        @(MeBindingWechatCell),
 //                        @(MeBindingWeiboCell),
@@ -74,11 +81,11 @@
 //                        @(MeBindingMobileCell),
 //                        @(MeTermsCell),
 //                        @(MeSpacingCell),
-                        @(MeMoreTitleCell),
+//                        @(MeMoreTitleCell),
 //                        @(MeMoreGenderCell),
 //                        @(MeMoreAgeCell),
-                        @(MeSpacingCell),
-                        @(MeLikeUsCell),
+//                        @(MeSpacingCell),
+//                        @(MeLikeUsCell),
 //                        @(MEUserLogin),
                         nil];
     
@@ -89,6 +96,7 @@
     [self.tableView registerNib:[HFAgeTableViewCell cellNib] forCellReuseIdentifier:[HFAgeTableViewCell reuseIdentifier]];
     [self.tableView registerNib:[HFLikeusTableViewCell cellNib] forCellReuseIdentifier:[HFLikeusTableViewCell reuseIdentifier]];
     [self.tableView registerNib:[HFMEUserLoginCell cellNib] forCellReuseIdentifier:[HFMEUserLoginCell reuseIdentifier]];
+    [self.tableView registerNib:[HFCommonTableViewCell cellNib] forCellReuseIdentifier:[HFCommonTableViewCell reuseIdentifier]];
     
 //    if (HF_DEVICE_HEIGHT < 568) {
 //        self.hifuServiceImageView.frame = CGRectMake(self.hifuServiceImageView.frame.origin.x,
@@ -151,8 +159,13 @@
             break;
         case MeSpacingCell:
             return 10;
+            break;
         case MeLikeUsCell:
             return 60;
+            break;
+        case MeCalendarCell:
+            return 60;
+            break;
         default:
             return [YXMeRegularCell heightForCell];
             break;
@@ -228,6 +241,13 @@
 //            }
         }
             break;
+        case MeCalendarCell:
+        {
+            HFCommonTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[HFCommonTableViewCell reuseIdentifier] forIndexPath:indexPath];
+            cell.icon.image = [UIImage imageNamed:@"calendar_more"];
+            cell.title.text = @"我的行程";
+            return cell;
+        }
         case MeSpacingCell:
         {
             UITableViewCell *cell = [[UITableViewCell alloc] initWithFrame:CGRectMake(0, 0, 320, 40)];
@@ -361,8 +381,9 @@
             break;
         case MeLikeUsCell:
         {
-            HFLikeusTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[HFLikeusTableViewCell reuseIdentifier] forIndexPath:indexPath];
-            [cell.feedbackButton addTarget:self action:@selector(handleFeedbackButton:) forControlEvents:(UIControlEventTouchUpInside)];
+            HFCommonTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[HFCommonTableViewCell reuseIdentifier] forIndexPath:indexPath];
+            cell.icon.image = [UIImage imageNamed:@"feedback_more"];
+            cell.title.text = @"意见反馈";
             return cell;
         }
             break;
@@ -408,6 +429,12 @@
             
         }
             break;
+        case MeCalendarCell:
+        {
+            YXCalendarViewController* calender = [self.storyboard instantiateViewControllerWithIdentifier:@"calenderViewXY"];
+            [self.navigationController pushViewController:calender animated:YES];
+        }
+            break;
 //
 //        case MeFavoriteBrandsCell:
 //        {
@@ -434,6 +461,11 @@
                 HFTermsViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"HFTermsViewController"];
                 [self presentViewController:vc animated:YES completion:nil];
             }
+            break;
+        case MeLikeUsCell:
+        {
+            [self handleFeedbackButton];
+        }
             break;
         default:
             //Coming soon or space cell, don't need to do anything for now
@@ -485,7 +517,7 @@
 }
 
 
-- (IBAction)handleFeedbackButton:(id)sender {
+- (void)handleFeedbackButton {
     MFMailComposeViewController *mailComposeVC = [[MFMailComposeViewController alloc] init];
     mailComposeVC.mailComposeDelegate = self;
     

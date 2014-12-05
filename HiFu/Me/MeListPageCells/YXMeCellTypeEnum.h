@@ -29,6 +29,8 @@ typedef enum {
     MeLikeUsCell,
     
     MEUserLogin,
+    
+    MeCalendarCell
 } YXMeCellType;
 
 
