@@ -32,7 +32,7 @@
      */
     
     
-    NSString *path = [NSString stringWithFormat:@"%@/trip/destinations/%@", HF_API_PATH_v2_1, userId];
+    NSString *path = [NSString stringWithFormat:@"%@/trip/destinations/%@", HF_API_PATH_v2, userId];
     
     [[HFBaseAPIv2 sharedInstance] HFRequestGETWithURL:path
                                          parameters:nil
@@ -57,7 +57,7 @@
                                                    failureBlock(error);
                                                }];
      */
-    NSString *path = [NSString stringWithFormat:@"%@/trip/destination/%@", HF_API_PATH_v2_1, itinerayId];
+    NSString *path = [NSString stringWithFormat:@"%@/trip/destination/%@", HF_API_PATH_v2, itinerayId];
     [[HFBaseAPIv2 sharedInstance] HFRequestDELETEWithURL:path
                                             parameters:nil
                                                success:^(id responseObject) {
@@ -100,7 +100,7 @@
                                                  failureBlock(error);
                                              }];
      */
-    NSString *postPath = [NSString stringWithFormat:@"%@/trip/destinations", HF_API_PATH_v2_1];
+    NSString *postPath = [NSString stringWithFormat:@"%@/trip/destinations", HF_API_PATH_v2];
     
     [[HFBaseAPIv2 sharedInstance] HFRequestPOSTWithURL:postPath
                                           parameters:parameters
