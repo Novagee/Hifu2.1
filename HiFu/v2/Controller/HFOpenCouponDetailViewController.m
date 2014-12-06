@@ -27,7 +27,7 @@
     
     [SVProgressHUD show];
     
-    self.navigationItem.title = self.coupon.brandCN;
+    self.navigationItem.title = (self.coupon.brandCN&&self.coupon.brandCN.length>1)?self.coupon.brandCN:self.coupon.brand;
     [HFUIHelpers setupStyleFor:self.navigationController.navigationBar and:self.navigationItem];
     UIBarButtonItem *leftBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"arrow"] style:UIBarButtonItemStylePlain target:self action:@selector(leftBarButtonItemTapped)];
     leftBarButtonItem.tintColor = [UIColor colorWithRed:255/255.0f green:99/255.0f blue:104/255.0f alpha:1.0];
