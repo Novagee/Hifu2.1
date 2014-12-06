@@ -245,6 +245,7 @@
         {
             HFCommonTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[HFCommonTableViewCell reuseIdentifier] forIndexPath:indexPath];
             cell.icon.image = [UIImage imageNamed:@"calendar_more"];
+            cell.title.font = [UIFont fontWithName:@"SimHei" size:14];
             cell.title.text = @"我的行程";
             return cell;
         }
@@ -383,6 +384,7 @@
         {
             HFCommonTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[HFCommonTableViewCell reuseIdentifier] forIndexPath:indexPath];
             cell.icon.image = [UIImage imageNamed:@"feedback_more"];
+            cell.title.font = [UIFont fontWithName:@"SimHei" size:14];
             cell.title.text = @"意见反馈";
             return cell;
         }

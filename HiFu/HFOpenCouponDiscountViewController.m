@@ -28,7 +28,7 @@
     
     _counponImageURLString = self.openCoupon.brandPicUrl;
     _couponTitle.text = [NSString stringWithFormat:@"%@ %@",self.openCoupon.brand, self.openCoupon.brandCN];
-    _couponDiscount.text = self.openCoupon.brandCN;
+    _couponDiscount.text = self.openCoupon.titleCN;
     _couponExpiration.text = [NSString stringWithFormat:@"%@",self.openCoupon.expireDateDisplay];
     _storeAddress.text = self.openCoupon.itemDescription;
     _descriptionCN.text = self.openCoupon.descriptionCN;

@@ -175,6 +175,8 @@
     HFOpenCoupon *openCoupon = couponArray[indexPath.row];
     openCouponDiscountViewController.openCoupon = openCoupon;
     
+    NSLog(@"%@", openCoupon);
+    
     [self.navigationController pushViewController:openCouponDiscountViewController animated:YES];
     
 }

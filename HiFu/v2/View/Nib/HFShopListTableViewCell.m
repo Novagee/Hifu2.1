@@ -461,7 +461,7 @@
     
     UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, title.length * 14, 14)];
     label.font = [UIFont fontWithName:@"SimHei" size:14];
-    label.textColor = [UIColor colorWithRed:153/255.0f green:153/255.0f blue:153/255.0f alpha:1.0f];
+    label.textColor = [UIColor whiteColor];
     label.textAlignment = NSTextAlignmentCenter;
     label.text = title;
     label.center = CGPointMake(self.currentGoodsTypeOffset + label.width/2, kGoodTypeLabelCenterY);
