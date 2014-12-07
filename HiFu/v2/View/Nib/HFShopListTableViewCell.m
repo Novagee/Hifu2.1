@@ -330,7 +330,6 @@
             self.isOpeningLabel.text = @"营业中";        
     }
     
-    
     // Configure Opeing time
     //
     self.openingTime.text = [NSString stringWithFormat:@"早%@%@到晚%@%@营业",
@@ -375,8 +374,8 @@
 
 - (NSString *)convertOpenTime:(NSInteger )originString {
     
-    if (originString == 12) {
-        return [NSString stringWithFormat:@"%i", originString];
+    if (originString == 0) {
+        return @"12";
     }
     
     return [NSString stringWithFormat:@"%i", originString%12];
