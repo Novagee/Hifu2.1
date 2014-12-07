@@ -244,7 +244,7 @@
         case MeCalendarCell:
         {
             HFCommonTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[HFCommonTableViewCell reuseIdentifier] forIndexPath:indexPath];
-            cell.icon.image = [UIImage imageNamed:@"calendar_more"];
+            cell.icon.image = [UIImage imageNamed:@"Calendar"];
             cell.title.font = [UIFont fontWithName:@"SimHei" size:14];
             cell.title.text = @"我的行程";
             return cell;
