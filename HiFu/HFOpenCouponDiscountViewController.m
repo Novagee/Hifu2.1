@@ -99,8 +99,6 @@
     // Configure main bottom's content size
     //
     _mainBottom.contentSize = CGSizeMake(self.mainBottom.bounds.size.width, self.couponImage.size.height + self.storeInfoViewSection.bounds.size.height + self.storeAddressViewSection.bounds.size.height + 50);
-
-    _mainBottom.size = CGSizeMake(self.view.width, self.view.height - 64);
     
 }
 
