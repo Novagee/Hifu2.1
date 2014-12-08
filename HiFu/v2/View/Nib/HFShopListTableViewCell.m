@@ -332,12 +332,18 @@
     
     // Configure Opeing time
     //
+    if(openHour==0){
+        self.openingTime.hidden = YES;
+    }else{
+        self.openingTime.hidden = NO;
+    }
     self.openingTime.text = [NSString stringWithFormat:@"早%@%@到晚%@%@营业",
                              [self convertOpenTime:openHour],
                              openMinute == 0? @"":[NSString stringWithFormat:@":%i", openMinute],
                              [self convertOpenTime:closeHour],
                              closeMinute == 0? @"": [NSString stringWithFormat:@":%i", closeMinute]
                              ];
+    
     
 }
 
@@ -374,7 +380,7 @@
 
 - (NSString *)convertOpenTime:(NSInteger )originString {
     
-    if (originString == 0) {
+    if (originString == 12) {
         return @"12";
     }
     
