@@ -198,6 +198,7 @@
             if (self.islogined) {
                 YXMeUserInfoCell *cell = [tableView dequeueReusableCellWithIdentifier:[YXMeUserInfoCell reuseIdentifier] forIndexPath:indexPath];
                 cell.userNameLabel.text = [UserServerApi sharedInstance].currentUser.displayName;
+                cell.userNameLabel.font = [UIFont fontWithName:@"SimHei" size:14];
                 if ([UserServerApi sharedInstance].currentUser.imageUrl) {
                     cell.userAvatarImageView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[UserServerApi sharedInstance].currentUser.imageUrl]]];
                 }else{
