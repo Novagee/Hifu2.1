@@ -20,8 +20,8 @@
                     <rect key="frame" x="148" y="26" width="25" height="25"/>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="购买满$4,000可以享受所有商品9折优惠" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="8" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="8jp-mv-JsK">
-                    <rect key="frame" x="40" y="59" width="240" height="119"/>
-                    <fontDescription key="fontDescription" name="SimHei" family="SimHei" pointSize="15"/>
+                    <rect key="frame" x="50" y="59" width="220" height="119"/>
+                    <fontDescription key="fontDescription" name="SimHei" family="SimHei" pointSize="16"/>
                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
