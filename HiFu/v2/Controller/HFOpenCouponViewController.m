@@ -47,6 +47,16 @@
 - (void) viewWillAppear:(BOOL)animated{
     [self setupPullToRefresh];
     [Appsee addEvent:@"OpenCouponList"];
+    
+    self.tabBarController.tabBar.hidden = NO;
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    
+    [super viewDidAppear:animated];
+    
+    self.hidesBottomBarWhenPushed = YES;
+
 }
 
 -(void)setupPullToRefresh {
@@ -174,8 +184,6 @@
 
     HFOpenCoupon *openCoupon = couponArray[indexPath.row];
     openCouponDiscountViewController.openCoupon = openCoupon;
-    
-    NSLog(@"%@", openCoupon);
     
     [self.navigationController pushViewController:openCouponDiscountViewController animated:YES];
     

@@ -23,6 +23,7 @@
     self.navigationItem.title = @"品牌介绍";
     
     self.detailIntroduction.text = self.detailText;
+    self.detailIntroduction.tintColor = [UIColor colorWithRed:0.929 green:0.408 blue:0.322 alpha:1.000];
     [self.detailIntroduction sizeToFit];
     
     self.bottomView.frame = CGRectMake(0, 0, self.view.width, self.view.height);

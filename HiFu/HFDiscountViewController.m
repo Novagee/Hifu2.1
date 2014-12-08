@@ -30,6 +30,7 @@
 @property (strong, nonatomic) HFShareView *shareView;
 @property (weak, nonatomic) IBOutlet UIView *couponTopView;
 @property (weak, nonatomic) IBOutlet UIView *discountCNView;
+@property (weak, nonatomic) IBOutlet UIView *discountRuleView;
 
 @end
 
@@ -113,12 +114,23 @@
         
     }];
     
+    //Dynamic resize the view
+    //
+    [self.descriptionCN sizeToFit];
+    self.discountCNView.frame = CGRectMake(self.discountCNView.origin.x, self.discountCNView.origin.y, self.discountCNView.width, self.discountCNView.height + self.descriptionCN.height);
+    
+    [self.rule sizeToFit];
+    self.discountRuleView.frame = CGRectMake(self.discountRuleView.origin.x, self.discountRuleView.origin.y + self.descriptionCN.height, self.discountRuleView.width, self.discountRuleView.height + self.rule.height);
+    
     if (!self.coupon.backgroundPictureURL||[@"" isEqualToString:self.coupon.backgroundPictureURL]) {
         int imageHeight = 180;
         self.couponTopView.frame = CGRectMake(self.couponTopView.frame.origin.x, self.couponTopView.frame.origin.y, self.couponTopView.frame.size.width, self.couponTopView.frame.size.height-imageHeight);
         self.discountCNView.frame = CGRectMake(self.discountCNView.frame.origin.x, self.discountCNView.origin.y-imageHeight, self.discountCNView.size.width, self.discountCNView.size.height);
-        _bottomView.contentSize = CGSizeMake(self.bottomView.bounds.size.width, 700-imageHeight);
+        
+        self.discountRuleView.frame = CGRectMake(self.discountRuleView.frame.origin.x, self.discountRuleView.origin.y-imageHeight, self.discountRuleView.size.width, self.discountRuleView.size.height);
+
     }
+    _bottomView.contentSize = CGSizeMake(self.bottomView.bounds.size.width, self.discountRuleView.origin.y + self.discountRuleView.height + 100);
     
 }
 

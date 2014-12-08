@@ -161,10 +161,10 @@
             return 10;
             break;
         case MeLikeUsCell:
-            return 60;
+            return 45;
             break;
         case MeCalendarCell:
-            return 60;
+            return 45;
             break;
         default:
             return [YXMeRegularCell heightForCell];
@@ -206,7 +206,7 @@
                 }
 //                [cell.userAvatarImageView setFrame:CGRectMake(cell.userAvatarImageView.frame.origin.x
 //                                                                , cell.userAvatarImageView.frame.origin.y, 44, 44)];
-                cell.userAvatarImageView.layer.cornerRadius = 22;
+                cell.userAvatarImageView.layer.cornerRadius = 16;
                 cell.userAvatarImageView.clipsToBounds = YES;
 //                cell.userAvatarImageView.image = [UIImage imageNamed:[currentUser.avatarNum stringValue]];
                 [cell.logoutButton addTarget:self action:@selector(logoutButtonClicked:) forControlEvents:UIControlEventTouchUpInside];

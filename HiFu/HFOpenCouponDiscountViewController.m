@@ -50,7 +50,7 @@
     
     [self configureStoreInfoViewSection];
     [self configureStoreAddressViewSection];
-    
+
     self.tabBarController.tabBar.hidden = YES;
     
 }
@@ -58,8 +58,6 @@
 - (void)viewWillDisappear:(BOOL)animated {
     
     [super viewWillDisappear:animated];
-    
-    self.tabBarController.tabBar.hidden = NO;
     
 }
 
@@ -98,7 +96,7 @@
 
     // Configure main bottom's content size
     //
-    _mainBottom.contentSize = CGSizeMake(self.mainBottom.bounds.size.width, self.couponImage.size.height + self.storeInfoViewSection.bounds.size.height + self.storeAddressViewSection.bounds.size.height + 50);
+    _mainBottom.contentSize = CGSizeMake(self.mainBottom.bounds.size.width, self.couponImage.size.height + self.storeInfoViewSection.bounds.size.height + self.storeAddressViewSection.bounds.size.height + 100);
     
 }
 

@@ -22,7 +22,7 @@
 
 + (float)heightForCell
 {
-    return 60;
+    return 45;
 }
 
 + (NSString *)reuseIdentifier
