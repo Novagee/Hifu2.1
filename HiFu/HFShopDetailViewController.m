@@ -53,6 +53,7 @@
 
 #pragma mark - Store Basic Info Property
 
+@property (weak, nonatomic) IBOutlet UIView *storeBasicInfoViewSection;
 @property (weak, nonatomic) IBOutlet UILabel *storeName;
 @property (weak, nonatomic) IBOutlet UILabel *storeOpenHour;
 @property (weak, nonatomic) IBOutlet UILabel *storeOpeningLabel;
@@ -233,14 +234,20 @@
     [super viewWillAppear:animated];
     
     [self configureStoreScrollSection];
-    [self configureServerSection];
     [self configureStoreBasicInfoSection];
     [self configureStoreIntroduceSection];
     [self configureCoupon];
     [self configureStoreLocationInfoSection];
     [self configureStoreOpeningSection];
     [self configureDistanceAndDuration];
+    [self configureServerSection];
+}
 
+
+- (void)viewDidLayoutSubviews {
+    
+    [super viewDidLayoutSubviews];
+    
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
@@ -624,6 +631,15 @@
         _couponHeader.center = CGPointMake(self.couponHeader.center.x, self.couponHeader.center.y - storeServiceViewSectionHeight);
         _locationSectionView.center = CGPointMake(self.locationSectionView.center.x, self.locationSectionView.center.y - storeServiceViewSectionHeight);
         
+        // Store Basic View
+        //
+        _storeBasicInfoViewSection.layer.shadowOffset = CGSizeMake(0, 1);
+        _storeBasicInfoViewSection.layer.shadowOpacity = 0.6f;
+        _storeBasicInfoViewSection.layer.shadowRadius = 1;
+        _storeBasicInfoViewSection.layer.shadowColor = [UIColor colorWithRed:85/255.0 green:85/255.0 blue:85/255 alpha:1.0].CGColor;
+        
+        NSLog(@"Layer Info : %@", self.storeBasicInfoViewSection);
+        
     }
     
     if (! self.cellInfo.hasTea) {
@@ -962,7 +978,9 @@
     CouponObject *coupon = self.cellInfo.coupons[button.superview.tag];
     [Appsee addEvent:@"UseCoupon" withProperties:@{@"couponId":coupon.couponId}];
     discountViewController.coupon = coupon;
-    discountViewController.salesName = self.cellInfo.salesName;
+    discountViewController.salesName = self.cellInfo.merchant.merchantName;
+    
+    NSLog(@"Sale name : %@", self.cellInfo.salesName);
     
     self.tabBarController.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:discountViewController animated:YES];
@@ -979,7 +997,9 @@
     CouponObject *coupon = self.cellInfo.coupons[button.superview.tag];
     [Appsee addEvent:@"UseCoupon" withProperties:@{@"couponId":coupon.couponId}];
     discountViewController.coupon = coupon;
-    discountViewController.salesName = self.cellInfo.salesName;
+    discountViewController.salesName = self.cellInfo.merchant.merchantName;
+
+    NSLog(@"Sale name : %@", self.cellInfo);
     
     self.tabBarController.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:discountViewController animated:YES];

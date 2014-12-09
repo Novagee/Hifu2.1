@@ -66,6 +66,13 @@
     NSLog(@"storesArrayCount:%i",self.storesArray.count);
 }
 
+- (void)viewDidDisappear:(BOOL)animated {
+    
+    [super viewDidDisappear:animated];
+    
+    self.tabBarController.tabBar.hidden = NO;
+}
+
 - (IBAction)segmentTapped:(id)sender {
     switch (self.favSegment.selectedSegmentIndex) {
             
