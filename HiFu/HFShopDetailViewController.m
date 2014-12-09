@@ -126,6 +126,8 @@
 @property (strong, nonatomic) MKMapItem *currecntMapItem;
 @property (strong, nonatomic) MKMapItem *destinationMapItem;
 
+@property (assign, nonatomic) BOOL reduceServiceHeightAlready;
+
 @end
 
 @implementation HFShopDetailViewController
@@ -227,11 +229,6 @@
     //
     [self.view.window addSubview:self.fakeLikeButton];
     
-}
-
-- (void)viewWillAppear:(BOOL)animated {
-    
-    [super viewWillAppear:animated];
     
     [self configureStoreScrollSection];
     [self configureStoreBasicInfoSection];
@@ -241,6 +238,12 @@
     [self configureDistanceAndDuration];
     [self configureServerSection];
     [self configureCoupon];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    
+    [super viewWillAppear:animated];
+
 }
 
 
@@ -256,7 +259,7 @@
     
     _animationStop = YES;
 
-    [self removeCoupons];
+//    [self removeCoupons];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -619,8 +622,8 @@
 
 - (void)configureServerSection {
     
-    if (! self.cellInfo.hasTea && ! self.cellInfo.hasWifi && ! self.cellInfo.hasChineseSales) {
-        
+    if (!_reduceServiceHeightAlready && ! self.cellInfo.hasTea && ! self.cellInfo.hasWifi && ! self.cellInfo.hasChineseSales) {
+        _reduceServiceHeightAlready = YES;
         _storeServiceViewSection.hidden = YES;
         
         CGFloat storeServiceViewSectionHeight = self.storeServiceViewSection.height;
