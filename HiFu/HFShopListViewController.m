@@ -200,12 +200,7 @@
     
     [super viewDidAppear:animated];
     
-//    for (NSIndexPath *indexPath in self.tableView.indexPathsForVisibleRows) {
-//        HFShopListTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"HFShopListTableViewCell" forIndexPath:indexPath];
-//        cell.delegate = self;
-//        
-//        NSLog(@"Table view indexPath : %@", cell);
-//    }
+    self.tabBarController.tabBar.hidden = NO;
     
 }
 

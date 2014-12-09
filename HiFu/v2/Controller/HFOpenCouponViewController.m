@@ -55,6 +55,7 @@
     
     [super viewDidAppear:animated];
     
+    self.tabBarController.tabBar.hidden = NO;
     self.hidesBottomBarWhenPushed = YES;
 
 }
