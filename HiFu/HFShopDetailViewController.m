@@ -236,11 +236,11 @@
     [self configureStoreScrollSection];
     [self configureStoreBasicInfoSection];
     [self configureStoreIntroduceSection];
-    [self configureCoupon];
     [self configureStoreLocationInfoSection];
     [self configureStoreOpeningSection];
     [self configureDistanceAndDuration];
     [self configureServerSection];
+    [self configureCoupon];
 }
 
 
