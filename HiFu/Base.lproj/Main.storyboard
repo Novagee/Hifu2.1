@@ -4499,7 +4499,7 @@ Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed 
         <scene sceneID="csW-Ud-wAg">
             <objects>
                 <viewController restorationIdentifier="chineseHelp" storyboardIdentifier="chineseHelp" id="cyC-9Z-Ged" customClass="HFChineseHelpViewController" sceneMemberID="viewController">
-                    <view key="view" alpha="0.5" contentMode="scaleToFill" id="d3y-Y6-ZuS">
+                    <view key="view" contentMode="scaleToFill" id="d3y-Y6-ZuS">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -4510,7 +4510,7 @@ Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed 
                             <view alpha="0.5" contentMode="scaleToFill" id="p8n-4t-ltw" userLabel="maskView" customClass="JCRBlurView">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="blurTintColor">
                                         <color key="value" red="0.043443111380000003" green="0.046343489340000002" blue="0.050702335860000003" alpha="1" colorSpace="calibratedRGB"/>
@@ -4559,7 +4559,6 @@ Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed 
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="djK-GY-H7b"/>
                     <connections>
@@ -4658,7 +4657,7 @@ Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed 
                             <view alpha="0.5" contentMode="scaleToFill" id="R1u-2N-i0q">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="sPX-Jb-Ycb">
                                 <rect key="frame" x="138" y="400" width="44" height="44"/>
