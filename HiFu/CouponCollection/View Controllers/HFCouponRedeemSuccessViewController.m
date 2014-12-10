@@ -42,7 +42,7 @@
 {
     [self.navigationController setNavigationBarHidden:YES];
     [[UIApplication sharedApplication] setStatusBarHidden:YES];
-//    [HFUIHelpers roundCornerToHFDefaultRadius:self.noShareButton];
+
     self.blurBackgroundImageView.image = self.blurBackgroundImage;
     self.mainWrapperView.alpha = 0.0f;
 }
@@ -140,12 +140,15 @@
 
 - (void)shareByWechatMessageButtonPressed:(id)sender
 {
+    NSLog(@"WeChat Message");
+    
     [Appsee addEvent:@"CouponSuccessSharedByWechatSMS"];
-    [self actualShareOnWechat:NO];
+    [self actualShareOnWechat:YES];
 }
 
 - (void)shareByWechatMomentButtonPressed:(id)sender
 {
+    NSLog(@"WeChat Moment");
     [Appsee addEvent:@"CouponSuccessSharedByWechatMoment"];
     [self actualShareOnWechat:YES];
 }
