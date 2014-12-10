@@ -164,34 +164,34 @@
 
 - (void)rightBarButtonTapped {
 
-//    if (!shareView) {
-//        shareView = [[NSBundle mainBundle] loadNibNamed:@"HFShareView" owner:self options:nil][0];
-//        shareView.delegate = self;
-//    }
-//    
-//    shareView.alpha = 0.0;
-//    //    shareView.shareWrapperView.frame = CGRectMake(0, HF_DEVICE_HEIGHT, 320, shareView.shareWrapperView.height);
-//    
-//    [[UIApplication sharedApplication].keyWindow addSubview:shareView];
-//    
-//    [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionBeginFromCurrentState animations:^{
-//        shareView.alpha = 1.0;
-//        [shareView runShowAnimation];
-//    } completion:nil];
+    if (!shareView) {
+        shareView = [[NSBundle mainBundle] loadNibNamed:@"HFShareView" owner:self options:nil][0];
+        shareView.delegate = self;
+    }
     
-    [Appsee addEvent:@"CouponApplied" withProperties:@{@"couponId":self.coupon.couponId}];
-    //    self.tabBarController.tabBar.hidden = NO;
-    //    [self.navigationController popToRootViewControllerAnimated:YES];
-    [HFCouponApi applyCoupon:self.coupon.couponId withUserId:[UserServerApi sharedInstance].currentUserId success:^{
-        NSLog(@"Coupon %@ Applied Successfully",self.coupon.couponId);
-    } failure:^(NSError *error) {
-        NSLog(@"Coupon %@ Applied Fail",self.coupon.couponId);
-    }];
+    shareView.alpha = 0.0;
+    //    shareView.shareWrapperView.frame = CGRectMake(0, HF_DEVICE_HEIGHT, 320, shareView.shareWrapperView.height);
     
-    HFCouponRedeemSuccessViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"HFCouponRedeemSuccessViewController"];
-    vc.blurBackgroundImage = [HFUIHelpers takeScreenShotForViewController:self andApplyBlurEffect:YES andBlurRadius:8];
-    vc.coupon = self.coupon;
-    [self.navigationController pushViewController:vc animated:NO];
+    [[UIApplication sharedApplication].keyWindow addSubview:shareView];
+    
+    [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionBeginFromCurrentState animations:^{
+        shareView.alpha = 1.0;
+        [shareView runShowAnimation];
+    } completion:nil];
+    
+//    [Appsee addEvent:@"CouponApplied" withProperties:@{@"couponId":self.coupon.couponId}];
+//    //    self.tabBarController.tabBar.hidden = NO;
+//    //    [self.navigationController popToRootViewControllerAnimated:YES];
+//    [HFCouponApi applyCoupon:self.coupon.couponId withUserId:[UserServerApi sharedInstance].currentUserId success:^{
+//        NSLog(@"Coupon %@ Applied Successfully",self.coupon.couponId);
+//    } failure:^(NSError *error) {
+//        NSLog(@"Coupon %@ Applied Fail",self.coupon.couponId);
+//    }];
+//    
+//    HFCouponRedeemSuccessViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"HFCouponRedeemSuccessViewController"];
+//    vc.blurBackgroundImage = [HFUIHelpers takeScreenShotForViewController:self andApplyBlurEffect:YES andBlurRadius:8];
+//    vc.coupon = self.coupon;
+//    [self.navigationController pushViewController:vc animated:NO];
     
 }
 
@@ -315,6 +315,8 @@
     }
     
     [HFShareHelpers sharedByAirDropOnViewController:self andSharedText:[NSString stringWithFormat:@"%@ %@", self.coupon.shareContent, self.coupon.shareLink] andSharedImage:self.coupon.shareImage];
+    
+    [self dismissShareView];
 }
 
 - (void)sharedByWechatMessage
