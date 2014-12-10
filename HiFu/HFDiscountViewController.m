@@ -99,7 +99,7 @@
 
 - (void)configureDiscountViewSection {
     
-    self.salesLabel.text = [NSString stringWithFormat:@"Hi, %@",self.salesName?:@""];
+    self.salesLabel.text = [NSString stringWithFormat:@"Hi %@,",self.salesName?:@""];
     self.descriptionCN.text = self.coupon.briefDescriptionCN;
     self.rule.text = self.coupon.descriptionCN;
     self.descriptionEN.text = self.coupon.descriptionEN;

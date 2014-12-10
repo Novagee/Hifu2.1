@@ -7,6 +7,7 @@
 //
 
 #import "HFPreOrderViewController.h"
+#import "UserServerApi.h"
 
 @interface HFPreOrderViewController ()
 @property (weak, nonatomic) IBOutlet UIWebView *preorderWV;
@@ -20,7 +21,7 @@
     // Do any additional setup after loading the view.
     self.navigationController.navigationBarHidden = YES;
     self.preorderWV.scalesPageToFit = YES;
-    NSString *urlAddress = @"http://www.hifu.co/v3/index.html";
+    NSString *urlAddress = [NSString stringWithFormat:@"http://www.hifu.co/v3/index.html?userId=%@",[UserServerApi sharedInstance].currentUserId];
     NSURL *url = [NSURL URLWithString:urlAddress];
     NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];
     [self.preorderWV loadRequest:requestObj];
