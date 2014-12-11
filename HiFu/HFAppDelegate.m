@@ -158,6 +158,11 @@
 - (void)application:(UIApplication *)application handleActionWithIdentifier:(NSString *)identifier forRemoteNotification:(NSDictionary *)userInfo completionHandler:(void (^)())handler {
     UA_LINFO(@"Received remote notification button interaction: %@ notification: %@", identifier, userInfo);
     [[UAPush shared] appReceivedActionWithIdentifier:identifier notification:userInfo applicationState:application.applicationState completionHandler:handler];
+    
+//    NSDictionary *extra = userInfo[@"aps"][@"extra"];
+//    UIAlertView * alert = [[UIAlertView alloc] initWithTitle:nil message:userInfo[@"aps"][@"alert"] delegate:self cancelButtonTitle:@"Ignore" otherButtonTitles:@"Join",nil];
+//    [alert show];
+
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application

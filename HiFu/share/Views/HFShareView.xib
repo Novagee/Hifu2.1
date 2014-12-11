@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -234,6 +234,9 @@
                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
+                            <connections>
+                                <action selector="sinaWeiboShareButtonTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="3Rf-4Q-eH7"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -331,6 +334,9 @@
                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
+                            <connections>
+                                <action selector="wechatMomentShareButtonTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="xIY-Kh-gma"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -347,13 +353,13 @@
                 <outlet property="qqShareButton" destination="tBS-bT-TtM" id="kNr-dB-vyY"/>
                 <outlet property="qqShareLabel" destination="nKS-AV-okE" id="zOQ-a6-bZP"/>
                 <outlet property="shareWrapperView" destination="6EU-Ma-VW1" id="1c7-Vo-eeu"/>
-                <outlet property="sinaWeiboShareButton" destination="kBF-nz-bGj" id="YJq-bc-hV3"/>
+                <outlet property="sinaWeiboShareButton" destination="kBF-nz-bGj" id="HdC-Bb-mzv"/>
                 <outlet property="sinaWeiboShareLabel" destination="ANo-pf-4IH" id="Se8-kT-7od"/>
                 <outlet property="tencentWeiboShareButton" destination="EyB-tB-5i5" id="W8L-sc-heE"/>
                 <outlet property="tencentWeiboShareLabel" destination="AbT-JY-XS9" id="0mR-DW-89b"/>
                 <outlet property="wechatMessageShareButton" destination="3HG-lA-LdX" id="p8V-m4-XDw"/>
                 <outlet property="wechatMessageShareLabel" destination="Hpo-AT-lyE" id="NSu-Ct-v0Y"/>
-                <outlet property="wechatMomentShareButton" destination="LPf-he-sTs" id="M3l-cC-CFP"/>
+                <outlet property="wechatMomentShareButton" destination="LPf-he-sTs" id="Mna-Ua-jS8"/>
                 <outlet property="wechatMomentShareLabel" destination="5cu-wS-5UT" id="Syj-kb-i2X"/>
             </connections>
         </view>

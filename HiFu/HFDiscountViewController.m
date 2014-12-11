@@ -81,7 +81,6 @@
     // Configure Discount Infos
     //
     [self configureDiscountViewSection];
-    
 }
 
 - (void)viewDidLayoutSubviews {
