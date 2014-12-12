@@ -23,12 +23,13 @@
     
     self.navigationController.navigationBarHidden = YES;
     self.preorderWV.scalesPageToFit = YES;
-    NSString *urlAddress = [NSString stringWithFormat:@"http://192.168.1.12/hifu-webapp/index.html?userId=%@",[UserServerApi sharedInstance].currentUserId];
+    NSString *urlAddress = [NSString stringWithFormat:@"http://www.hifu.co/v3/index.html?userId=%@",[UserServerApi sharedInstance].currentUserId];
     NSURL *url = [NSURL URLWithString:urlAddress];
     NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];
     [self.preorderWV loadRequest:requestObj];
     
     [self setNeedsStatusBarAppearanceUpdate];
+    self.preorderWV.scrollView.bounces=NO;
 }
 -(UIStatusBarStyle)preferredStatusBarStyle{
     return UIStatusBarStyleLightContent;
