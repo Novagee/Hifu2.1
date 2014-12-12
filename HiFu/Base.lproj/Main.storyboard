@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="wXc-yG-1J7">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="wXc-yG-1J7">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
     </dependencies>
     <customFonts key="customFonts">
         <mutableArray key="simhei.ttf">
@@ -3415,7 +3415,6 @@ Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed 
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="k85-o3-7mK"/>
-                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
                         <outlet property="preorderWV" destination="kJD-yJ-ttg" id="dhE-7I-Evy"/>
                     </connections>
@@ -4696,7 +4695,7 @@ Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed 
         <!--预定-->
         <scene sceneID="jFe-gz-VL8">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="RCM-SQ-c6M" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="RCM-SQ-c6M" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="预定" image="cart" id="1Na-xN-xe3"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>

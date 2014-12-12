@@ -11,6 +11,7 @@
 
 @interface HFPreOrderViewController ()
 @property (weak, nonatomic) IBOutlet UIWebView *preorderWV;
+@property (strong, nonatomic) UIView *statusBarBottom;
 
 @end
 
@@ -19,6 +20,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
     self.navigationController.navigationBarHidden = YES;
     self.preorderWV.scalesPageToFit = YES;
     NSString *urlAddress = [NSString stringWithFormat:@"http://192.168.1.12/hifu-webapp/index.html?userId=%@",[UserServerApi sharedInstance].currentUserId];
@@ -31,10 +33,32 @@
 -(UIStatusBarStyle)preferredStatusBarStyle{
     return UIStatusBarStyleLightContent;
 }
+
+
+- (void)viewDidLayoutSubviews {
+    
+    // Add status bar bottom
+    //
+    _statusBarBottom = [[UIView alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 20)];
+    _statusBarBottom.backgroundColor = [UIColor blackColor];
+    [[UIApplication sharedApplication].keyWindow addSubview:self.statusBarBottom];
+    
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    
+    [super viewDidDisappear:animated];
+    
+    [self.statusBarBottom removeFromSuperview];
+    
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
 
 /*
 #pragma mark - Navigation

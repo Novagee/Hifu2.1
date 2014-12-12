@@ -17,7 +17,6 @@ static  NSString* authUser  = @"DDF98F5A1B722";
 static  NSString* authPass  = @"632F132525EFB5495889441E3AF7F";
 static const int retryLimit = 2;
 
-
 @implementation HFBaseAPIv2
 
 + (id)sharedInstance
@@ -54,6 +53,8 @@ static const int retryLimit = 2;
                           stringWithFormat:@"%@:%@",authUser,authPass]
                          stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]
                         dataUsingEncoding: NSASCIIStringEncoding];
+    
+    NSLog(@"auth string : %@", [[NSString stringWithFormat:@"%@:%@",authUser,authPass] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]);
     
     NSString *finalAuth = [NSString stringWithFormat:@"Basic %@",[authData base64EncodedStringWithOptions:0]];
     [request setValue:finalAuth forHTTPHeaderField:@"Authorization"];
