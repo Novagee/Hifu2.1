@@ -8,6 +8,7 @@
 
 #import "HFPreOrderViewController.h"
 #import "UserServerApi.h"
+#import <Appsee/Appsee.h>
 
 @interface HFPreOrderViewController ()
 @property (weak, nonatomic) IBOutlet UIWebView *preorderWV;
@@ -30,6 +31,10 @@
     
     [self setNeedsStatusBarAppearanceUpdate];
     self.preorderWV.scrollView.bounces=NO;
+    self.preorderWV.backgroundColor = [UIColor clearColor];
+    self.preorderWV.opaque=NO;
+    
+    [Appsee addEvent:@"PreSelect Tab Clicked"];
 }
 -(UIStatusBarStyle)preferredStatusBarStyle{
     return UIStatusBarStyleLightContent;

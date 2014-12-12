@@ -278,7 +278,7 @@
 #pragma mark - UI Control's Action
 
 - (IBAction)showMapView:(id)sender {
-    [Appsee addEvent:@"StoreMap"];
+    [Appsee addEvent:@"Store Map Button Clicked"];
     [UIView beginAnimations:@"animation" context:nil];
     
     self.mapViewController.view.alpha = 1.0f;
@@ -310,7 +310,7 @@
     detailViewController.isOpening = cell.isOpeningLabel.text;
 
     //app see stuff
-    [Appsee addEvent:@"StoreDetail" withProperties:@{@"storeId":store.storeId}];
+    [Appsee addEvent:@"Store Detail Clicked" withProperties:@{@"storeId":store.storeId}];
     
     [self.navigationController pushViewController:detailViewController animated:YES];
 

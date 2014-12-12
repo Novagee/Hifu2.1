@@ -46,7 +46,7 @@
         
         if (button.tag == ((UIButton *)sender).tag) {
             button.imageView.hidden = NO;
-            [Appsee addEvent:@"CouponDeniedReason" withProperties:@{@"reason":button.titleLabel.text}];
+            [Appsee addEvent:@"Coupon Denied Reason Button Clicked" withProperties:@{@"reason":button.titleLabel.text}];
         }
         else {
             button.imageView.hidden = YES;
@@ -60,7 +60,7 @@
     
     self.tabBarController.tabBar.hidden = NO;
     [self.navigationController popToRootViewControllerAnimated:YES];
-    [Appsee addEvent:@"CouponDeniedReasonReturn"];
+    [Appsee addEvent:@"Coupon Denied Reason Return Button Clicked"];
 }
 
 @end

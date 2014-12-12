@@ -46,7 +46,7 @@
 
 - (void) viewWillAppear:(BOOL)animated{
     [self setupPullToRefresh];
-    [Appsee addEvent:@"OpenCouponList"];
+    [Appsee addEvent:@"Open Coupon List Tab Clicked"];
     
     self.tabBarController.tabBar.hidden = NO;
 }

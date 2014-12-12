@@ -679,7 +679,7 @@
         return;
     }
     if (!self.isliked) {
-        [Appsee addEvent:@"StoreDetailLike" withProperties:@{@"couponId":self.cellInfo.storeId}];
+        [Appsee addEvent:@"Store Detail Like Button Clicked" withProperties:@{@"couponId":self.cellInfo.storeId}];
         [self favoriteStoreId:self.cellInfo];
         [self favouriteAnimationWithButton];
         UIButton *button = (UIButton *)self.rightItem.customView;
@@ -687,7 +687,7 @@
         _isliked = YES;
         return ;
     }
-    [Appsee addEvent:@"StoreDetailUnlike" withProperties:@{@"couponId":self.cellInfo.storeId}];
+    [Appsee addEvent:@"Store Detail Unlike Button Clicked" withProperties:@{@"couponId":self.cellInfo.storeId}];
     [self unfavoriteStoreId:self.cellInfo];
     UIButton *button = (UIButton *)self.rightItem.customView;
     [button setImage:[UIImage imageNamed:@"detail_unlike"] forState:UIControlStateNormal];
@@ -794,7 +794,7 @@
 }
 
 - (void)mapView:(MKMapView *)mapView regionDidChangeAnimated:(BOOL)animated{
-    [Appsee addEvent:@"StoreDetailMapChanged"];
+    [Appsee addEvent:@"Store Detail Map Changed"];
 }
 
 #pragma mark - Goods View Animations
@@ -979,7 +979,7 @@
     
     HFDiscountViewController *discountViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"discountView"];
     CouponObject *coupon = self.cellInfo.coupons[button.superview.tag];
-    [Appsee addEvent:@"UseCoupon" withProperties:@{@"couponId":coupon.couponId}];
+    [Appsee addEvent:@"Use Coupon Button Clicked" withProperties:@{@"couponId":coupon.couponId}];
     discountViewController.coupon = coupon;
     discountViewController.salesName = self.cellInfo.merchant.merchantName;
     
@@ -998,7 +998,7 @@
     
     HFDiscountViewController *discountViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"discountView"];
     CouponObject *coupon = self.cellInfo.coupons[button.superview.tag];
-    [Appsee addEvent:@"UseCoupon" withProperties:@{@"couponId":coupon.couponId}];
+    [Appsee addEvent:@"Use Coupon Button Clicked" withProperties:@{@"couponId":coupon.couponId}];
     discountViewController.coupon = coupon;
     discountViewController.salesName = self.cellInfo.merchant.merchantName;
 
