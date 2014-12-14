@@ -29,20 +29,21 @@
     NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];
     [self.preorderWV loadRequest:requestObj];
     
-    [self setNeedsStatusBarAppearanceUpdate];
+//    [self setNeedsStatusBarAppearanceUpdate];
     self.preorderWV.scrollView.bounces=NO;
     self.preorderWV.backgroundColor = [UIColor clearColor];
     self.preorderWV.opaque=NO;
     
     [Appsee addEvent:@"PreSelect Tab Clicked"];
 }
--(UIStatusBarStyle)preferredStatusBarStyle{
-    return UIStatusBarStyleLightContent;
-}
 
+//-(UIStatusBarStyle)preferredStatusBarStyle{
+//    return UIStatusBarStyleLightContent;
+//}
 
-- (void)viewDidLayoutSubviews {
+- (void)viewWillAppear:(BOOL)animated {
     
+    [super viewWillAppear:animated];
     // Add status bar bottom
     //
     _statusBarBottom = [[UIView alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 20)];
@@ -51,12 +52,11 @@
     
 }
 
-- (void)viewDidDisappear:(BOOL)animated {
+- (void)viewWillDisappear:(BOOL)animated {
     
-    [super viewDidDisappear:animated];
+    [super viewWillDisappear:animated];
     
     [self.statusBarBottom removeFromSuperview];
-    
 }
 
 - (void)didReceiveMemoryWarning {

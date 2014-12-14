@@ -2586,7 +2586,7 @@ Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed 
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <fontDescription key="fontDescription" name="SimHei" family="SimHei" pointSize="13"/>
-                                                        <state key="normal" title="阅读全部 &gt;">
+                                                        <state key="normal" title="阅读全部 >">
                                                             <color key="titleColor" red="0.92941182850000004" green="0.40784317260000003" blue="0.32156863810000003" alpha="1" colorSpace="deviceRGB"/>
                                                             <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         </state>
@@ -4692,16 +4692,17 @@ Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed 
             </objects>
             <point key="canvasLocation" x="3122" y="-556"/>
         </scene>
-        <!--预定-->
+        <!--预选-->
         <scene sceneID="jFe-gz-VL8">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="RCM-SQ-c6M" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="预定" image="cart" id="1Na-xN-xe3"/>
+                    <tabBarItem key="tabBarItem" title="预选" image="cart" id="1Na-xN-xe3"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="MN4-Fx-OXx">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="MN4-Fx-OXx">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
