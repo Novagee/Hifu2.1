@@ -311,7 +311,11 @@
         _discountButtonImage.hidden = NO;
     }
     
+    
     self.storeOpenHour.text = self.openingTime;
+    if([self.openingTime isEqualToString:@"早0到晚0营业"]){
+        self.storeOpenHour.hidden = YES;
+    }
     self.storeOpeningLabel.text = self.isOpening;
     
     [self configureGoodsType:self.cellInfo.categories];
