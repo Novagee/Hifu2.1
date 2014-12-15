@@ -239,6 +239,7 @@
     [self configureDistanceAndDuration];
     [self configureServerSection];
     [self configureCoupon];
+    
 }
 
 - (void)viewDidLayoutSubviews {

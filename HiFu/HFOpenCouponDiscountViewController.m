@@ -24,33 +24,6 @@
     
     [super viewWillAppear:animated];
     
-    self.navigationItem.title=(self.openCoupon.brandCN&&self.openCoupon.brandCN.length>1)?self.openCoupon.brandCN:self.openCoupon.brand;
-    
-    _counponImageURLString = self.openCoupon.brandPicUrl;
-    _couponTitle.text = [NSString stringWithFormat:@"%@ %@",self.openCoupon.brand, self.openCoupon.brandCN];
-    _couponDiscount.text = self.openCoupon.titleCN;
-    _couponExpiration.text = [NSString stringWithFormat:@"%@",self.openCoupon.expireDateDisplay];
-    _storeAddress.text = self.openCoupon.itemDescription;
-    _descriptionCN.text = self.openCoupon.descriptionCN;
-    if (!self.openCoupon.descriptionCN||self.openCoupon.descriptionCN.length<1) {
-        _storeInfoViewSection.hidden = YES;
-    }
-    if (!self.openCoupon.itemDescription||self.openCoupon.itemDescription.length<1) {
-        _storeAddressViewSection.hidden = YES;
-    }
-
-    [SVProgressHUD show];
-    [self.couponImage setImageWithURL:[NSURL URLWithString:_counponImageURLString]
-                            completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
-                                if (image && !error) {
-                                    self.couponImage.image = image;
-                                    [SVProgressHUD dismiss];
-                                }
-                            }];
-    
-    [self configureStoreInfoViewSection];
-    [self configureStoreAddressViewSection];
-
     self.tabBarController.tabBar.hidden = YES;
     
 }
@@ -70,6 +43,33 @@
     UIBarButtonItem *leftBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"arrow"] style:UIBarButtonItemStylePlain target:self action:@selector(leftBarButtonItemTapped)];
     leftBarButtonItem.tintColor = [UIColor colorWithRed:255/255.0f green:99/255.0f blue:104/255.0f alpha:1.0];
     self.navigationItem.leftBarButtonItem = leftBarButtonItem;
+    
+    self.navigationItem.title=(self.openCoupon.brandCN&&self.openCoupon.brandCN.length>1)?self.openCoupon.brandCN:self.openCoupon.brand;
+    
+    _counponImageURLString = self.openCoupon.brandPicUrl;
+    _couponTitle.text = [NSString stringWithFormat:@"%@ %@",self.openCoupon.brand, self.openCoupon.brandCN];
+    _couponDiscount.text = self.openCoupon.titleCN;
+    _couponExpiration.text = [NSString stringWithFormat:@"%@",self.openCoupon.expireDateDisplay];
+    _storeAddress.text = self.openCoupon.itemDescription;
+    _descriptionCN.text = self.openCoupon.descriptionCN;
+    if (!self.openCoupon.descriptionCN||self.openCoupon.descriptionCN.length<1) {
+        _storeInfoViewSection.hidden = YES;
+    }
+    if (!self.openCoupon.itemDescription||self.openCoupon.itemDescription.length<1) {
+        _storeAddressViewSection.hidden = YES;
+    }
+    
+    [SVProgressHUD show];
+    [self.couponImage setImageWithURL:[NSURL URLWithString:_counponImageURLString]
+                            completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
+                                if (image && !error) {
+                                    self.couponImage.image = image;
+                                    [SVProgressHUD dismiss];
+                                }
+                            }];
+    
+    [self configureStoreInfoViewSection];
+    [self configureStoreAddressViewSection];
     
 }
 
