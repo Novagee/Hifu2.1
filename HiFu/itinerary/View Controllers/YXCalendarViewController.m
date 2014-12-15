@@ -25,6 +25,7 @@
 #import "CityObject.h"
 #import "WeatherObject.h"
 #import <Appsee/Appsee.h>
+#import "UserServerApi.h"
 
 
 @interface YXCalendarViewController ()
@@ -53,7 +54,7 @@
     isEditing = YES;
     [self loadCities];
     [self loadUserItinerary];
-    [Appsee addEvent:@"Calendar Tab Clicked"];
+    [Appsee addEvent:@"Calendar Clicked" withProperties:@{@"userId":[UserServerApi sharedInstance].currentUserId}];
 }
 
 - (void)viewWillAppear:(BOOL)animated

@@ -11,6 +11,8 @@
 #import "YXCalendarMonthView.h"
 #import "YXCalendarDayView.h"
 #import "YXCalendarSelectRange.h"
+#import "UserServerApi.h"
+#import <Appsee/Appsee.h>
 
 @implementation YXCalendarView
 {
@@ -192,10 +194,12 @@
     }
     else
     {
+        
         lastTouchedDayViewOrigin = touchedView.frame.origin;
         //check if we have any existing range
         if ([self.rangesArray count] == 0) {
             YXCalendarSelectRange *range = [[YXCalendarSelectRange alloc] initWithStartDay:touchedView.day endDay:touchedView.day andIndex:0];
+            [Appsee addEvent:@"Calendar Range Selected" withProperties:@{@"userId":[UserServerApi sharedInstance].currentUserId,@"startDay":range.startDate,@"endDate":range.endDate}];
             [range.dayViewsArray addObject:touchedView];
             [self.rangesArray addObject:range];
             draggingDay = range.startDay;
@@ -227,6 +231,7 @@
             //if none of the existing range is dragged or selected
             if (!currentDraggingRange && !currentSelectedRange) {
                 YXCalendarSelectRange *range = [[YXCalendarSelectRange alloc] initWithStartDay:touchedView.day endDay:touchedView.day andIndex:[self.rangesArray count]];
+                [Appsee addEvent:@"Calendar Range Selected" withProperties:@{@"userId":[UserServerApi sharedInstance].currentUserId,@"startDay":range.startDate,@"endDate":range.endDate}];
                 [self.rangesArray addObject:range];
                 [range.dayViewsArray addObject:touchedView];
                 draggingDay = range.startDay;

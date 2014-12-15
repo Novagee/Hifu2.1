@@ -162,7 +162,7 @@
 }
 
 - (void)rightBarButtonTapped {
-
+    [Appsee addEvent:@"Redemption Shared" withProperties:@{@"couponId":self.coupon.couponId}];
     if (!shareView) {
         shareView = [[NSBundle mainBundle] loadNibNamed:@"HFShareView" owner:self options:nil][0];
         shareView.delegate = self;

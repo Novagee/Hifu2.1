@@ -25,6 +25,7 @@
 #import "HFBrand.h"
 #import "HFGeneralHelpers.h"
 #import "HFUIHelpers.h"
+#import <Appsee/Appsee.h>
 
 CGFloat const defaultRadius=100000;
 
@@ -137,7 +138,7 @@ CGFloat const defaultRadius=100000;
 }
 
 - (void)tapStoreInfoView {
-    
+    [Appsee addEvent:@"Store Detail Button In Map View Clicked" withProperties:@{@"storeId":self.currentStore.storeId}];
     HFShopDetailViewController *shopDetailViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"shopDetail"];
     shopDetailViewController.cellInfo = self.currentStore;
     shopDetailViewController.openingTime = self.openingTime;
@@ -424,7 +425,7 @@ CGFloat const defaultRadius=100000;
 #pragma mark - Show Shop List View Controller
 
 - (void)showList {
-    
+        [Appsee addEvent:@"Show List View Button Clicked"];
     // Show the HFShopListViewController with a flip animation
     //
     [UIView beginAnimations:@"animation" context:nil];
@@ -447,6 +448,7 @@ CGFloat const defaultRadius=100000;
 
 - (IBAction)switchCityTapped:(id)sender {
     UIButton *currentButton = (UIButton *)sender;
+    [Appsee addEvent:@"Shop View Location Switched " withProperties:@{@"cityId":[NSString stringWithFormat:@"%i",currentButton.tag-100]}];
     UIView *buttonSuperView =currentButton.superview;
     
     [UIView animateWithDuration:0.5f

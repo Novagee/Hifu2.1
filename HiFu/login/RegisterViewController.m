@@ -13,6 +13,7 @@
 #import "HFGeneralHelpers.h"
 #import "SVProgressHUD.h"
 #import "HFBrowersTabBarController.h"
+#import <Appsee/Appsee.h>
 
 static CGFloat DegreesToRadians(CGFloat degrees) {return degrees * M_PI / 180;}
 
@@ -122,7 +123,9 @@ static CGFloat DegreesToRadians(CGFloat degrees) {return degrees * M_PI / 180;}
 - (IBAction)skipClicked:(id)sender {
     
     NSLog(@"Skip ");
-    
+    if (sender) {
+        [Appsee addEvent:@"Skip Button Clicked"];
+    }
     [self skipToEndWithAnimation:YES];
 }
 
@@ -490,18 +493,21 @@ static CGFloat DegreesToRadians(CGFloat degrees) {return degrees * M_PI / 180;}
 - (IBAction)weiboLoginTapped:(id)sender {
     [self.view endEditing:YES];
     // Weibo login stuff here
+    [Appsee addEvent:@"Weibo Login Button Clicked"];
     [[HFWeiboService getInstance] initWeiboLoginAuthorizeRequest];
 }
 
 - (IBAction)weChatLoginTapped:(id)sender {
     [self.view endEditing:YES];
     // WeChat login stuff here
+    [Appsee addEvent:@"Wechat Login Button Clicked"];
     [[HFWeixinService getInstance] sendWechatAuthRequest];
 }
 
 - (IBAction)qqLoginTapped:(id)sender {
     [self.view endEditing:YES];
     // QQ login Stuff here
+    [Appsee addEvent:@"QQ Login Button Clicked"];
     [[UserServerApi sharedInstance].currentUser.tencentOAuth authorize:[UserServerApi sharedInstance].currentUser.tencentPermissions inSafari:NO];
 }
 

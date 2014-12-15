@@ -34,7 +34,7 @@
     self.preorderWV.backgroundColor = [UIColor clearColor];
     self.preorderWV.opaque=NO;
     
-    [Appsee addEvent:@"PreSelect Tab Clicked"];
+    [Appsee addEvent:@"Pre-select Tab Clicked"];
 }
 
 //-(UIStatusBarStyle)preferredStatusBarStyle{

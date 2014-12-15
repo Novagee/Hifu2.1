@@ -13,7 +13,7 @@
 #import "SDImageCache.h"
 #import "SDWebImageDownloader.h"
 #import "UserServerApi.h"
-
+#import <Appsee/Appsee.h>
 
 static const int secondsForLoggedTime = 200;
 
@@ -193,6 +193,7 @@ static const int secondsForLoggedTime = 200;
 
 
 - (IBAction)enter:(id)sender {
+    [Appsee addEvent:@"Join Button Clicked" withProperties:@{@"Current page":[NSString stringWithFormat:@"%i",self.pageControl.currentPage]}];
     [self pushToIdentifier:@"inputNumber"];
 
 }
