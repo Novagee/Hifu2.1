@@ -225,10 +225,16 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     
+
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    
+    [super viewWillAppear:animated];
+
     // The fake button has already hidden
     //
     [self.view.window addSubview:self.fakeLikeButton];
-    
     
     [self configureStoreScrollSection];
     [self configureStoreBasicInfoSection];
@@ -239,13 +245,6 @@
     [self configureServerSection];
     [self configureCoupon];
 }
-
-- (void)viewWillAppear:(BOOL)animated {
-    
-    [super viewWillAppear:animated];
-
-}
-
 
 - (void)viewDidLayoutSubviews {
     
@@ -259,7 +258,7 @@
     
     _animationStop = YES;
 
-//    [self removeCoupons];
+    [self removeCoupons];
 }
 
 - (void)didReceiveMemoryWarning {
