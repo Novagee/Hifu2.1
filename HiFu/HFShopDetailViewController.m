@@ -219,7 +219,14 @@
     [self constructMapItems];
     
     NSLog(@"Store Object Info : %@", self.cellInfo);
-    
+    [self configureStoreScrollSection];
+    [self configureStoreBasicInfoSection];
+    [self configureStoreIntroduceSection];
+    [self configureStoreLocationInfoSection];
+    [self configureStoreOpeningSection];
+    [self configureDistanceAndDuration];
+    [self configureServerSection];
+    [self configureCoupon];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -231,14 +238,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     
     [super viewWillAppear:animated];
-    [self configureStoreScrollSection];
-    [self configureStoreBasicInfoSection];
-    [self configureStoreIntroduceSection];
-    [self configureStoreLocationInfoSection];
-    [self configureStoreOpeningSection];
-    [self configureDistanceAndDuration];
-    [self configureServerSection];
-    [self configureCoupon];
+    
 }
 
 - (void)viewDidLayoutSubviews {
@@ -253,7 +253,7 @@
     
     _animationStop = YES;
 
-    [self removeCoupons];
+//    [self removeCoupons];
 }
 
 - (void)didReceiveMemoryWarning {
