@@ -220,6 +220,16 @@
     
     NSLog(@"Store Object Info : %@", self.cellInfo);
     
+    
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    
+    // The fake button has already hidden
+    //
+    [self.view.window addSubview:self.fakeLikeButton];
+    
+    
     [self configureStoreScrollSection];
     [self configureStoreBasicInfoSection];
     [self configureStoreIntroduceSection];
@@ -230,17 +240,10 @@
     [self configureCoupon];
 }
 
-- (void)viewDidAppear:(BOOL)animated {
-    
-    // The fake button has already hidden
-    //
-    [self.view.window addSubview:self.fakeLikeButton];
-    
-}
-
 - (void)viewWillAppear:(BOOL)animated {
     
     [super viewWillAppear:animated];
+
 }
 
 
