@@ -162,7 +162,7 @@
 }
 
 - (void)rightBarButtonTapped {
-
+    [Appsee addEvent:@"Redemption Shared" withProperties:@{@"couponId":self.coupon.couponId}];
     if (!shareView) {
         shareView = [[NSBundle mainBundle] loadNibNamed:@"HFShareView" owner:self options:nil][0];
         shareView.delegate = self;
@@ -195,7 +195,7 @@
 }
 
 - (IBAction)deniedTapped:(id)sender {
-    [Appsee addEvent:@"CouponDenied" withProperties:@{@"couponId":self.coupon.couponId}];
+    [Appsee addEvent:@"Coupon Denied Button Clicked" withProperties:@{@"couponId":self.coupon.couponId}];
     [HFCouponApi denyCoupon:self.coupon.couponId withUserId:[UserServerApi sharedInstance].currentUserId success:^{
         NSLog(@"Coupon %@ Denied Successfully",self.coupon.couponId);
     } failure:^(NSError *error) {
@@ -207,7 +207,7 @@
 }
 
 - (IBAction)applied:(id)sender {
-    [Appsee addEvent:@"CouponApplied" withProperties:@{@"couponId":self.coupon.couponId}];
+    [Appsee addEvent:@"Coupon Applied Button Clicked" withProperties:@{@"couponId":self.coupon.couponId}];
 //    self.tabBarController.tabBar.hidden = NO;
 //    [self.navigationController popToRootViewControllerAnimated:YES];
     [HFCouponApi applyCoupon:self.coupon.couponId withUserId:[UserServerApi sharedInstance].currentUserId success:^{

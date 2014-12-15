@@ -28,6 +28,7 @@
 #import "UserServerApi.h"
 #import "SVProgressHUD.h"
 #import <Appsee/Appsee.h>
+#import "UserServerApi.h"
 #import "HFUIHelpers.h"
 
 @interface HFShopListViewController ()<UISearchBarDelegate, HFShopListCellDelegate>{
@@ -166,7 +167,7 @@
     
     if (![HFLocationManager sharedInstance].currentLocation) {
         
-        
+        [Appsee addEvent:@"User Location Shared" withProperties:@{@"userId":[UserServerApi sharedInstance].currentUserId}];
         // Invoke sysytem alertView
         [[HFLocationManager sharedInstance] startUpdatingLocation:^{
             currentPageNumber = 0;
@@ -186,6 +187,7 @@
             [self reloadAllStores];
         }];
     } else {
+        [Appsee addEvent:@"User Location NOT Shared" withProperties:@{@"userId":[UserServerApi sharedInstance].currentUserId}];
         if (_currentStoreCity && _currentStoreCity != kStoreCityAllCity) {
             
             [self getStoreByCity:_currentStoreCity - 100];
@@ -278,7 +280,7 @@
 #pragma mark - UI Control's Action
 
 - (IBAction)showMapView:(id)sender {
-    [Appsee addEvent:@"StoreMap"];
+    [Appsee addEvent:@"Show Map View Button Clicked"];
     [UIView beginAnimations:@"animation" context:nil];
     
     self.mapViewController.view.alpha = 1.0f;
@@ -310,7 +312,7 @@
     detailViewController.isOpening = cell.isOpeningLabel.text;
 
     //app see stuff
-    [Appsee addEvent:@"StoreDetail" withProperties:@{@"storeId":store.storeId}];
+    [Appsee addEvent:@"Store Detail Clicked" withProperties:@{@"storeId":store.storeId}];
     
     [self.navigationController pushViewController:detailViewController animated:YES];
 
@@ -461,7 +463,7 @@
 
 - (IBAction)switchCityTapped:(id)sender {
     UIButton *currentButton = (UIButton *)sender;
-    
+    [Appsee addEvent:@"Shop List Location Switched " withProperties:@{@"cityId":[NSString stringWithFormat:@"%i",currentButton.tag-100]}];
     [UIView animateWithDuration:0.5f
                      animations:^{
                          

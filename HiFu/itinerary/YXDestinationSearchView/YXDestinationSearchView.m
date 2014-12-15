@@ -18,6 +18,9 @@
 #import "ItineraryObject.h"
 #import "CityObject.h"
 
+#import "UserServerApi.h"
+#import <Appsee/Appsee.h>
+
 @implementation YXDestinationSearchView
 {
     NSArray *citiesArray, *searchResultArray;
@@ -101,8 +104,10 @@
 #pragma mark - UITableView Delegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
     if (self.range.itinerary) {
         self.range.itinerary.cityId = @([((CityObject *)searchResultArray[indexPath.row]).itemId intValue]);
+        [Appsee addEvent:@"Calendar City Selected" withProperties:@{@"userId":[UserServerApi sharedInstance].currentUserId,@"cityId":self.range.itinerary.cityId}];
         self.range.itinerary.startDate = self.range.startDate;
         self.range.itinerary.endDate = self.range.endDate;
     }
@@ -114,6 +119,7 @@
         itinerary.endDate = self.range.endDate;
         self.range.itinerary = itinerary;
         self.range.city = searchResultArray[indexPath.row];
+        [Appsee addEvent:@"Calendar City Selected" withProperties:@{@"userId":[UserServerApi sharedInstance].currentUserId,@"cityId":self.range.city.itemId}];
     }
 
     

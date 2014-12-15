@@ -10,6 +10,7 @@
 #import "HFPhoneNumberHelpers.h"
 #import "ServerModel.h"
 #import "YXMeInfoSettingViewController.h"
+#import <Appsee/Appsee.h>
 
 @interface EnterCodeViewController ()
 
@@ -258,6 +259,9 @@ replacementString:(NSString *)string{
     NSLog(@"Skip kicked"
           );
     
+    if (sender) {
+         [Appsee addEvent:@"Skip Button Clicked"];
+    }
 //    NSArray*stack =[self.navigationController viewControllers];
 //    if (self.isFromUserSettings) {
 //        [[NSNotificationCenter defaultCenter] postNotificationName:@"userPhoneNumberLinked" object:nil];

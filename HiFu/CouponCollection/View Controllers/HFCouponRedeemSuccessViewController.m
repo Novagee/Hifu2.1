@@ -65,7 +65,7 @@
 #pragma mark - Button Actions
 - (IBAction)confirmButtonPressed:(id)sender
 {
-    [Appsee addEvent:@"CouponSuccessReturn"];
+    [Appsee addEvent:@"Coupon Used Confirm Button Clicked"];
     self.tabBarController.tabBar.hidden=NO;
     self.navigationController.navigationBarHidden = NO;
     [[UIApplication sharedApplication] setStatusBarHidden:NO];
@@ -76,7 +76,7 @@
 
 - (void)shareByMessageButtonPressed:(id)sender
 {
-    [Appsee addEvent:@"CouponSuccessSharedBySMS"];
+    [Appsee addEvent:@"Coupon Success Shared By SMS Button Clicked"];
     if (![MFMessageComposeViewController canSendText]) {
         return;
     }
@@ -96,7 +96,7 @@
 
 - (void)shareByEmailButtonPressed:(id)sender
 {
-    [Appsee addEvent:@"CouponSuccessSharedByEmail"];
+    [Appsee addEvent:@"Coupon Success Shared By Email Button Clicked"];
     if (![MFMailComposeViewController canSendMail]) {
         return;
     }
@@ -117,7 +117,7 @@
 
 - (void)shareBySinaWeiboButtonPressed:(id)sender
 {
-    [Appsee addEvent:@"CouponSuccessSharedBySinaWeibo"];
+    [Appsee addEvent:@"Coupon Success Shared By Sina Weibo Button Clicked"];
     if (!self.coupon.shareImage) {
         //just in case if shareImage is not loaded yet, there should be a better solution, such as a run loop check, for the time sake, i put this for now
         self.coupon.shareImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:self.coupon.sharePictureURL]]];
@@ -142,14 +142,14 @@
 {
     NSLog(@"WeChat Message");
     
-    [Appsee addEvent:@"CouponSuccessSharedByWechatSMS"];
+    [Appsee addEvent:@"Coupon Success Shared By Wechat SMS Button Clicked"];
     [self actualShareOnWechat:YES];
 }
 
 - (void)shareByWechatMomentButtonPressed:(id)sender
 {
     NSLog(@"WeChat Moment");
-    [Appsee addEvent:@"CouponSuccessSharedByWechatMoment"];
+    [Appsee addEvent:@"Coupon Success Shared By Wechat Moment Button Clicked"];
     [self actualShareOnWechat:YES];
 }
 
@@ -185,7 +185,7 @@
 #pragma mark - Mail Compose Delegate
 - (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error
 {
-    [Appsee addEvent:@"CouponSuccessSharedByMAIL"];
+    [Appsee addEvent:@"Coupon Success Shared By MAIL Button Clicked"];
     if (result == MFMailComposeResultFailed) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"邮件发送失败" message:@"邮件发送失败，请再次尝试" delegate:self cancelButtonTitle:@"明白" otherButtonTitles:nil, nil];
         [alert show];
@@ -214,7 +214,7 @@
 }
 
 - (void)shareByQQButtonPressed:(id)sender{
-    [Appsee addEvent:@"CouponSuccessSharedByQQ"];
+    [Appsee addEvent:@"Coupon Success Shared By QQ Button Clicked"];
     if (!self.coupon.shareImage) {
         //just in case if shareImage is not loaded yet, there should be a better solution, such as a run loop check, for the time sake, i put this for now
         self.coupon.shareImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:self.coupon.sharePictureURL]]];
