@@ -67,7 +67,7 @@
 #define sinaWeiboAppKey         @"2829078907"
 #define sinaWeiboRedirectURI    @"https://api.weibo.com/oauth2/default.html"
 #define wechatAppKey            @"wxd4e14473a7f1a6c6"//@"wxd477edab60670232"
-#define AppSeeAPIKey            @"89903d33f7b24ba3b5517c3257b6a166"
+#define AppSeeAPIKey            @"e58e104a3bbe4177b1f45b982beabfbd"
 
 /**
  
