@@ -656,6 +656,7 @@
         [storesArray addObject:store];
     }
     [HFGeneralHelpers saveData:storesArray toFileAtPath:[HFGeneralHelpers dataFilePath:HFALLStoresPath]];
+    
 }
 
 - (void)hideLoadMore {

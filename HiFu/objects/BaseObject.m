@@ -111,19 +111,19 @@ Class nsArrayClass;
 	return self;
 }
 
-- (NSString *)description {
-	NSMutableDictionary *dic = [NSMutableDictionary dictionary];
-	
-	if (self.itemId) [dic setObject:self.itemId forKey:idPropertyNameOnObject];
-    if (self.itemDescription) [dic setObject:self.itemDescription forKey:descriptionPropertyNameOnObject];
-	
-	for (NSString *key in [ObjectHelper propertyNames:[self class]]) {
-		id value = [self valueForKey:key];
-		if (value != nil) [dic setObject:value forKey:key];
-	}
-    
-	return [NSString stringWithFormat:@"#<%@: id = %@ %@>", [self class], self.itemId, [dic description]];
-}
+//- (NSString *)description {
+//	NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+//	
+//	if (self.itemId) [dic setObject:self.itemId forKey:idPropertyNameOnObject];
+//    if (self.itemDescription) [dic setObject:self.itemDescription forKey:descriptionPropertyNameOnObject];
+//	
+//	for (NSString *key in [ObjectHelper propertyNames:[self class]]) {
+//		id value = [self valueForKey:key];
+//		if (value != nil) [dic setObject:value forKey:key];
+//	}
+//    
+//	return [NSString stringWithFormat:@"#<%@: id = %@ %@>", [self class], self.itemId, [dic description]];
+//}
 
 - (BOOL)isEqual:(id)object {
 	if (object == nil || ![object isKindOfClass:[BaseObject class]]) return NO;

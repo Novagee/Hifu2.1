@@ -13,7 +13,9 @@
 #import "HFCouponApi.h"
 #import "UIScrollView+UzysAnimatedGifPullToRefresh.h"
 #import "HFOpenCoupon.h"
+#import "UA_Reachability.h"
 #import <Appsee/Appsee.h>
+
 
 @interface HFOpenCouponViewController (){
     int currentPageNumber;
@@ -101,18 +103,40 @@
 
 - (void)getCoupones {
     
+    if ([Reachability reachabilityForInternetConnection].currentReachabilityStatus == 0) {
+        
+        couponArray = [HFGeneralHelpers getDataForFilePath:[HFGeneralHelpers dataFilePath:HFOpenCouponPath]];
+        
+        NSLog(@"Offline : %@", couponArray);
+        return ;
+        
+    }
+    
+    
 //    currentPageNumber ++;
     getCouponRequest = [HFCouponApi getCouponsByPageNumber:1//currentPageNumber
                                                couponPerPage:200
                                                      success:^(id stores) {
                                                          
-//                                                         if (currentPageNumber == 1) {
-                                                             [couponArray removeAllObjects];
-//                                                         }
+                                                        [couponArray removeAllObjects];
+                                                         
+                                                         NSMutableArray *openCouponArray = [HFGeneralHelpers getDataForFilePath:[HFGeneralHelpers dataFilePath:HFOpenCouponPath]];
+                                                         
+                                                         if (!openCouponArray) {
+                                                             openCouponArray = [[NSMutableArray alloc]init];
+                                                         }
+                                                         [openCouponArray removeAllObjects];
+                                                         
                                                          for (NSDictionary *dict in stores) {
+                                                             
                                                              HFOpenCoupon *openCoupon = [[HFOpenCoupon alloc]initWithDictionary:dict];
                                                              [couponArray addObject:openCoupon];
+                                                             [openCouponArray addObject:openCoupon];
+                                                             
                                                          }
+                                                         
+                                                         [HFGeneralHelpers saveData:openCouponArray toFileAtPath:[HFGeneralHelpers dataFilePath:HFOpenCouponPath]];
+                                                         
                                                          hasMoreToLoad = ([couponArray count] == 10);
                                                          [self hideLoadMore];
                                                          [self.tableView stopRefreshAnimation];
@@ -123,6 +147,9 @@
                                                              //this is when internet is not reachable, we check if there is any downloaded coupon
                                                          }
                                                      }];
+    
+    NSMutableArray *openCouponArray = [HFGeneralHelpers getDataForFilePath:[HFGeneralHelpers dataFilePath:HFOpenCouponPath]];
+    NSLog(@"Loaded: %@", openCouponArray);
     
 }
 
@@ -157,8 +184,9 @@
     HFOpenCouponTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"HFOpenCouponTableViewCell" forIndexPath:indexPath];
     HFOpenCoupon *coupon = couponArray[indexPath.row];
     [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
-    [cell setUpCoupon:coupon];
+    [cell setUpCoupon:coupon inRow:indexPath.row];
     [cell.couponDetailButton addTarget:self action:@selector(clickForDetails:) forControlEvents:UIControlEventTouchUpInside];
+    
     return cell;
     
 }

@@ -24,6 +24,6 @@
 @property (nonatomic, assign) NSString  *couponPicUrl;
 @property (nonatomic, assign) NSNumber  *browseNumber;
 @property (nonatomic, strong) NSNumber  *timestamp;
-
+@property (nonatomic, strong) UIImage *couponImage;
 
 @end

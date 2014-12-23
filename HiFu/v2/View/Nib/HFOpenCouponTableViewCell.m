@@ -7,7 +7,9 @@
 //
 
 #import "HFOpenCouponTableViewCell.h"
+#import "Reachability.h"
 #import "UIImageView+WebCache.h"
+#import "HFGeneralHelpers.h"
 
 @implementation HFOpenCouponTableViewCell
 
@@ -21,13 +23,20 @@
     // Configure the view for the selected state
 }
 
--(void) setUpCoupon:(HFOpenCoupon *)openCoupon{
+-(void) setUpCoupon:(HFOpenCoupon *)openCoupon inRow:(NSInteger)row{
+    
+
     [self.couponImage setImageWithURL:[NSURL URLWithString:openCoupon.brandPicUrl]
-                          completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
-                              if (image && !error) {
-                                  self.couponImage.image = image;
-                              }
-                          }];
+                            completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType) {
+                                if (image && !error) {
+                                    
+                                    self.couponImage.image = image;
+                                    
+                                }
+                            }];
+    
+
+    
     self.couponTitle.text = [NSString stringWithFormat:@"%@ %@",openCoupon.brand, openCoupon.brandCN];
     self.couponDiscount.text = openCoupon.titleCN;
     self.couponExpiration.text = [NSString stringWithFormat:@"%@",openCoupon.expireDateDisplay];

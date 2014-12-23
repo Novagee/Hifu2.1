@@ -15,7 +15,6 @@
 #import "SDWebImageDownloader.h"
 #import "HFCouponRedeemSuccessViewController.h"
 #import "HFCouponApi.h"
-#import "HFCouponApi.h"
 #import "UserServerApi.h"
 #import "UserObject.h"
 #import <Appsee/Appsee.h>
@@ -162,6 +161,7 @@
 }
 
 - (void)rightBarButtonTapped {
+    
     [Appsee addEvent:@"Redemption Shared" withProperties:@{@"couponId":self.coupon.couponId}];
     if (!shareView) {
         shareView = [[NSBundle mainBundle] loadNibNamed:@"HFShareView" owner:self options:nil][0];
@@ -177,20 +177,6 @@
         shareView.alpha = 1.0;
         [shareView runShowAnimation];
     } completion:nil];
-    
-//    [Appsee addEvent:@"CouponApplied" withProperties:@{@"couponId":self.coupon.couponId}];
-//    //    self.tabBarController.tabBar.hidden = NO;
-//    //    [self.navigationController popToRootViewControllerAnimated:YES];
-//    [HFCouponApi applyCoupon:self.coupon.couponId withUserId:[UserServerApi sharedInstance].currentUserId success:^{
-//        NSLog(@"Coupon %@ Applied Successfully",self.coupon.couponId);
-//    } failure:^(NSError *error) {
-//        NSLog(@"Coupon %@ Applied Fail",self.coupon.couponId);
-//    }];
-//    
-//    HFCouponRedeemSuccessViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"HFCouponRedeemSuccessViewController"];
-//    vc.blurBackgroundImage = [HFUIHelpers takeScreenShotForViewController:self andApplyBlurEffect:YES andBlurRadius:8];
-//    vc.coupon = self.coupon;
-//    [self.navigationController pushViewController:vc animated:NO];
     
 }
 

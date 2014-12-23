@@ -80,6 +80,9 @@
 #define HFMerchantsPath             @"saved_merchants"
 #define HFStoresPath                @"saved_stores"
 #define HFALLStoresPath             @"store_list"
+#define HFOpenCouponPath            @"openCoupon_list"
+#define HFOpenCouponImagePath       @"openCouponImage_list"
+
 #define HFCouponPathWithId(id)      [NSString stringWithFormat:@"Coupon%@", id]
 
 /**

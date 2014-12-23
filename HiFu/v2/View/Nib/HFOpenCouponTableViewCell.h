@@ -17,6 +17,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *couponExpiration;
 @property (weak, nonatomic) IBOutlet UIButton *couponDetailButton;
 
--(void) setUpCoupon:(HFOpenCoupon *)openCoupon;
+-(void) setUpCoupon:(HFOpenCoupon *)openCoupon inRow:(NSInteger)row;
 
 @end

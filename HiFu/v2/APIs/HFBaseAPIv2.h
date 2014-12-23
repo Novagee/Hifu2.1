@@ -37,6 +37,8 @@
                     success:(void (^)(id responseObject))success
                     failure:(void(^)(NSError *error))failure;
 
+
+
 #warning 下面所有的Methods必须全部重写
 
 -(BOOL)checkNetorkConnectionWithPopup:(BOOL)popup;

@@ -11,15 +11,24 @@
 #import "HFUIHelpers.h"
 #import "UIView+EasyFrames.h"
 #import "SVProgressHUD.h"
+#import "HFShareView.h"
+#import "CouponObject.h"
+#import "HFShareHelpers.h"
+#import "BaseObject.h"
+#import "HFUIHelpers.h"
 
-@interface HFOpenCouponDetailViewController ()<UIScrollViewDelegate>
+@interface HFOpenCouponDetailViewController ()<UIScrollViewDelegate, HFShareViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIImageView *discountImage;
 @property (weak, nonatomic) IBOutlet UIScrollView *bottomView;
 
+@property (strong, nonatomic) HFShareView *shareView;
+
 @end
 
 @implementation HFOpenCouponDetailViewController
+
+@synthesize shareView;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -34,6 +43,16 @@
     
     self.navigationItem.leftBarButtonItem = leftBarButtonItem;
 
+    // Configure Right Bar Button Item
+    //
+    UIImage *buttonImage = [UIImage imageNamed:@"share"];
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    button.frame = CGRectMake(0, 0, buttonImage.size.width, buttonImage.size.height);
+    [button setImage:buttonImage forState:UIControlStateNormal];
+    [button addTarget:self action:@selector(rightBarButtonTapped) forControlEvents:UIControlEventTouchUpInside];
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:button];;
+    
     _bottomView.delegate = self;
     
     __weak __typeof(self) weakSelf = self;
@@ -81,6 +100,25 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)rightBarButtonTapped {
+    
+    if (!shareView) {
+        shareView = [[NSBundle mainBundle] loadNibNamed:@"HFShareView" owner:self options:nil][0];
+        shareView.delegate = self;
+    }
+    
+    shareView.alpha = 0.0;
+    //    shareView.shareWrapperView.frame = CGRectMake(0, HF_DEVICE_HEIGHT, 320, shareView.shareWrapperView.height);
+    
+    [[UIApplication sharedApplication].keyWindow addSubview:shareView];
+    
+    [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionBeginFromCurrentState animations:^{
+        shareView.alpha = 1.0;
+        [shareView runShowAnimation];
+    } completion:nil];
+}
+
+
 - (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView {
     
     return self.discountImage;
@@ -98,6 +136,69 @@
     scrollView.contentOffset = CGPointMake(width, height);
     
 }
+
+#pragma mark - Share Stack
+
+- (void)sharedBySinaWeibo
+{
+    if (!self.discountImage.image) {
+        //just in case if shareImage is not loaded yet, there should be a better solution, such as a run loop check, for the time sake, i put this for now
+        self.discountImage.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:self.coupon.couponPicUrl]]];
+    }
+    
+    [HFShareHelpers sharedBySinaWeiboOnViewController:self
+                                        andSharedText:[NSString stringWithFormat:@"%@", self.coupon.descriptionCN]
+                                          sharedImage:self.discountImage.image];
+}
+- (void)sharedByWechatMessage
+{
+    [self actualShareOnWechat:NO];
+}
+
+- (void)sharedByWechatMoment
+{
+    [self actualShareOnWechat:YES];
+}
+
+- (void)actualShareOnWechat:(BOOL) isMoment
+{
+    if (!self.discountImage.image) {
+        //just in case if shareImage is not loaded yet, there should be a better solution, such as a run loop check, for the time sake, i put this for now
+        self.discountImage.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:self.coupon.couponPicUrl]]];
+    }
+    
+    [HFShareHelpers shareByWechat:isMoment
+                   andSharedTitle:self.coupon.titleCN
+                       sharedBody:[NSString stringWithFormat:@"活动详情: %@", self.coupon.descriptionCN]
+                       thumbImage:[UIImage imageNamed:@"HiFu_App_Icon"]
+                      sharedImage:self.discountImage.image
+                          success:^{
+                              UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"成功"
+                                                                              message:isMoment ? @"朋友圈发送成功!" : @"微信发送成功!"
+                                                                             delegate:nil
+                                                                    cancelButtonTitle:@"返回"
+                                                                    otherButtonTitles: nil];
+                              [alert show];
+                          } failure:^{
+                              UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"错误"
+                                                                              message:isMoment ? @"朋友圈发送失败，请稍微尝试。" : @"微信发送失败，请稍后尝试。"
+                                                                             delegate:nil
+                                                                    cancelButtonTitle:@"好的"
+                                                                    otherButtonTitles: nil];
+                              [alert show];
+                          }];
+}
+
+- (void)dismissShareView
+{
+    [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionBeginFromCurrentState animations:^{
+        shareView.alpha = 0.0;
+    } completion:^(BOOL finished) {
+        [shareView removeFromSuperview];
+        shareView = nil;
+    }];
+}
+
 
 /*
 #pragma mark - Navigation
