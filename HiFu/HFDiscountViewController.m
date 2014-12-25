@@ -21,6 +21,7 @@
 #import <AFNetworking/AFNetworking.h>
 #import "HFUIHelpers.h"
 #import "UIView+EasyFrames.h"
+#import "HFUploadBillViewController.h"
 
 @interface HFDiscountViewController ()<HFShareViewDelegate, MFMailComposeViewControllerDelegate, MFMessageComposeViewControllerDelegate>
 
@@ -128,7 +129,7 @@
         self.discountRuleView.frame = CGRectMake(self.discountRuleView.frame.origin.x, self.discountRuleView.origin.y-imageHeight, self.discountRuleView.size.width, self.discountRuleView.size.height);
 
     }
-    _bottomView.contentSize = CGSizeMake(self.bottomView.bounds.size.width, self.discountRuleView.origin.y + self.discountRuleView.height + 100);
+    _bottomView.contentSize = CGSizeMake(self.bottomView.bounds.size.width, self.discountRuleView.origin.y + self.discountRuleView.height + 150);
     
 }
 
@@ -193,19 +194,17 @@
 }
 
 - (IBAction)applied:(id)sender {
-    [Appsee addEvent:@"Coupon Applied Button Clicked" withProperties:@{@"couponId":self.coupon.couponId}];
+//    [Appsee addEvent:@"Coupon Applied Button Clicked" withProperties:@{@"couponId":self.coupon.couponId}];
 //    self.tabBarController.tabBar.hidden = NO;
 //    [self.navigationController popToRootViewControllerAnimated:YES];
-    [HFCouponApi applyCoupon:self.coupon.couponId withUserId:[UserServerApi sharedInstance].currentUserId success:^{
-        NSLog(@"Coupon %@ Applied Successfully",self.coupon.couponId);
-    } failure:^(NSError *error) {
-        NSLog(@"Coupon %@ Applied Fail",self.coupon.couponId);
-    }];
+//    [HFCouponApi applyCoupon:self.coupon.couponId withUserId:[UserServerApi sharedInstance].currentUserId success:^{
+//        NSLog(@"Coupon %@ Applied Successfully",self.coupon.couponId);
+//    } failure:^(NSError *error) {
+//        NSLog(@"Coupon %@ Applied Fail",self.coupon.couponId);
+//    }];
     
-    HFCouponRedeemSuccessViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"HFCouponRedeemSuccessViewController"];
-    vc.blurBackgroundImage = [HFUIHelpers takeScreenShotForViewController:self andApplyBlurEffect:YES andBlurRadius:8];
-    vc.coupon = self.coupon;
-    [self.navigationController pushViewController:vc animated:NO];
+    HFUploadBillViewController *uploadBillViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"uploadBill"];
+    [self.navigationController pushViewController:uploadBillViewController animated:YES];
     
 }
 

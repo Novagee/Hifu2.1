@@ -467,6 +467,7 @@
 		8181460419E56468004346B0 /* HFWifiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8181460319E56468004346B0 /* HFWifiViewController.m */; };
 		819B91CB1A012E8A002655E8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 819B91CA1A012E8A002655E8 /* Images.xcassets */; };
 		819B91CC1A012E8A002655E8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 819B91CA1A012E8A002655E8 /* Images.xcassets */; };
+		81A839821A4C55BD00370EA5 /* HFUploadBillViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81A839811A4C55BD00370EA5 /* HFUploadBillViewController.m */; };
 		81C5E91319ED7F8700AA7DEF /* HFRangeViewButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 81C5E91219ED7F8600AA7DEF /* HFRangeViewButton.m */; };
 		81DC62C71A0FD63500DB3229 /* DCNetworkReactor.m in Sources */ = {isa = PBXBuildFile; fileRef = 81DC62C61A0FD63500DB3229 /* DCNetworkReactor.m */; };
 		81DC62C81A0FD63500DB3229 /* DCNetworkReactor.m in Sources */ = {isa = PBXBuildFile; fileRef = 81DC62C61A0FD63500DB3229 /* DCNetworkReactor.m */; };
@@ -978,6 +979,8 @@
 		8181460219E56468004346B0 /* HFWifiViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HFWifiViewController.h; sourceTree = "<group>"; };
 		8181460319E56468004346B0 /* HFWifiViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HFWifiViewController.m; sourceTree = "<group>"; };
 		819B91CA1A012E8A002655E8 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		81A839801A4C55BD00370EA5 /* HFUploadBillViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HFUploadBillViewController.h; sourceTree = "<group>"; };
+		81A839811A4C55BD00370EA5 /* HFUploadBillViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HFUploadBillViewController.m; sourceTree = "<group>"; };
 		81C5E91119ED7F8600AA7DEF /* HFRangeViewButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HFRangeViewButton.h; sourceTree = "<group>"; };
 		81C5E91219ED7F8600AA7DEF /* HFRangeViewButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HFRangeViewButton.m; sourceTree = "<group>"; };
 		81DC62C51A0FD63500DB3229 /* DCNetworkReactor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCNetworkReactor.h; sourceTree = "<group>"; };
@@ -2608,6 +2611,8 @@
 				814A5FED1A0A8C250085013A /* HFSegue.m */,
 				81DC62C51A0FD63500DB3229 /* DCNetworkReactor.h */,
 				81DC62C61A0FD63500DB3229 /* DCNetworkReactor.m */,
+				81A839801A4C55BD00370EA5 /* HFUploadBillViewController.h */,
+				81A839811A4C55BD00370EA5 /* HFUploadBillViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -3420,6 +3425,7 @@
 				2D6E613E1988CDC2006CD68E /* UserServerApi.m in Sources */,
 				81F730751A0D349300DE5007 /* HFStoreIntroductionViewController.m in Sources */,
 				2D6E60F01988CDC2006CD68E /* SDWebImageDecoder.m in Sources */,
+				81A839821A4C55BD00370EA5 /* HFUploadBillViewController.m in Sources */,
 				B656ADE71A07072400078D0E /* HFStoreHourObject.m in Sources */,
 				2DA4F72519915D9B004C8CEB /* HFCouponRedeemSuccessViewController.m in Sources */,
 				815079421A1514070087F091 /* HFCouponGiftView.m in Sources */,
