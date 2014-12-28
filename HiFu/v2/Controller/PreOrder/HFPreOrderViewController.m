@@ -24,7 +24,8 @@
     
     self.navigationController.navigationBarHidden = YES;
     self.preorderWV.scalesPageToFit = YES;
-    NSString *urlAddress = [NSString stringWithFormat:@"http://www.hifu.co/v3/index.html?userId=%@",[UserServerApi sharedInstance].currentUserId];
+
+    NSString *urlAddress = [NSString stringWithFormat:@"https://www.hifu.co/v3/index_test.html?userId=%@",[UserServerApi sharedInstance].currentUserId];
     NSURL *url = [NSURL URLWithString:urlAddress];
     NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];
     [self.preorderWV loadRequest:requestObj];
