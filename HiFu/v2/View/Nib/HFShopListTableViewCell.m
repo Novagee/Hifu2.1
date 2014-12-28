@@ -332,14 +332,15 @@
     
     // Configure Opeing time
     //
-    if(openHour==0){
+    if([openTimes isEqualToString:@""] &&[closeTimes isEqualToString:@""]){
         self.openingTime.hidden = YES;
     }else{
         self.openingTime.hidden = NO;
     }
-    self.openingTime.text = [NSString stringWithFormat:@"早%@%@到晚%@%@营业",
+   
+    self.openingTime.text = [NSString stringWithFormat:@"%@%@%@到%@%@%@营业",[self buildPrefix:openHour],
                              [self convertOpenTime:openHour],
-                             openMinute == 0? @"":[NSString stringWithFormat:@":%i", openMinute],
+                             openMinute == 0? @"":[NSString stringWithFormat:@":%i", openMinute],[self buildPrefix:closeHour],
                              [self convertOpenTime:closeHour],
                              closeMinute == 0? @"": [NSString stringWithFormat:@":%i", closeMinute]
                              ];
@@ -376,14 +377,25 @@
     [_openingTimes setValue:@[self.store.storeHour.sundayOpenHour ? : @"",
                               self.store.storeHour.sundayCloseHour ? : @""]
                      forKey:@"Sun"];
+//    [_openingTimes setValue:@[@"1300",@"2430"]
+//                     forKey:@"Sun"];
+}
+
+- (NSString *) buildPrefix:(NSInteger)hourStr{
+    if (hourStr<=12) {
+        return @"早";
+    }
+    if (hourStr>12) {
+        return @"晚";
+    }
+    return @"";
 }
 
 - (NSString *)convertOpenTime:(NSInteger )originString {
     
-    if (originString == 12) {
+    if (originString == 12||originString==24) {
         return @"12";
     }
-    
     return [NSString stringWithFormat:@"%i", originString%12];
 }
 

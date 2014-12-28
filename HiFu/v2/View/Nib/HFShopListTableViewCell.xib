@@ -72,7 +72,7 @@
                                 <rect key="frame" x="62" y="31" width="20" height="21"/>
                             </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="早9至晚6营业" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F2c-8a-Hsq">
-                                <rect key="frame" x="112" y="44" width="126" height="14"/>
+                                <rect key="frame" x="90" y="44" width="148" height="14"/>
                                 <fontDescription key="fontDescription" name="SimHei" family="SimHei" pointSize="14"/>
                                 <color key="textColor" red="0.60000002384185791" green="0.60000002384185791" blue="0.60000002384185791" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
