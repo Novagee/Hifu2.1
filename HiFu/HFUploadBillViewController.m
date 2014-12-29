@@ -7,8 +7,10 @@
 //
 
 #import "HFUploadBillViewController.h"
+#import "Cloudinary/Cloudinary.h"
+#import "SVProgressHUD.h"
 
-@interface HFUploadBillViewController ()<UITextFieldDelegate, UIImagePickerControllerDelegate, UIActionSheetDelegate, UINavigationControllerDelegate>
+@interface HFUploadBillViewController ()<UITextFieldDelegate, UIImagePickerControllerDelegate, UIActionSheetDelegate, UINavigationControllerDelegate,CLUploaderDelegate>
 
 @property (weak, nonatomic) IBOutlet UIScrollView *mainBottom;
 
@@ -143,8 +145,35 @@
 - (IBAction)uploadDataTapped:(id)sender {
 #warning Upload to Server code here ...
     // Upload data to Server code here
-    //
-    // ...
+    [SVProgressHUD show];
+    CLCloudinary *cloudinary = [[CLCloudinary alloc] init];
+    [cloudinary.config setValue:Cloudinary_Cloud_Name forKey:@"cloud_name"];
+    [cloudinary.config setValue:Cloudinary_APP_Key forKey:@"api_key"];
+    [cloudinary.config setValue:Cloudinary_APP_secret forKey:@"api_secret"];
+    CLUploader* uploader = [[CLUploader alloc] init:cloudinary delegate:self];
+    long long milliseconds = (long long)[[NSDate date] timeIntervalSince1970];
+    NSString *public_id = [NSString stringWithFormat:@"%lld",milliseconds];
+    [uploader upload:UIImageJPEGRepresentation(self.uploadImage, .5) options:@{@"public_id": [NSString stringWithFormat:@"%@%@",@"hifu/redeem/",public_id]}];
+}
+
+#pragma CLUploaderDelegate methods
+- (void) uploaderSuccess:(NSDictionary*)result context:(id)context {
+    NSString* publicId = [result valueForKey:@"public_id"];
+    NSLog(@"Upload success. Public ID=%@, Full result=%@", publicId, result);
+    NSString *url=result[@"url"];
+    if (url!=nil&&url.length>0) {
+#warning do hifu api
+        [SVProgressHUD showSuccessWithStatus:@"上传成功！"];
+    }
+}
+
+- (void) uploaderError:(NSString*)result code:(int) code context:(id)context {
+    NSLog(@"Upload error: %@, %d", result, code);
+    [SVProgressHUD dismiss];
+}
+
+- (void) uploaderProgress:(NSInteger)bytesWritten totalBytesWritten:(NSInteger)totalBytesWritten totalBytesExpectedToWrite:(NSInteger)totalBytesExpectedToWrite context:(id)context {
+    NSLog(@"Upload progress: %d/%d (+%d)", totalBytesWritten, totalBytesExpectedToWrite, bytesWritten);
 }
 
 #pragma mark - Text Field Delegate

@@ -76,7 +76,6 @@
     
 #warning We should use autolayout later
     _tableView.frame = CGRectMake(0, 0, self.view.width, self.view.height - 64 - 50);
-    
     // Configure rangeView
     //
     _rangeViewSection.center = CGPointMake([UIScreen mainScreen].bounds.size.width/2, -50);
