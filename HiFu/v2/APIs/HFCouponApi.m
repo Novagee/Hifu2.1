@@ -120,4 +120,37 @@
                                                }];
 }
 
++ (void)uploadReceiptWithUserId:(NSString *)userId
+            withEmail:(NSString *)email
+            withPhone:(NSString *)phone
+           withAliPay:(NSString *)aliPay
+       withReceiptUrl:(NSString *)receiptUrl
+              success:(void (^)())successBlock
+              failure:(void (^)(NSError * error))failureBlock{
+    if (!receiptUrl) {
+        NSLog(@"Empty Coupon Id");
+        return;
+    }
+    if (!aliPay) {
+        NSLog(@"Empty aliPay account");
+        return;
+    }
+    //eg: http://54.183.40.21:8080/v3/redeem/new
+    NSString *path = [NSString stringWithFormat:@"%@/redeem/new", HF_API_PATH_v2];
+    NSDictionary *params = @{
+               @"userId": userId? userId: @"",
+               @"email" : email ? email: @"",
+               @"phone": phone ? phone: @"",
+               @"alipay" : aliPay ? aliPay: @"",
+               @"receiptUrl" : receiptUrl ? receiptUrl: @""
+               };
+    [[HFBaseAPIv2 sharedInstance] HFRequestPOSTWithURL:path
+                                            parameters:params
+                                               success:^(id responseObject) {
+                                                   successBlock();
+                                               } failure:^(NSError *error) {
+                                                   failureBlock(error);
+                                               }];
+}
+
 @end

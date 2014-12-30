@@ -1967,7 +1967,7 @@ Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed 
                     <navigationItem key="navigationItem" id="ynz-zA-sVk">
                         <nil key="title"/>
                         <button key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Xav-yE-2Sw">
-                            <rect key="frame" x="100" y="11" width="121" height="22"/>
+                            <rect key="frame" x="99.5" y="11" width="121" height="22"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" name="SimHei" family="SimHei" pointSize="15"/>
                             <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -3273,7 +3273,7 @@ Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed 
                     <navigationItem key="navigationItem" id="N15-wI-dg9">
                         <nil key="title"/>
                         <button key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="kHi-BK-4Td">
-                            <rect key="frame" x="100" y="12" width="121" height="21"/>
+                            <rect key="frame" x="99.5" y="11.5" width="121" height="21"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" name="SimHei" family="SimHei" pointSize="15"/>
                             <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -4154,7 +4154,6 @@ Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed 
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <action selector="applied:" destination="yRq-FA-fbv" eventType="touchUpInside" id="tZ3-zt-0Gd"/>
                                             <action selector="uploadDataTapped:" destination="hJm-aN-56Q" eventType="touchUpInside" id="4RF-ew-nRL"/>
                                         </connections>
                                     </button>

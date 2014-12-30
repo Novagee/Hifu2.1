@@ -9,6 +9,8 @@
 #import "HFUploadBillViewController.h"
 #import "Cloudinary/Cloudinary.h"
 #import "SVProgressHUD.h"
+#import "HFCouponApi.h"
+#import "UserServerApi.h"
 
 @interface HFUploadBillViewController ()<UITextFieldDelegate, UIImagePickerControllerDelegate, UIActionSheetDelegate, UINavigationControllerDelegate,CLUploaderDelegate>
 
@@ -143,8 +145,6 @@
 }
 
 - (IBAction)uploadDataTapped:(id)sender {
-#warning Upload to Server code here ...
-    // Upload data to Server code here
     [SVProgressHUD show];
     CLCloudinary *cloudinary = [[CLCloudinary alloc] init];
     [cloudinary.config setValue:Cloudinary_Cloud_Name forKey:@"cloud_name"];
@@ -162,8 +162,17 @@
     NSLog(@"Upload success. Public ID=%@, Full result=%@", publicId, result);
     NSString *url=result[@"url"];
     if (url!=nil&&url.length>0) {
-#warning do hifu api
-        [SVProgressHUD showSuccessWithStatus:@"上传成功！"];
+        NSString *userId=[UserServerApi sharedInstance].currentUserId;
+        NSString *email=self.userEmailLabel.text;
+        NSString *phone=self.userPhoneLabel.text;
+        NSString *aliPay=self.userAlipayLabel.text;
+        [HFCouponApi uploadReceiptWithUserId:userId withEmail:email withPhone:phone withAliPay:aliPay withReceiptUrl:url success:^{
+            [SVProgressHUD dismiss];
+            [self.navigationController popViewControllerAnimated:YES];
+        } failure:^(NSError *error) {
+            [SVProgressHUD dismiss];
+        }];
+        
     }
 }
 

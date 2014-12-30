@@ -13,8 +13,8 @@
 #import "EasyData.h"
 #import "Reachability.h"
 
-static  NSString* authUser  = @"DDF98F5A1B722";
-static  NSString* authPass  = @"632F132525EFB5495889441E3AF7F";
+static  NSString* authUser2  = @"DDF98F5A1B722";
+static  NSString* authPass2  = @"632F132525EFB5495889441E3AF7F";
 static const int retryLimit = 2;
 
 @implementation HFBaseAPIv2
@@ -50,11 +50,11 @@ static const int retryLimit = 2;
     }
     
     NSData* authData = [[[NSString
-                          stringWithFormat:@"%@:%@",authUser,authPass]
+                          stringWithFormat:@"%@:%@",authUser2,authPass2]
                          stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]
                         dataUsingEncoding: NSASCIIStringEncoding];
     
-    NSLog(@"auth string : %@", [[NSString stringWithFormat:@"%@:%@",authUser,authPass] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]);
+    NSLog(@"auth string : %@", [[NSString stringWithFormat:@"%@:%@",authUser2,authPass2] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]);
     
     NSString *finalAuth = [NSString stringWithFormat:@"Basic %@",[authData base64EncodedStringWithOptions:0]];
     [request setValue:finalAuth forHTTPHeaderField:@"Authorization"];
@@ -107,8 +107,8 @@ static const int retryLimit = 2;
     if (params)
         [manager setRequestSerializer:[AFJSONRequestSerializer serializer]];
     [manager setResponseSerializer:[AFJSONResponseSerializer serializer]];
-    [manager.requestSerializer setAuthorizationHeaderFieldWithUsername:authUser
-                                                              password:authPass];
+    [manager.requestSerializer setAuthorizationHeaderFieldWithUsername:authUser2
+                                                              password:authPass2];
     return [manager POST:postPath
               parameters:params
                  success:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -134,8 +134,8 @@ static const int retryLimit = 2;
     }
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    [manager.requestSerializer setAuthorizationHeaderFieldWithUsername:authUser
-                                                              password:authPass];
+    [manager.requestSerializer setAuthorizationHeaderFieldWithUsername:authUser2
+                                                              password:authPass2];
     [manager setResponseSerializer:[AFJSONResponseSerializer serializer]];
     
     return [manager POST:postPath parameters:params constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
@@ -169,8 +169,8 @@ static const int retryLimit = 2;
     
     [manager setRequestSerializer:[AFHTTPRequestSerializer serializer]];
     [manager setResponseSerializer:[AFHTTPResponseSerializer serializer]];
-    [manager.requestSerializer setAuthorizationHeaderFieldWithUsername:authUser
-                                                              password:authPass];
+    [manager.requestSerializer setAuthorizationHeaderFieldWithUsername:authUser2
+                                                              password:authPass2];
     
     return [manager DELETE:postPath
                 parameters:params
@@ -222,8 +222,8 @@ static const int retryLimit = 2;
                                                              nil];
     }
     
-    [manager.requestSerializer setAuthorizationHeaderFieldWithUsername:authUser
-                                                              password:authPass];
+    [manager.requestSerializer setAuthorizationHeaderFieldWithUsername:authUser2
+                                                              password:authPass2];
     
     [manager POST:postPath
        parameters:params
@@ -315,8 +315,8 @@ static const int retryLimit = 2;
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/plain;charset=ISO-8859-1",@"text/plain",@"text/html",@"text/json", nil];
     
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/plain"];
-    [manager.requestSerializer setAuthorizationHeaderFieldWithUsername:authUser
-                                                              password:authPass];
+    [manager.requestSerializer setAuthorizationHeaderFieldWithUsername:authUser2
+                                                              password:authPass2];
     
     
     [manager DELETE:postPath
