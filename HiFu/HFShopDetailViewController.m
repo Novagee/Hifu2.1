@@ -313,7 +313,7 @@
     
     
     self.storeOpenHour.text = self.openingTime;
-    if([self.openingTime isEqualToString:@"早0到晚0营业"]){
+    if([self.openingTime hasPrefix:@"早0"]){
         self.storeOpenHour.hidden = YES;
     }
     self.storeOpeningLabel.text = self.isOpening;

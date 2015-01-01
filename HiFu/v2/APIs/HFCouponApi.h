@@ -36,4 +36,12 @@
             success:(void (^)())successBlock
             failure:(void (^)(NSError * error))failureBlock;
 
++ (void)uploadReceiptWithUserId:(NSString *)userId
+            withEmail:(NSString *)email
+            withPhone:(NSString *)phone
+           withAliPay:(NSString *)aliPay
+       withReceiptUrl:(NSString *)receiptUrl
+           success:(void (^)())successBlock
+           failure:(void (^)(NSError * error))failureBlock;
+
 @end

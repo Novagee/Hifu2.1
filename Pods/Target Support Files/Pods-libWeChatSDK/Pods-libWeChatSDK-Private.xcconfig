@@ -1,6 +1,6 @@
 #include "Pods-libWeChatSDK.xcconfig"
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
-HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers/Build" "${PODS_ROOT}/Headers/Build/libWeChatSDK" "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/AFNetworking" "${PODS_ROOT}/Headers/Public/AnimatedGIFImageSerialization" "${PODS_ROOT}/Headers/Public/Appirater" "${PODS_ROOT}/Headers/Public/Reachability" "${PODS_ROOT}/Headers/Public/SWTableViewCell" "${PODS_ROOT}/Headers/Public/UzysAnimatedGifPullToRefresh" "${PODS_ROOT}/Headers/Public/iOS-blur" "${PODS_ROOT}/Headers/Public/libWeChatSDK" "${PODS_ROOT}/Headers/Public/pop" ${PODS_LIBWECHATSDK_HEADER_SEARCH_PATHS}
+HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers/Build" "${PODS_ROOT}/Headers/Build/libWeChatSDK" "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/AFNetworking" "${PODS_ROOT}/Headers/Public/AnimatedGIFImageSerialization" "${PODS_ROOT}/Headers/Public/Appirater" "${PODS_ROOT}/Headers/Public/Cloudinary" "${PODS_ROOT}/Headers/Public/Reachability" "${PODS_ROOT}/Headers/Public/SWTableViewCell" "${PODS_ROOT}/Headers/Public/UzysAnimatedGifPullToRefresh" "${PODS_ROOT}/Headers/Public/iOS-blur" "${PODS_ROOT}/Headers/Public/libWeChatSDK" "${PODS_ROOT}/Headers/Public/pop" ${PODS_LIBWECHATSDK_HEADER_SEARCH_PATHS}
 LIBRARY_SEARCH_PATHS = ${PODS_LIBWECHATSDK_LIBRARY_SEARCH_PATHS}
 OTHER_LDFLAGS = ${PODS_LIBWECHATSDK_OTHER_LDFLAGS} -ObjC
 PODS_ROOT = ${SRCROOT}
