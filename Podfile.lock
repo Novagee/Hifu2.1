@@ -1,11 +1,11 @@
 PODS:
   - AFNetworking (2.5.0):
-    - AFNetworking/NSURLConnection
-    - AFNetworking/NSURLSession
-    - AFNetworking/Reachability
-    - AFNetworking/Security
-    - AFNetworking/Serialization
-    - AFNetworking/UIKit
+    - AFNetworking/NSURLConnection (= 2.5.0)
+    - AFNetworking/NSURLSession (= 2.5.0)
+    - AFNetworking/Reachability (= 2.5.0)
+    - AFNetworking/Security (= 2.5.0)
+    - AFNetworking/Serialization (= 2.5.0)
+    - AFNetworking/UIKit (= 2.5.0)
   - AFNetworking/NSURLConnection (2.5.0):
     - AFNetworking/Reachability
     - AFNetworking/Security
@@ -54,4 +54,4 @@ SPEC CHECKSUMS:
   SWTableViewCell: 25de71898e3fcd11cf75707ef90245acf990ec03
   UzysAnimatedGifPullToRefresh: 54f5f42dbd6b6e27b9e18395b0d167575c3bfcb6
 
-COCOAPODS: 0.34.4
+COCOAPODS: 0.35.0

@@ -28,6 +28,9 @@
 @property (strong, nonatomic) UIImagePickerController *imagePickerController;
 @property (strong, nonatomic) UIImage *uploadImage;
 
+@property (assign, nonatomic) CGFloat keyboardHeight;
+@property (strong, nonatomic) UIView *tapGestureBottomView;
+
 @end
 
 @implementation HFUploadBillViewController
@@ -65,6 +68,13 @@
     _textFields = @[self.userNameLabel, self.userAlipayLabel, self.userPhoneLabel, self.userEmailLabel];
     _currentTextFieldIndex = 0;
     
+    // Configure tapp gesture bottom view
+    //
+    _tapGestureBottomView = [[UIView alloc]init];
+    
+    UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapGestureRecognizer:)];
+    [_tapGestureBottomView addGestureRecognizer:tapGestureRecognizer];
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -72,13 +82,25 @@
     [super viewWillAppear:animated];
  
     self.view.frame = CGRectMake(0, 64, self.view.width, [UIScreen mainScreen].bounds.size.height - 64);
-    _mainBottom.frame = CGRectMake(0, 30, self.mainBottom.width, self.view.size.height - 30);
 
 }
 
 - (void)leftBarButtonTapped {
     
     [self.navigationController popViewControllerAnimated:YES];
+    
+}
+
+#pragma mark - Gesture Stack
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    
+    UITextField *currentTextField = self.textFields[self.currentTextFieldIndex];
+
+    
+    if (currentTextField.editing) {
+        [currentTextField resignFirstResponder];
+    }
     
 }
 
@@ -89,12 +111,15 @@
     // Fetch keyboard rect and height
     //
     CGRect keyboardFrame = [[notification.userInfo objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
-    CGFloat keyboardHeight = keyboardFrame.size.height;
+    _keyboardHeight = keyboardFrame.size.height;
+    
+    _tapGestureBottomView.frame = CGRectMake(0, 30, self.mainBottom.width,
+                                             self.view.height - 30 - self.keyboardHeight);
     
     // Resize the mainBottom frame
     //
     self.mainBottom.frame = CGRectMake(0, 30, self.mainBottom.width,
-                                       self.view.height - 30 - keyboardHeight);
+                                       self.view.height - 30 - self.keyboardHeight);
     
 }
 
