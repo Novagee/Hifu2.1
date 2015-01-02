@@ -10,5 +10,5 @@ pod 'Reachability'
 pod 'Appirater'
 pod 'pop', '~> 1.0'
 pod 'iOS-blur', '~> 0.0.5'
-pod 'Cloudinary', '~> 1.0.12'
+#pod 'Cloudinary', '~> v1.0.12'
 

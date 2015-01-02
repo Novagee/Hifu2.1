@@ -1,38 +1,40 @@
 PODS:
-  - AFNetworking (2.4.1):
+  - AFNetworking (2.5.0):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
     - AFNetworking/Reachability
     - AFNetworking/Security
     - AFNetworking/Serialization
     - AFNetworking/UIKit
-  - AFNetworking/NSURLConnection (2.4.1):
+  - AFNetworking/NSURLConnection (2.5.0):
     - AFNetworking/Reachability
     - AFNetworking/Security
     - AFNetworking/Serialization
-  - AFNetworking/NSURLSession (2.4.1):
+  - AFNetworking/NSURLSession (2.5.0):
     - AFNetworking/Reachability
     - AFNetworking/Security
     - AFNetworking/Serialization
-  - AFNetworking/Reachability (2.4.1)
-  - AFNetworking/Security (2.4.1)
-  - AFNetworking/Serialization (2.4.1)
-  - AFNetworking/UIKit (2.4.1):
+  - AFNetworking/Reachability (2.5.0)
+  - AFNetworking/Security (2.5.0)
+  - AFNetworking/Serialization (2.5.0)
+  - AFNetworking/UIKit (2.5.0):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
   - AnimatedGIFImageSerialization (0.2.0)
   - Appirater (2.0.4)
+  - Cloudinary (1.0.12)
   - iOS-blur (0.0.5)
-  - libWeChatSDK (1.4.2.1)
+  - libWeChatSDK (1.5)
   - pop (1.0.7)
-  - Reachability (3.1.1)
-  - SWTableViewCell (0.3.6)
-  - UzysAnimatedGifPullToRefresh (0.9.3):
+  - Reachability (3.2)
+  - SWTableViewCell (0.3.7)
+  - UzysAnimatedGifPullToRefresh (0.9.4):
     - AnimatedGIFImageSerialization (~> 0.2.0)
 
 DEPENDENCIES:
   - AFNetworking
   - Appirater
+  - Cloudinary (~> 1.0.12)
   - iOS-blur (~> 0.0.5)
   - libWeChatSDK
   - pop (~> 1.0)
@@ -41,14 +43,15 @@ DEPENDENCIES:
   - UzysAnimatedGifPullToRefresh
 
 SPEC CHECKSUMS:
-  AFNetworking: 0aabc6fae66d6e5d039eeb21c315843c7aae51ab
+  AFNetworking: 0f54cb5d16ce38c1b76948faffb8d5fb705021c7
   AnimatedGIFImageSerialization: ee2b8f04ec1143dd196cac160a7b119753891825
   Appirater: cbdb7f305562cfde585300bfff86da01ae559deb
+  Cloudinary: 1f3859b17f1c111671a1acf1f0e2648c34d3a207
   iOS-blur: 5ec57b4a72e57a4f8f5f47ff3f59e56c0690b761
-  libWeChatSDK: 566fcb1c7b724cc3306fa83667094c5f0743477a
+  libWeChatSDK: 198d607370b3f5eb8f470549126b25ef63e92993
   pop: 2f14a1ea61339767af9e66741b418c831b3844df
-  Reachability: 8e9635e3cb4f98e7f825e51147f677ecc694d0e7
-  SWTableViewCell: f5cbe30c49c4e5b97231c076f17331caaf3f6244
-  UzysAnimatedGifPullToRefresh: cb3b37cdf3c7807db2103b4fa306988558c8296f
+  Reachability: 1ef8adf5c4e3d362f96515d4278f68dad3c26930
+  SWTableViewCell: 25de71898e3fcd11cf75707ef90245acf990ec03
+  UzysAnimatedGifPullToRefresh: 54f5f42dbd6b6e27b9e18395b0d167575c3bfcb6
 
-COCOAPODS: 0.34.2
+COCOAPODS: 0.34.4
