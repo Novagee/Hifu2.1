@@ -377,8 +377,8 @@
     [_openingTimes setValue:@[self.store.storeHour.sundayOpenHour ? : @"",
                               self.store.storeHour.sundayCloseHour ? : @""]
                      forKey:@"Sun"];
-//    [_openingTimes setValue:@[@"1300",@"2430"]
-//                     forKey:@"Sun"];
+//    [_openingTimes setValue:@[@"",@""]
+//                     forKey:@"Mon"];
 }
 
 - (NSString *) buildPrefix:(NSInteger)hourStr{

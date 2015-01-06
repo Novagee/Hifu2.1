@@ -24,11 +24,16 @@
             [df setDateFormat:@"yyyy-MM-dd"];
             
         }
-        if([dictionary objectForKey:@"startDate"] && [dictionary objectForKey:@"startDate"] != [NSNull null])
-            self.startDate = [df dateFromString:[dictionary objectForKey:@"startDate"]];
-        
-        if([dictionary objectForKey:@"endDate"] && [dictionary objectForKey:@"endDate"] != [NSNull null])
-            self.endDate = [df dateFromString:[dictionary objectForKey:@"endDate"]];
+        if([dictionary objectForKey:@"startDate"] && [dictionary objectForKey:@"startDate"] != [NSNull null]){
+//            self.startDate = [df dateFromString:[dictionary objectForKey:@"startDate"]];
+            double d = [[dictionary objectForKey:@"startDate"] doubleValue];
+            self.startDate = [NSDate dateWithTimeIntervalSince1970:d];
+        }
+        if([dictionary objectForKey:@"endDate"] && [dictionary objectForKey:@"endDate"] != [NSNull null]){
+//            self.endDate = [df dateFromString:[dictionary objectForKey:@"endDate"]];
+            double  d = [[dictionary objectForKey:@"endDate"] doubleValue];
+            self.endDate = [NSDate dateWithTimeIntervalSince1970:d];
+        }
     }
     return self;
 }

@@ -37,7 +37,7 @@
     [[HFBaseAPIv2 sharedInstance] HFRequestGETWithURL:path
                                          parameters:nil
                                             success:^(id responseObject) {
-                                                successBlock(responseObject);
+                                                successBlock(responseObject[@"data"]);
                                             } failure:^(NSError *error) {
                                                 failureBlock(error);
                                             }];

@@ -143,9 +143,9 @@
     [SVProgressHUD show];
     [ItineraryServerApi getItineraryForUser:[ServerModel sharedManager].userInfo.itemId
                                       success:^(id itineraries) {
-                                          if ([itineraries isKindOfClass:[NSDictionary class]] && [itineraries objectForKey:@"destinations"] && ![[itineraries objectForKey:@"destinations"] isKindOfClass:[NSNull class]])
+                                          if ([itineraries isKindOfClass:[NSArray class]] /*&& [itineraries objectForKey:@"destinations"] && ![[itineraries objectForKey:@"destinations"] isKindOfClass:[NSNull class]]*/)
                                           {
-                                              for (NSDictionary *dict in [itineraries objectForKey:@"destinations"]) {
+                                              for (NSDictionary *dict in itineraries/*[itineraries objectForKey:@"destinations"]*/) {
                                                   ItineraryObject *itinerary = [[ItineraryObject alloc] initWithDictionary:dict];
                                                   
                                                   NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
@@ -183,7 +183,9 @@
         [weathersArray removeAllObjects];
     
     for (YXCalendarSelectRange *range in self.calendarView.sortedArray) {
-        [tempZipcodeArray addObject:range.city.zipcode];
+        if (range&&range.city&&range.city.zipcode) {
+            [tempZipcodeArray addObject:range.city.zipcode];
+        }
     }
     
     [ItineraryServerApi getWeathersForZipcodes:tempZipcodeArray success:^(id weathers) {
@@ -313,8 +315,12 @@
     NSMutableArray *tempZipcodeArray = [NSMutableArray new];
 
     for (YXCalendarSelectRange *range in self.calendarView.sortedArray) {
-        [tempItineraryArray addObject:range.itinerary];
-        [tempZipcodeArray addObject:range.city.zipcode];
+        if(range&&range.itinerary){
+            [tempItineraryArray addObject:range.itinerary];
+        }
+        if (range&&range.city&&range.city.zipcode) {
+            [tempZipcodeArray addObject:range.city.zipcode];
+        }
     }
     if (!isEditing) {
         [ItineraryServerApi saveItineraries:tempItineraryArray withUserId:[ServerModel sharedManager].userInfo.itemId success:^(NSArray *idArray) {
@@ -458,8 +464,13 @@
         
         if (itineraryId && ![itineraryId isEqualToString:@""]) {
             [ItineraryServerApi deleteItineraryForId:itineraryId success:^{
-                [[NSNotificationCenter defaultCenter] postNotificationName:HFCalDeleteRange object:[self.calendarView.sortedArray objectAtIndex:isEditing ? indexPath.row :indexPath.row - 1]];
-                [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+                int i=isEditing ? indexPath.row :indexPath.row - 1;
+                if (self.calendarView.sortedArray.count>0) {
+                    YXCalendarSelectRange *range=[self.calendarView.sortedArray objectAtIndex:i];
+                    [[NSNotificationCenter defaultCenter] postNotificationName:HFCalDeleteRange object:range];
+                    NSLog(@"indexPath:%@",indexPath);
+                    [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+                }
             } failure:^(NSError *error) {
                 NSLog(@"delete itinerary failed");
             }];

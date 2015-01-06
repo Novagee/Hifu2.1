@@ -406,6 +406,8 @@
 
 - (void)updateAllDaySelectionStateForRanges
 {
+    NSLog(@"%i",_calendarHeaderView.hash);
+    NSLog(@"%i",_calendarHeaderView.nextMonthButton.hash);
     if (!self.isMonthViewTwoShow) {
         [self.monthViewOne updateAllDaySelectionStateForRanges:self.rangesArray];
     }
@@ -419,15 +421,24 @@
 - (void)deleteRange:(NSNotification *)notification
 {
     YXCalendarSelectRange *range = notification.object;
-    if (self.isMonthViewTwoShow) {
-        [self.monthViewTwo updateDaySelectionStatesForDeletedRange:range];
+    if (range) {
+        if (self.isMonthViewTwoShow) {
+            [self.monthViewTwo updateDaySelectionStatesForDeletedRange:range];
+        }
+        else
+        {
+            [self.monthViewOne updateDaySelectionStatesForDeletedRange:range];
+        }
+        if ([self.sortedArray containsObject:range]) {
+            [self.rangesArray removeObject:range];
+        }
+        [self sortAllRanages];
     }
-    else
-    {
-        [self.monthViewOne updateDaySelectionStatesForDeletedRange:range];
-    }
-    [self.rangesArray removeObject:range];
-    [self sortAllRanages];
+    
+}
+
+- (void) dealloc{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 @end
