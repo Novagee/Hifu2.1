@@ -24,7 +24,7 @@ PODS:
   - Appirater (2.0.4)
   - Cloudinary (1.0.12)
   - iOS-blur (0.0.5)
-  - libWeChatSDK (1.4.2.1)
+  - libWeChatSDK (1.5)
   - pop (1.0.7)
   - Reachability (3.2)
   - SWTableViewCell (0.3.7)
@@ -48,7 +48,7 @@ SPEC CHECKSUMS:
   Appirater: cbdb7f305562cfde585300bfff86da01ae559deb
   Cloudinary: 1f3859b17f1c111671a1acf1f0e2648c34d3a207
   iOS-blur: 5ec57b4a72e57a4f8f5f47ff3f59e56c0690b761
-  libWeChatSDK: 566fcb1c7b724cc3306fa83667094c5f0743477a
+  libWeChatSDK: 198d607370b3f5eb8f470549126b25ef63e92993
   pop: 2f14a1ea61339767af9e66741b418c831b3844df
   Reachability: 1ef8adf5c4e3d362f96515d4278f68dad3c26930
   SWTableViewCell: 25de71898e3fcd11cf75707ef90245acf990ec03

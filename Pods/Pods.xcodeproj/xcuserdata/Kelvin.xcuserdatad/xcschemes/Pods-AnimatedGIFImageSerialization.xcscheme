@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "795FB0CD0061DAE2EAAEAB3C"
+               BlueprintIdentifier = "55AD7C628A1E50477FF756B0"
                BuildableName = "libPods-AnimatedGIFImageSerialization.a"
                BlueprintName = "Pods-AnimatedGIFImageSerialization"
                ReferencedContainer = "container:Pods.xcodeproj">

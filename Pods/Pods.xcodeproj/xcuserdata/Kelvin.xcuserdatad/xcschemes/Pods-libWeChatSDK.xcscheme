@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "F874D41B5D85078CAA5BCB42"
+               BlueprintIdentifier = "431F937BF399A40977487CFE"
                BuildableName = "libPods-libWeChatSDK.a"
                BlueprintName = "Pods-libWeChatSDK"
                ReferencedContainer = "container:Pods.xcodeproj">
