@@ -2,8 +2,8 @@
 //  DCNetworkReactor.h
 //  DCNetworkReactor
 //
-//  Created by tang dixi on 10/14/14.
-//  Copyright (c) 2014 tang dixi. All rights reserved.
+//  Created by Peng Wan on 10/14/14.
+//  Copyright (c) 2014 Peng Wan. All rights reserved.
 //
 
 

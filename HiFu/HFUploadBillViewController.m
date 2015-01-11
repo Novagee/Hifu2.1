@@ -11,6 +11,7 @@
 #import "SVProgressHUD.h"
 #import "HFCouponApi.h"
 #import "UserServerApi.h"
+#import "HFUploadBillSucViewController.h"
 
 @interface HFUploadBillViewController ()<UITextFieldDelegate, UIImagePickerControllerDelegate, UIActionSheetDelegate, UINavigationControllerDelegate,CLUploaderDelegate>
 
@@ -30,6 +31,7 @@
 
 @property (assign, nonatomic) CGFloat keyboardHeight;
 @property (strong, nonatomic) UIView *tapGestureBottomView;
+@property (weak, nonatomic) IBOutlet UILabel *lblErrorMsg;
 
 @end
 
@@ -45,6 +47,9 @@
     leftBarButton.tintColor = [UIColor colorWithRed:255/255 green:99/255.0f blue:104/255.0f alpha:1.0];
     
     self.navigationItem.leftBarButtonItem = leftBarButton;
+    
+    self.lblErrorMsg.layer.borderColor = [[UIColor colorWithRed:0.94 green:0.54 blue:0.51 alpha:1] CGColor];
+    self.lblErrorMsg.layer.borderWidth = 1;
     
     // Add observer for keyboard events
     //
@@ -75,20 +80,26 @@
     UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapGestureRecognizer:)];
     [_tapGestureBottomView addGestureRecognizer:tapGestureRecognizer];
     
+    [self.userEmailLabel addTarget:self action:@selector(hideErrorMsg:) forControlEvents:UIControlEventAllEditingEvents];
+    [self.userNameLabel addTarget:self action:@selector(hideErrorMsg:) forControlEvents:UIControlEventAllEditingEvents];
+    [self.userAlipayLabel addTarget:self action:@selector(hideErrorMsg:) forControlEvents:UIControlEventAllEditingEvents];
+    [self.userPhoneLabel addTarget:self action:@selector(hideErrorMsg:) forControlEvents:UIControlEventAllEditingEvents];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     
     [super viewWillAppear:animated];
- 
     self.view.frame = CGRectMake(0, 64, self.view.width, [UIScreen mainScreen].bounds.size.height - 64);
-
 }
 
 - (void)leftBarButtonTapped {
     
     [self.navigationController popViewControllerAnimated:YES];
     
+}
+
+-(void) hideErrorMsg:(id) sender{
+    self.lblErrorMsg.hidden=YES;
 }
 
 #pragma mark - Gesture Stack
@@ -163,14 +174,46 @@
 #pragma mark - Control's Action
 
 - (IBAction)uploadImageButtonTapped:(id)sender {
-    
+    [self hideErrorMsg:nil];
     UIActionSheet *actionSheet = [[UIActionSheet alloc]initWithTitle:nil delegate:self cancelButtonTitle:@"cancel" destructiveButtonTitle:nil otherButtonTitles:@"拍照", @"从照片选择", nil];
     [actionSheet showInView:self.view];
     
 }
 
 - (IBAction)uploadDataTapped:(id)sender {
+    [self.view endEditing:YES];
+    if(!self.uploadImage){
+        self.lblErrorMsg.hidden=NO;
+        self.lblErrorMsg.text=@"  请拍照上传。";
+        return;
+    }
+    
+    if(!self.userNameLabel.text||self.userNameLabel.text.length<1){
+        self.lblErrorMsg.hidden=NO;
+        self.lblErrorMsg.text=@"  请输入姓名。";
+        return;
+    }
+    
+    if(!self.userAlipayLabel.text||self.userAlipayLabel.text.length<1){
+        self.lblErrorMsg.hidden=NO;
+        self.lblErrorMsg.text=@"  请输入支付宝账号。";
+        return;
+    }
+    
+    if(!self.userPhoneLabel.text||self.userPhoneLabel.text.length<1){
+        self.lblErrorMsg.hidden=NO;
+        self.lblErrorMsg.text=@"  请输入联系电话。";
+        return;
+    }
+    
+    if(![self NSStringIsValidEmail:self.userEmailLabel.text]){
+        self.lblErrorMsg.hidden=NO;
+        self.lblErrorMsg.text=@"  请输入正确的邮件格式。";
+        return;
+    }
+    
     [SVProgressHUD show];
+    
     CLCloudinary *cloudinary = [[CLCloudinary alloc] init];
     [cloudinary.config setValue:Cloudinary_Cloud_Name forKey:@"cloud_name"];
     [cloudinary.config setValue:Cloudinary_APP_Key forKey:@"api_key"];
@@ -179,6 +222,16 @@
     long long milliseconds = (long long)[[NSDate date] timeIntervalSince1970];
     NSString *public_id = [NSString stringWithFormat:@"%lld",milliseconds];
     [uploader upload:UIImageJPEGRepresentation(self.uploadImage, .5) options:@{@"public_id": [NSString stringWithFormat:@"%@%@",@"hifu/redeem/",public_id]}];
+}
+
+-(BOOL) NSStringIsValidEmail:(NSString *)checkString
+{
+    BOOL stricterFilter = NO; // Discussion http://blog.logichigh.com/2010/09/02/validating-an-e-mail-address/
+    NSString *stricterFilterString = @"[A-Z0-9a-z\\._%+-]+@([A-Za-z0-9-]+\\.)+[A-Za-z]{2,4}";
+    NSString *laxString = @".+@([A-Za-z0-9-]+\\.)+[A-Za-z]{2}[A-Za-z]*";
+    NSString *emailRegex = stricterFilter ? stricterFilterString : laxString;
+    NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegex];
+    return [emailTest evaluateWithObject:checkString];
 }
 
 #pragma CLUploaderDelegate methods
@@ -193,7 +246,9 @@
         NSString *aliPay=self.userAlipayLabel.text;
         [HFCouponApi uploadReceiptWithUserId:userId withEmail:email withPhone:phone withAliPay:aliPay withReceiptUrl:url success:^{
             [SVProgressHUD dismiss];
-            [self.navigationController popViewControllerAnimated:YES];
+            HFUploadBillSucViewController *sucViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"uploadSuc"];
+            sucViewController.blurBackgroundImage = [HFUIHelpers takeScreenShotForViewController:self andApplyBlurEffect:YES andBlurRadius:8];
+            [self.navigationController pushViewController:sucViewController animated:NO];
         } failure:^(NSError *error) {
             [SVProgressHUD dismiss];
         }];

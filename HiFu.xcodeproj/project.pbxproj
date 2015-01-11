@@ -560,6 +560,7 @@
 		B681CAAA19EF1783004B473C /* HFMyFavoritesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B681CAA919EF1783004B473C /* HFMyFavoritesViewController.m */; };
 		B6AAF5541A12C812006806D3 /* HFUserApi.m in Sources */ = {isa = PBXBuildFile; fileRef = B6AAF5531A12C812006806D3 /* HFUserApi.m */; };
 		B6AAF5571A12EEA1006806D3 /* HFCouponApi.m in Sources */ = {isa = PBXBuildFile; fileRef = B6AAF5561A12EEA1006806D3 /* HFCouponApi.m */; };
+		B6D798B61A630ADF00CEAA47 /* HFUploadBillSucViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6D798B51A630ADF00CEAA47 /* HFUploadBillSucViewController.m */; };
 		B6DE7BE61A30F4FF00991B8A /* HFPreOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6DE7BE51A30F4FF00991B8A /* HFPreOrderViewController.m */; };
 		B6DE7BEA1A31067D00991B8A /* HFCommonTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B6DE7BE81A31067D00991B8A /* HFCommonTableViewCell.m */; };
 		B6DE7BEB1A31067D00991B8A /* HFCommonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6DE7BE91A31067D00991B8A /* HFCommonTableViewCell.xib */; };
@@ -1220,6 +1221,8 @@
 		B6AAF5531A12C812006806D3 /* HFUserApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HFUserApi.m; path = v2/APIs/HFUserApi.m; sourceTree = "<group>"; };
 		B6AAF5551A12EEA1006806D3 /* HFCouponApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HFCouponApi.h; path = v2/APIs/HFCouponApi.h; sourceTree = "<group>"; };
 		B6AAF5561A12EEA1006806D3 /* HFCouponApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HFCouponApi.m; path = v2/APIs/HFCouponApi.m; sourceTree = "<group>"; };
+		B6D798B41A630ADF00CEAA47 /* HFUploadBillSucViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HFUploadBillSucViewController.h; sourceTree = "<group>"; };
+		B6D798B51A630ADF00CEAA47 /* HFUploadBillSucViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HFUploadBillSucViewController.m; sourceTree = "<group>"; };
 		B6DE7BE41A30F4FF00991B8A /* HFPreOrderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HFPreOrderViewController.h; path = v2/Controller/PreOrder/HFPreOrderViewController.h; sourceTree = "<group>"; };
 		B6DE7BE51A30F4FF00991B8A /* HFPreOrderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HFPreOrderViewController.m; path = v2/Controller/PreOrder/HFPreOrderViewController.m; sourceTree = "<group>"; };
 		B6DE7BE71A31067D00991B8A /* HFCommonTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HFCommonTableViewCell.h; sourceTree = "<group>"; };
@@ -2587,6 +2590,7 @@
 		B6800CF819DDBA8300C45F06 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				B6D798B31A630AA100CEAA47 /* Receipt */,
 				B6DE7BE31A30F4BD00991B8A /* PreOrder */,
 				B6F1251A1A182765000D5840 /* Open Coupon */,
 				B681CAA719EF1738004B473C /* MyFavorites */,
@@ -2611,8 +2615,6 @@
 				814A5FED1A0A8C250085013A /* HFSegue.m */,
 				81DC62C51A0FD63500DB3229 /* DCNetworkReactor.h */,
 				81DC62C61A0FD63500DB3229 /* DCNetworkReactor.m */,
-				81A839801A4C55BD00370EA5 /* HFUploadBillViewController.h */,
-				81A839811A4C55BD00370EA5 /* HFUploadBillViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -2684,6 +2686,17 @@
 				B6AAF5501A12C4B4006806D3 /* TencentRequest.h */,
 			);
 			name = QQ;
+			sourceTree = "<group>";
+		};
+		B6D798B31A630AA100CEAA47 /* Receipt */ = {
+			isa = PBXGroup;
+			children = (
+				81A839801A4C55BD00370EA5 /* HFUploadBillViewController.h */,
+				81A839811A4C55BD00370EA5 /* HFUploadBillViewController.m */,
+				B6D798B41A630ADF00CEAA47 /* HFUploadBillSucViewController.h */,
+				B6D798B51A630ADF00CEAA47 /* HFUploadBillSucViewController.m */,
+			);
+			name = Receipt;
 			sourceTree = "<group>";
 		};
 		B6DE7BE31A30F4BD00991B8A /* PreOrder */ = {
@@ -3341,6 +3354,7 @@
 				B656ADDE1A06FEF600078D0E /* HFStoreServerApi.m in Sources */,
 				B6220BFA1A2B9CD80087A6DB /* NSString+UASizeWithFontCompatibility.m in Sources */,
 				81610E6019F8142100773931 /* HFStoreInfoDetailViewController.m in Sources */,
+				B6D798B61A630ADF00CEAA47 /* HFUploadBillSucViewController.m in Sources */,
 				2D6E60F31988CDC2006CD68E /* SDWebImageManager.m in Sources */,
 				811C7AC51A14EE2700E4D6BA /* HFCouponDisctountView.m in Sources */,
 				2D5187A3198B060200267891 /* HFCouponDetailMoreCommentCell.m in Sources */,

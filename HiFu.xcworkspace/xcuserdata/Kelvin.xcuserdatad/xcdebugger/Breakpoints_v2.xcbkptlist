@@ -42,28 +42,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "HiFu/HFUploadBillViewController.m"
-            timestampString = "441587372.281395"
+            timestampString = "442704443.151427"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "180"
-            endingLineNumber = "180"
-            landmarkName = "-uploaderError:code:context:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "HiFu/HFUploadBillViewController.m"
-            timestampString = "441587372.281395"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "185"
-            endingLineNumber = "185"
-            landmarkName = "-uploaderProgress:totalBytesWritten:totalBytesExpectedToWrite:context:"
+            startingLineNumber = "238"
+            endingLineNumber = "238"
+            landmarkName = "-uploaderSuccess:context:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -122,12 +106,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "HiFu/HFUploadBillViewController.m"
-            timestampString = "441600558.374826"
+            timestampString = "442703996.195253"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "169"
-            endingLineNumber = "169"
-            landmarkName = "-uploaderSuccess:context:"
+            startingLineNumber = "180"
+            endingLineNumber = "180"
+            landmarkName = "-uploadImageButtonTapped:"
             landmarkType = "5">
             <Locations>
                <Location
@@ -374,6 +358,22 @@
             startingLineNumber = "411"
             endingLineNumber = "411"
             landmarkName = "-updateAllDaySelectionStateForRanges"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "HiFu/HFUploadBillViewController.m"
+            timestampString = "442704492.345237"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "191"
+            endingLineNumber = "191"
+            landmarkName = "-uploadDataTapped:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
